@@ -110,8 +110,7 @@ class SiderBar extends React.Component{
                     )            
                 }
             })
-        }
-        
+        }        
 }
 
 // 引入

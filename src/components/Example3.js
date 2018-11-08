@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default class Example extends React.Component{
+class Example3 extends React.Component{
     render(){
         return(
             <div>
-                Example2
+                Example3
             </div>
         )
     }
 }
 
-// export default Dashboard
+export default Example3

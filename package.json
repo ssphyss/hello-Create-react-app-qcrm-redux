@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@antv/data-set": "^0.10.1",
     "antd": "^3.10.4",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-import": "^1.11.0",
+    "bizcharts": "^3.2.5-beta.4",
     "enquire-js": "^0.2.1",
     "immutable": "^4.0.0-rc.12",
     "less": "^2.7.3",

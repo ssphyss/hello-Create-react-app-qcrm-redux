@@ -6,7 +6,8 @@ import store from './../store'
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Example from './../components/Example';
 import Example2 from './../components/Example2';
-import Dashboard from './../components/Example_antd';
+import Dashboard from './../pages/Dashboard';
+import LoginRecord from './../components/dashboard/loginRecord';
 
 export default class Layout extends React.Component{
     render(){
@@ -24,8 +25,11 @@ export default class Layout extends React.Component{
                             <Route path='/admin/S2' exact component={Example2} />
 
                             {/* 控制台 */}
-                            {/* <Route path="/dashboard/analysis" component={Dashboard} />
+                            <Route path="/dashboard/analysis" component={Dashboard} />
                             <Route path="/dashboard/loginRecord" component={LoginRecord} />
+                            
+                            {/* 
+                            
                             <Route path="/dashboard/adminMembers" component={AdminMembers} />
                             <Route path="/dashboard/config" component={Config} /> */}
                         </Admin>
