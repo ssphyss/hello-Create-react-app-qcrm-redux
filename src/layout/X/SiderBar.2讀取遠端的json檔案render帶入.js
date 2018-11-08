@@ -40,7 +40,6 @@ class SiderBar extends React.Component{
                     style={{ padding: '16px 0', width: '100%' }}
                 >
                     {/* {this.props.menuTreeNode} */}
-                    {/* 6. */}
                     {this.renderMenu(this.props.menuAjax)}
                     {/* <Menu.Item key="1">
                         <Icon type="pie-chart" />
@@ -73,18 +72,32 @@ class SiderBar extends React.Component{
         )
     }
 
-        // 2.進到axios從reducer拉取json資料
-        async componentDidMount(){   
+        // 2.進到axios
+        async componentDidMount(){ 
+            // 2)直接從Ajax拉取json轉JSX存入   
+            // let res = await axios.get('./api/layout/finLists.json')  
+            // console.log('res', res.data)       
+
+            // const menuConfig = res.data.result.data
+            // console.log('menuConfig', menuConfig)    
+
+            // const menuTreeNode = this.renderMenu(menuConfig);
+            // console.log('menuTreeNode', menuTreeNode)
+
+            // 1)從reducer拉取json資料
             this.props.handleMenuAjax();
+
+            // 4. 把資料交給reducer      
+            // this.props.handleMenu(menuTreeNode);
         }
     
-        // 5.
+        // 3.
         renderMenu = (menuList)=>{
             console.log('menuList', menuList)
             return menuList.map((item)=>{
                 if (item.children){
                     return(                    
-                        <SubMenu key={item.path} title={<span><Icon type={item.icon} /><span>{item.title}</span></span>}>
+                        <SubMenu key={item.path} title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
                             {/* <Menu.Item key="5">Option 5</Menu.Item> */}
                             {this.renderMenu(item.children)}
                         </SubMenu>
@@ -93,7 +106,7 @@ class SiderBar extends React.Component{
                     return(
                         <Menu.Item key={item.path}>
                             <Icon type="inbox" />
-                            <span>{item.title}</span>
+                            <span>Option 3</span>
                         </Menu.Item>
                     )            
                 }
@@ -108,8 +121,7 @@ const mapStateToProps = (state) => {
 		isMobile: state.getIn(['admin','isMobile']),
 		visible: state.getIn(['admin','visible']),
         collapsed: state.getIn(['admin','collapsed']),
-        // menuTreeNode: state.getIn(['admin','menuTreeNode']),
-        // 4.
+        menuTreeNode: state.getIn(['admin','menuTreeNode']),
         menuAjax: state.getIn(['admin','menuAjax']),
     }
 }
@@ -117,7 +129,12 @@ const mapStateToProps = (state) => {
 // 引入
 const mapDispathToProps = (dispatch) => {
     return {
-        // 3.
+		// handleMenu(menuTreeNode){
+		// 	console.log('讀取MenuConfig 組件')
+		// 	const action = actionCreators.getMenu(menuTreeNode);
+        //     dispatch(action);
+        // },
+
         handleMenuAjax(){
             console.log('讀取MenuAjax 組件')
             const action = actionCreators.getMenuAjax();

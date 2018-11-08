@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Admin from './Admin';
+import Layout from './layout';
 // 引入
 import './sass/all.scss'
 
-ReactDOM.render(<Admin />, document.getElementById('root'));
+ReactDOM.render(<Layout />, document.getElementById('root'));

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';	
 import logo from './../assets/logo.svg';
-// 1.改用Ajax
-// import menuConfig from './../config/menuConfig.js';
-
+// 1.
+import menuConfig from './../config/menuConfig.js';
+import axios from 'axios';
 // 引入
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
@@ -39,9 +39,7 @@ class SiderBar extends React.Component{
                     inlineCollapsed={this.props.collapsed}
                     style={{ padding: '16px 0', width: '100%' }}
                 >
-                    {/* {this.props.menuTreeNode} */}
-                    {/* 6. */}
-                    {this.renderMenu(this.props.menuAjax)}
+                    {this.props.menuTreeNode}
                     {/* <Menu.Item key="1">
                         <Icon type="pie-chart" />
                         <span>Option 1</span>
@@ -73,18 +71,29 @@ class SiderBar extends React.Component{
         )
     }
 
-        // 2.進到axios從reducer拉取json資料
-        async componentDidMount(){   
-            this.props.handleMenuAjax();
+        // 2.進到axios
+        async componentDidMount(){ 
+            // axios  
+            let res = await axios.get('./api/layout/finLists.json')  
+            console.log('res', res.data)       
+
+            const menuConfig = res.data.result.data
+            console.log('menuConfig', menuConfig)    
+
+            const menuTreeNode = this.renderMenu(menuConfig);
+            console.log('menuTreeNode', menuTreeNode)
+
+            // 4. 把資料交給reducer      
+            this.props.handleMenu(menuTreeNode);
         }
     
-        // 5.
+        // 3.
         renderMenu = (menuList)=>{
             console.log('menuList', menuList)
             return menuList.map((item)=>{
                 if (item.children){
                     return(                    
-                        <SubMenu key={item.path} title={<span><Icon type={item.icon} /><span>{item.title}</span></span>}>
+                        <SubMenu key={item.path} title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
                             {/* <Menu.Item key="5">Option 5</Menu.Item> */}
                             {this.renderMenu(item.children)}
                         </SubMenu>
@@ -93,7 +102,7 @@ class SiderBar extends React.Component{
                     return(
                         <Menu.Item key={item.path}>
                             <Icon type="inbox" />
-                            <span>{item.title}</span>
+                            <span>Option 3</span>
                         </Menu.Item>
                     )            
                 }
@@ -108,21 +117,19 @@ const mapStateToProps = (state) => {
 		isMobile: state.getIn(['admin','isMobile']),
 		visible: state.getIn(['admin','visible']),
         collapsed: state.getIn(['admin','collapsed']),
-        // menuTreeNode: state.getIn(['admin','menuTreeNode']),
-        // 4.
-        menuAjax: state.getIn(['admin','menuAjax']),
+        menuTreeNode: state.getIn(['admin','menuTreeNode']),
     }
 }
 
 // 引入
 const mapDispathToProps = (dispatch) => {
     return {
-        // 3.
-        handleMenuAjax(){
-            console.log('讀取MenuAjax 組件')
-            const action = actionCreators.getMenuAjax();
+		handleMenu(menuTreeNode){
+			console.log('讀取MenuConfig 組件')
+			const action = actionCreators.getMenu(menuTreeNode);
             dispatch(action);
         }
+        
     }
 }
 // export default Admin;
