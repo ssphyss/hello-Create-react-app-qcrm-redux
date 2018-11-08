@@ -21,7 +21,8 @@ module.exports = function override(config, env) {
 
     // 新增
     config = rewireLess.withLoaderOptions({
-        modifyVars: { "@primary-color": "#029fa5" },
+        // modifyVars: { "@primary-color": "#029fa5" },
+        modifyVars: { "@primary-color": "#034a48" },
         javascriptEnabled: true,
         loader:require.resolve('less-loader'),
     })(config, env);

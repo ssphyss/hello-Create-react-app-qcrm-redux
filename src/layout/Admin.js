@@ -5,7 +5,7 @@ import { Drawer } from 'antd';
 import { enquireScreen, unenquireScreen } from 'enquire-js';
 import './../less/common.less'
 import './../sass/all.scss'
-// 引入
+import './index.scss'
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
 
@@ -21,32 +21,14 @@ enquireScreen( mobile => {
 		visible = false;
 		collapsed = false;
 	}
-
 	if (mobile === true){
 		isMobile = true;
 		visible = true;
 		collapsed = false;
 	}
-	
-	// // console.log('mobile', mobile);
-	// if (typeof mobile === 'undefined'){
-	// 	isMobile = false;
-	// 	visible = false;
-	// 	collapsed = false;
-	// }else {
-	// 	isMobile = true;
-	// 	visible = true;
-	// 	collapsed = false;
-	// }
 });
 
 class Admin extends Component {
-
-	// state = {		
-	// 	// isMobile,     // 是手機嗎?不是   
-	// 	// visible: isMobile ? true :  false,     // 是手機抽屜有：不是手機抽屜無
-	// 	// collapsed: isMobile ? false :  false,  // 是手機選單展開：不是手機選單展開		
-	// };
 
 	// 選單
 	toggle = () => {
@@ -59,9 +41,7 @@ class Admin extends Component {
 	
 	// 抽屜點空白處收合
 	onClose = () => {
-		// this.setState({
-		// 		visible: false,
-		// });
+		// this.setState({isible: false });
 		this.props.isMobile(isMobile, false, this.props.collapsed);
 	};
 
@@ -76,31 +56,23 @@ class Admin extends Component {
 		this.props.isMobile(isMobile, visible, collapsed);
 		this.enquireHandler = enquireScreen(mobile => {
 			// console.log('---mobile狀態出現', mobile)
+			// 非手機
 			if (typeof mobile === 'undefined'){
-				console.log('---mobile狀態undefined', mobile)
+				console.log('---mobile狀態undefined', mobile);
 				isMobile = false;
 				this.props.isMobile(isMobile);
-				// visible = false;
-				// collapsed = false;
-				// console.log('---visible', visible)
-				// console.log('---collapsed', collapsed)
 			}
-
+			// 手機
 			if (mobile === true){
-				console.log('---mobile狀true', mobile)
+				console.log('---mobile狀true', mobile);
 				isMobile = true;				
 				visible = true;
 				collapsed = false;
 				this.props.isMobile(isMobile, visible, collapsed);
-				// console.log('---visible', visible)
-				// console.log('---collapsed', collapsed)
+
 			};			
 		});		
 	}
-
-
-
-
 
 	render() {		
 		console.log('------ ▉▉▉▉▉▉▉▉ Admin ▉▉▉▉▉▉▉▉ ------')
@@ -115,7 +87,6 @@ class Admin extends Component {
 			isMobile? (
 				<Layout>
 					<Drawer
-						// title="Basic Drawer"
 						placement="left"
 						closable={false}
 						onClose={this.onClose}
@@ -169,17 +140,6 @@ class Admin extends Component {
 // 引入
 const mapStateToProps = (state) => {
     return {
-		// focused: state.admin.focused,
-		// isMobile: state.admin.isMobile,
-		// visible: state.admin.visible,
-		// collapsed: state.admin.collapsed,  
-		
-		// focused: state.admin.get('focused'),
-		// isMobile: state.focused.get('isMobile'),
-		// visible: state.admin.get('visible'),
-		// collapsed: state.admin.get('collapsed'),
-
-		// focused: state.getIn(['admin','focused']),
 		isMobile: state.getIn(['admin','isMobile']),
 		visible: state.getIn(['admin','visible']),
 		collapsed: state.getIn(['admin','collapsed']),
@@ -196,5 +156,4 @@ const mapDispathToProps = (dispatch) => {
 		}
     }
 }
-// export default Admin;
 export default connect(mapStateToProps, mapDispathToProps)(Admin);

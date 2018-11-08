@@ -27,8 +27,8 @@ class SiderBar extends React.Component{
                 className='sider'							
             >
                 {/* <div className="logo" /> */}
-                <div className='logo' key="logo">						
-                    <img src={logo} alt="logo" />
+                <div className='logo' key="logo">	
+                    <a href='./'><img src={logo} alt="logo" /></a>
                     {/* <h1>Money SQ</h1> */}						
                 </div>
                 <Menu
