@@ -107,19 +107,23 @@
 				"children":[
 					{
 						"title":"控制台總覽",
-						"path":"/dashboard/analysis"
+						"path":"/dashboard/analysis",
+						"icon": "star"
 					},
 					{
 						"title":"登入者記錄",
-						"path":"/dashboard/loginRecord"
+						"path":"/dashboard/loginRecord",
+						"icon": "star"
 					},
 					{
 						"title":"系統參數設定",
-						"path":"/dashboard/config"
+						"path":"/dashboard/config",
+						"icon": "star"
 					},
 					{
 						"title":"管理者帳號設定",
-						"path":"/dashboard/adminMembers"
+						"path":"/dashboard/adminMembers",
+						"icon": "star"
 					}
 				]
 			},

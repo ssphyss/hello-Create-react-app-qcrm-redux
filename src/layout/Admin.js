@@ -58,13 +58,13 @@ class Admin extends Component {
 			// console.log('---mobile狀態出現', mobile)
 			// 非手機
 			if (typeof mobile === 'undefined'){
-				console.log('---mobile狀態undefined', mobile);
+				// console.log('---mobile狀態undefined', mobile);
 				isMobile = false;
 				this.props.isMobile(isMobile);
 			}
 			// 手機
 			if (mobile === true){
-				console.log('---mobile狀true', mobile);
+				// console.log('---mobile狀true', mobile);
 				isMobile = true;				
 				visible = true;
 				collapsed = false;
@@ -82,7 +82,7 @@ class Admin extends Component {
 		// console.log('-----(Admin)isMobile', this.props.isMobile)
 		// console.log('-----(Admin)visible', this.props.visible)
 		// console.log('-----(Admin)collapsed', this.props.collapsed)
-		console.log('render判斷 isMobile：',isMobile)
+		// console.log('render判斷 isMobile：',isMobile)
 		return (
 			isMobile? (
 				<Layout>
@@ -110,7 +110,8 @@ class Admin extends Component {
 							/>
 						</Header>
 						<Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
-							Content
+							{/* 加載子組件進來 */}
+							{this.props.children}
 						</Content>
 					</Layout>
 				</Layout>
@@ -128,7 +129,8 @@ class Admin extends Component {
 							/>
 						</Header>
 						<Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
-							Content
+							{/* 加載子組件進來 */}
+							{this.props.children}
 						</Content>
 					</Layout>
 				</Layout>
@@ -150,7 +152,7 @@ const mapStateToProps = (state) => {
 const mapDispathToProps = (dispatch) => {
     return {
 		isMobile(isMobile, visible, collapsed){
-			console.log('判斷是手機嗎? 組件')
+			// console.log('判斷是手機嗎? 組件')
 			const action = actionCreators.getIsMobile(isMobile, visible, collapsed);
             dispatch(action);
 		}

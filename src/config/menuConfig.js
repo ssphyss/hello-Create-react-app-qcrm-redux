@@ -121,6 +121,7 @@ const menuList = [
             {
                 title:'控制台總覽',
                 path:'/dashboard/analysis',
+                icon: 'star'
             },
             {
                 title:'登入者記錄',

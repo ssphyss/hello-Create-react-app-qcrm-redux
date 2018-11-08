@@ -41,7 +41,7 @@ export default (state = defaultState, action) => {
 
     // 讀取MenuAjax
     if (action.type === constants.AJAX_MEMU) {     
-        console.log('讀取MenuAjax? Reducer：', action.data)
+        // console.log('讀取MenuAjax? Reducer：', action.data)
         return state.merge({
             menuAjax: action.data,
         })

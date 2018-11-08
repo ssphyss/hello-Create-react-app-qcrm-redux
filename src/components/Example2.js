@@ -4,7 +4,7 @@ export default class Example extends React.Component{
     render(){
         return(
             <div>
-                Example
+                Example2
             </div>
         )
     }

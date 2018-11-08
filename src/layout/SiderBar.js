@@ -4,9 +4,12 @@ import logo from './../assets/logo.svg';
 // 1.改用Ajax
 // import menuConfig from './../config/menuConfig.js';
 
-// 引入
+// 引入Store
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+
+// 引入Router
+import { Link, NavLink } from 'react-router-dom';
 
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -27,10 +30,15 @@ class SiderBar extends React.Component{
                 className='sider'							
             >
                 {/* <div className="logo" /> */}
-                <div className='logo' key="logo">	
-                    <a href='./'><img src={logo} alt="logo" /></a>
-                    {/* <h1>Money SQ</h1> */}						
-                </div>
+                <Link to="/">
+                    <div className='logo' key="logo">
+                        <img src={logo} alt="logo" />                  
+                        {/* <h1>Money SQ</h1> */}
+                    </div>
+                </Link>
+                {/* <div className='logo' key="logo">	
+                    <a href='./'><img src={logo} alt="logo" /></a>                    					
+                </div> */}
                 <Menu
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
@@ -80,7 +88,7 @@ class SiderBar extends React.Component{
     
         // 5.
         renderMenu = (menuList)=>{
-            console.log('menuList', menuList)
+            // console.log('menuList', menuList)
             return menuList.map((item)=>{
                 if (item.children){
                     return(                    
@@ -92,8 +100,12 @@ class SiderBar extends React.Component{
                 }else {
                     return(
                         <Menu.Item key={item.path}>
-                            <Icon type="inbox" />
-                            <span>{item.title}</span>
+                            {/* <Icon type="inbox" /> */}
+                            {/* <span>{item.title}</span> */}
+                            <NavLink to={item.path}>
+                                <Icon type={item.icon} />
+                                <span>{item.title}</span>   
+                            </NavLink>
                         </Menu.Item>
                     )            
                 }
@@ -119,7 +131,7 @@ const mapDispathToProps = (dispatch) => {
     return {
         // 3.
         handleMenuAjax(){
-            console.log('讀取MenuAjax 組件')
+            // console.log('讀取MenuAjax 組件')
             const action = actionCreators.getMenuAjax();
             dispatch(action);
         }
