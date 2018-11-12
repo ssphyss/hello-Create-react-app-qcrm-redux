@@ -1,11 +1,11 @@
 import * as constants from './constants';
-// import { fromJS/*, Map*/ } from 'immutable';
 import { /*fromJS,*/ Map } from 'immutable';
 
-// 把數據對象轉化成immutable對象
+// 全域數據
 const defaultState = Map(
     {
         // focused: false,
+        loading: false,
         isMobile: false,    
         visible: true,    
         collapsed: false,  
@@ -15,6 +15,14 @@ const defaultState = Map(
 )
 
 export default (state = defaultState, action) => {
+
+    // Loading加載
+    if (action.type === constants.LOADING_STATUS) {  
+        const loadingStatus = action.loadingStatus
+        return state.merge({
+            loading: loadingStatus
+        })
+    }
 
     // 判斷是手機嗎Reducer
     if (action.type === constants.IS_MOBILE) {     

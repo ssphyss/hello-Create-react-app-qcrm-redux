@@ -17,7 +17,7 @@ const SubMenu = Menu.SubMenu;
 class SiderBar extends React.Component{    
 
     render(){
-        console.log('------ ▉▉▉▉▉▉▉▉ Siderbar ▉▉▉▉▉▉▉▉ ------')
+        // console.log('------ ▉▉▉▉▉▉▉▉ Siderbar ▉▉▉▉▉▉▉▉ ------')
         // console.log('this.props.collapsed---',this.props.collapsed)
         // console.log('menuConfig', menuConfig)        
         return(

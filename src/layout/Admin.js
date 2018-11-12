@@ -75,7 +75,7 @@ class Admin extends Component {
 	}
 
 	render() {		
-		console.log('------ ▉▉▉▉▉▉▉▉ Admin ▉▉▉▉▉▉▉▉ ------')
+		// console.log('------ ▉▉▉▉▉▉▉▉ Admin ▉▉▉▉▉▉▉▉ ------')
 		// console.log(this.state.collapsed)
 		// 測試有無連接store得到數據
 		// console.log('-----(Admin)focused', this.props.focused)
@@ -109,7 +109,7 @@ class Admin extends Component {
 								onClick={this.toggle}
 							/>
 						</Header>
-						<Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+						<Content style={{ margin: '24px 16px', padding: 24, background: '#fff'/*, minHeight: 280*/ }}>
 							{/* 加載子組件進來 */}
 							{this.props.children}
 						</Content>
@@ -128,7 +128,7 @@ class Admin extends Component {
 								onClick={this.toggle}
 							/>
 						</Header>
-						<Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+						<Content style={{ margin: '24px 16px', padding: 24, background: '#fff'/*, minHeight: 280*/ }}>
 							{/* 加載子組件進來 */}
 							{this.props.children}
 						</Content>

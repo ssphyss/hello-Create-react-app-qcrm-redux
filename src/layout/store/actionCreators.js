@@ -1,6 +1,14 @@
 import * as constants from './constants';
 import axios from 'axios';
 
+// 全域Loading加載中
+export const getLoading = (loadingStatus) => {
+    return {
+        type: constants.LOADING_STATUS,
+        loadingStatus
+    }      
+}
+
 // 判斷是手機嗎
 export const getIsMobile = (isMobile, visible, collapsed) => {
     // console.log('判斷是手機嗎? Action') 
@@ -23,7 +31,8 @@ export const getIsMobile = (isMobile, visible, collapsed) => {
 export const getMenuAjax = () => {
     return async (dispatch) => {
         // console.log('讀取MenuAjax Action') 
-        const res = await axios.get('/api/layout/finLists.json')
+        // const res = await axios.get('/.api/layout/finLists.json')
+        const res = await axios.get('/api/layout/menuConfig.json')
             .catch(()=>{alert('err')})
         // console.log('後端傳回的Ajax結果', res.data);  // 到時候看後端傳回的
 

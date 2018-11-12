@@ -10,3 +10,63 @@
 //		 |--content
 //============================================ *//
 
+// 上傳照片
+.ant-card .ant-upload.ant-upload-select-picture-card {
+    width: 204px;
+    height: 204px;
+}
+
+
+.ant-card .ant-form-item {
+    margin-bottom: 10px;
+}
+.ant-card-head-title {
+    padding: 16px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex: 1 1;
+    display: inline-block;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.ant-card .ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td {
+    background: rgba(4, 64, 62, 0.1);
+}
+.ant-card .ant-table-tbody > tr:hover {
+    cursor: pointer;
+}
+.ant-menu-item > a {
+    text-decoration: none;
+}
+
+.ant-card .ant-tag-blue {
+    color: #25a29e;
+    background: #ffffff;
+    border-color: #18ada8;
+}
+.typeTableBorrowNum {
+    text-decoration: none;
+    font-size: 10px;
+    // color: #333;
+    span {
+        font-size: 16px;
+        font-weight: 400;
+        color: #a4c7c3;
+    }
+}
+
+a {
+    color: #109c97;
+    // text-decoration: underline;
+}
+a:hover {
+    color: #5cbfbc;
+    
+}
+
+.btn {
+    margin: 0px 0px;
+    text-decoration: none;
+    }

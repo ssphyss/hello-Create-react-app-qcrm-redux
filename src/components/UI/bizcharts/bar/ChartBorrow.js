@@ -1,5 +1,7 @@
 import React from 'react';
 import {Chart, Tooltip, Geom} from "bizcharts";
+import { Skeleton } from 'antd';
+
 import './../index.scss'
 
 // 借款筆數
@@ -21,7 +23,7 @@ const cols = {
 export default class ChartBorrow extends React.Component{
     render(){
         return(
-            <div>
+            <div>                
                 {/* <h2 className='Chart__num'>216,215</h2>  */}
                 <Chart 
                     padding="auto" 
@@ -44,8 +46,13 @@ export default class ChartBorrow extends React.Component{
                     <Axis name="sales" />
                     <Tooltip crosshairs={{type : "y"}}/>
                     <Geom type="interval" position="year*sales" />
-                </Chart> */}
+                </Chart> */}                
             </div>
         )
+    }
+
+    componentDidMount(){        
+        // this.props.handleloading();
+        // this.props.handlegetList();
     }
 }

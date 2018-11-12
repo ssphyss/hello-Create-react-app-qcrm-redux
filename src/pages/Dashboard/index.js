@@ -1,10 +1,12 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import CardWrap from './../../components/CardWrap';
+// import CardWrap from './../../components/CardWrap';
 import AnalysisBorrow from './../../components/dashboard/analysis/AnalysisBorrow';
 import AnalysisLend from './../../components/dashboard/analysis/AnalysisLend';
 import AnalysisVisit from './../../components/dashboard/analysis/AnalysisVisit';
 import AnalysisDif from './../../components/dashboard/analysis/AnalysisDif';
+
+import LoginRecord from './../../components/dashboard/loginRecord';
 
 class Dashboard extends React.Component{
     render(){
@@ -30,6 +32,9 @@ class Dashboard extends React.Component{
                             <AnalysisDif />  
                         </Col>
                     </Row>
+                </div>
+                <div style={{marginBottom: '50px'}}>
+                    <LoginRecord />
                 </div>
             </div>
         )
