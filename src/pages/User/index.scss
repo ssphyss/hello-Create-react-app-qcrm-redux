@@ -37,9 +37,11 @@
     margin-bottom: 14px;
 }
 
-.login .ant-card-head {
-    // background: rgba(4, 64, 62, 0.4117647058823529);
-    color: #fff;
+.login .ant-card {
+    .ant-card-head-title {
+        // background: rgba(4, 64, 62, 0.4117647058823529);
+        color: #fff;
+    }
 }
 
 .login .ant-card-bordered {

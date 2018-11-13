@@ -9,15 +9,15 @@ import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../layout/store';
 
 // 引入Router
-import { /* Link, NavLink*/ } from 'react-router-dom';
+import { Link/*, NavLink*/ } from 'react-router-dom';
+
+
 import moment from 'moment';
-import axios from 'axios';
 
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 const Option = Select.Option;
-// const TextArea = Input.TextArea;
-
+const TextArea = Input.TextArea;
 
 // 上傳前驗證
 function beforeUpload(file) {
@@ -40,14 +40,38 @@ function getBase64(img, callback) {
     reader.readAsDataURL(img);
 }
 
+// const addressData = ['TW', ]
+const cityData = {
+    TW: ['Taipei', '新北市', '桃園市','台中市']
+}
+const distData = {
+    Taipei: ['中正區', '信義區', '大同區','台中市']
+}
+
+
+
+
+// // 頭像組件，方便以後獨立，增加裁剪等功能
+// const AvatarView = ({avatar}) => (
+//     <Fragment>
+//       <div className='avatarTitle'>Avatar</div>
+//       <div className='vatar'>
+//         <img alt="avatar" />
+//       </div>
+//       <Upload fileList={[]}>
+//         <div className='button_view'>
+//           <Button icon="upload">
+//             上傳照片
+//           </Button>
+//         </div>
+//       </Upload>
+//     </Fragment>
+// );
+
 class MemberProfile extends React.Component{
     state = {
         imageUrl: '',
         loadingPhoto: false,
-        city: ['台北市', '新北市', '桃園市','台中市'],
-        dist: [],
-        selectCity: '',
-        selectDist: ''
     }
 
     render(){
@@ -81,6 +105,55 @@ class MemberProfile extends React.Component{
                         // style={{ width: 300 }}
                     >
                         <Form>
+                            <FormItem label="聯絡地址">
+                                {
+                                    getFieldDecorator('memberCity', {
+                                        initialValue: this.props.dataProfile.memberCity,
+                                        rules: [
+                                            
+                                        ]           
+                                    })(
+                                        <Select 
+                                            value={this.props.dataProfile.memberCity}
+                                            style={{ maxWidth: 220 }}
+                                        >
+                                            <Option value="台北市">台北市</Option>
+                                            <Option value="新北市">新北市</Option>
+                                            <Option value="桃園市">桃園市</Option>
+                                            <Option value="新竹市">新竹市</Option>
+                                        </Select>
+                                    )
+                                }
+                                {
+                                    getFieldDecorator('memberDist', {
+                                        initialValue: this.props.dataProfile.memberDist,
+                                        rules: [
+                                            
+                                        ]           
+                                    })(
+                                        <Select 
+                                            value={this.props.dataProfile.memberDist}
+                                            style={{ maxWidth: 220 }}
+                                        >
+                                            <Option value="中正區">中正區</Option>
+                                            <Option value="新北市">大同區</Option>
+                                            <Option value="桃園市">信義區</Option>
+                                            <Option value="新竹市">中山區</Option>
+                                        </Select>
+                                    )
+                                }
+                                {
+                                    getFieldDecorator('memberAddress', {
+                                        initialValue: this.props.dataProfile.memberAddress,
+                                        rules: [
+                                            
+                                        ]           
+                                    })(
+                                        <Input value={this.props.dataProfile.memberAddress}/>
+                                    )
+                                }
+                                
+                            </FormItem> 
                             <FormItem label="更換頭像">
                                 {/* {AvatarView()} */}
                                 {/* <AvatarView avatar={this.getAvatarURL()} /> */}
@@ -106,58 +179,6 @@ class MemberProfile extends React.Component{
                                     {imageUrl ? <img src={imageUrl} alt="avatar" /> : uploadButton}
                                 </Upload>
                             </FormItem>
-
-
-                            <FormItem label="聯絡地址">
-                                {
-                                    getFieldDecorator('memberCity', {
-                                        initialValue: this.props.dataProfile.memberCity,
-                                        rules: [
-                                            
-                                        ]           
-                                    })(
-                                        // <Select 
-                                        //     value={this.props.dataProfile.memberCity}
-                                        //     style={{ maxWidth: 220 }}
-                                        // >
-                                        //     <Option value="台北市">台北市</Option>
-                                        //     <Option value="新北市">新北市</Option>
-                                        //     <Option value="桃園市">桃園市</Option>
-                                        //     <Option value="新竹市">新竹市</Option>
-                                        // </Select>
-                                        this.cityRender()
-                                    )
-                                }                            
-                                {
-                                    getFieldDecorator('memberDist', {
-                                        initialValue: this.props.dataProfile.memberDist,
-                                        rules: [
-                                            
-                                        ]           
-                                    })(
-                                        // <Select 
-                                        //     value={this.props.dataProfile.memberDist}
-                                        //     style={{ maxWidth: 220 }}
-                                        // >
-                                        //     <Option value="中正區">中正區</Option>
-                                        //     <Option value="新北市">大同區</Option>
-                                        //     <Option value="桃園市">信義區</Option>
-                                        //     <Option value="新竹市">中山區</Option>
-                                        // </Select>
-                                        this.distRender()
-                                    )
-                                }         
-                                {
-                                    getFieldDecorator('memberAddress', {
-                                        initialValue: this.props.dataProfile.memberAddress,
-                                        rules: [
-                                            
-                                        ]           
-                                    })(
-                                        <Input/>
-                                    )
-                                }
-                            </FormItem>   
                             <FormItem label="帳號">
                             {
                                 getFieldDecorator('memberAccount', {
@@ -338,20 +359,7 @@ class MemberProfile extends React.Component{
         )
     }
 
-    // 確認後端資料的地址 城市 已經得到後觸發， 再進行區域初始資料
-    componentWillReceiveProps(nextProps){
-        if(typeof nextProps.dataProfile.memberCity !== 'undefined' && this.state.selectCity === ''){
-            this.handleDistIninRender(nextProps.dataProfile.memberCity);
-            this.setState({
-                selectCity: nextProps.dataProfile.memberCity
-            })
-        }
-    }
-
     async componentDidMount(){    
-        //初始化city資料
-        this.handleCityIninRender();
-
         // console.log('this.props.location.pathname', this.props.location.pathname);
         // 打印 this.props.location.pathname /member/list/profile/5B
         const arr =  this.props.location.pathname.split('/');
@@ -397,74 +405,6 @@ class MemberProfile extends React.Component{
                 loading: false,
             }));
         }
-    }
-
-    handleCityIninRender = async () => {
-        const res = await axios.get('/api/address/address.json');
-        this.addressJson = res.data.taiwan;
-        let city = res.data.taiwan;
-        city = city.map((item) => {
-            return item.city
-        })
-        this.setState({
-            city
-        })
-    }
-
-    handleDistIninRender = (selectCity) => {
-        let dist = [];
-        for (let i = 0; i < this.addressJson.length; i++) {
-            const item = this.addressJson[i];
-            if(item.city === selectCity){
-                dist = item.area;
-                break;
-            }
-        }
-        if(this.state.selectCity !== ''){
-            this.props.form.setFieldsValue({
-                memberDist: dist[0]['#text']
-            })
-        }
-        // console.log('dist',dist);
-        this.setState({
-            dist
-        })
-    }
-
-    cityRender = () => {
-        let option = this.state.city.map((item)=>{
-            return <Option key={item} value={item}>{item}</Option>
-        })
-
-        return (
-            <Select 
-                style={{ maxWidth: 220 }}
-                onChange={this.handleChangeCity}
-            >
-                {option}
-            </Select>
-        )
-    }
-
-    distRender = () => {
-        let option = this.state.dist.map((item)=>{
-            return <Option key={item['#text']} value={item['#text']}>{item['#text']}</Option>
-        })
-
-        return (
-            <Select 
-                style={{ maxWidth: 220 }}
-            >
-                {option}
-            </Select>
-        )
-    }
-
-    handleChangeCity = (val) => {
-        this.handleDistIninRender(val);
-        this.setState({
-            selectCity: val
-        })
     }
 }
 

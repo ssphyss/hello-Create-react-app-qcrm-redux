@@ -1,0 +1,478 @@
+.form-container {
+    margin-top: 30px;
+    width: 90%;
+}
+/* =========================================
+// table-detail 借款明細表
+// ========================================= */
+
+.detail-table {
+	.table-loan__table th{
+	    line-height: inherit;
+	}
+	.detail-table__head {
+	    padding: 40px;
+        // background-color: $color-brand1;
+        background-color: #134240;
+		color: #fff;
+		font-size: 0; 
+		.detail-table__head-left {
+			vertical-align: top;
+			display: inline-block;
+			width: 45%;
+			font-size: initial; 
+			font-size: 0;
+		}
+		.detail-table__head-right {
+			position: relative;
+			vertical-align: top;
+			display: inline-block;
+			width: 55%;
+			font-size: initial;  
+			font-size: 0;
+			.detail-table__info {
+				display: inline-block;
+			    width: calc(100% / 3);
+			    vertical-align: top;
+			    font-size: initial;
+			}
+			&:before {
+				content: '';
+			    position: absolute;
+			    height: 100%;
+			    top: 0;
+			    width: 1px;
+			    left: 0;
+			    display: block;
+			    background: #FFF;
+			    background: rgba(255, 255, 255, 0.23);
+			}
+		}
+	}
+	.detail-table__rank {
+	    vertical-align: top;
+		display: inline-block;
+		width: 25%;
+		font-size: initial; 
+		.detail-table__info-content {
+			font-weight: bold;
+			font-size: 80px;
+            // color: $color-brand2; 
+            color: #bed606;
+		}
+	}
+	.detail-table__profile {
+		padding: 0 20px;
+	    vertical-align: top;
+		display: inline-block;
+		width: 75%;
+		font-size: initial; 
+	}
+	.detail-table__info-head {
+		opacity: 0.6;
+    	font-weight: 600;
+    	font-size: 1rem;
+	}
+	.detail-table__info-content {
+	    font-size: 14px;
+	}
+	.detail-table__info {
+		margin-bottom: 30px; 
+	    text-align: left;
+	}
+	.detail-table__info-row {
+		padding: 0 0 0 32px;
+		text-align: left;
+	}
+}
+
+@media screen and (max-width:480px) {
+	.detail-table .detail-table__head {
+		.detail-table__head-left {
+			width: 100%;
+			.detail-table__rank {
+			    text-align: left;
+			}
+		}
+		.detail-table__head-right {
+			width: 100%;
+			&:before {
+				display: none;
+			}
+			.detail-table__info-row {
+				padding: 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width:320px) {
+	.detail-table .detail-table__head {
+		padding: 0;
+		padding: 35px 10px;
+		.detail-table__head-left {
+			.detail-table__rank {
+			    width: 100%;
+    			text-align: center;
+			}
+			.detail-table__profile {
+				width: 100%;
+			}
+		}
+		.detail-table__head-right {
+		    padding: 0 20px;
+			.detail-table__info {
+				width: 100%;
+			}
+		}
+	}
+}
+/* =========================================
+// table-loan 借款清單
+// ========================================= */
+
+.table-loan {
+    position: relative;
+    overflow: auto;
+    // scrollbar
+ //    &::-webkit-scrollbar {
+ //    	height: 11px;
+ //    	border-radius: 4px
+	// }
+	// &::-webkit-scrollbar-track {
+	//     background-color: #f7f7f4;
+ //        box-shadow: inset 0 0 6px rgba(26, 93, 90, 0.05);
+	// }
+ //    &::-webkit-scrollbar-thumb {
+ //    	background-color: #147d79;
+ //    	outline: none;
+ //    }
+	table {
+		// border: 1px solid red;
+		width: 100%;
+		thead {
+			font-size: 1.2rem;
+			font-weight: bold;
+			tr {
+			   height: 65px;
+			}
+		}
+		tr {
+			font-size: 1rem;
+		}
+		th {
+		    height: 56px;
+			// min-width: 49px; 
+		 	// min-width: 106px;
+	  		// width: 106px;
+			text-align: center;
+		    background-color: #eee;
+	        background-color: #e4e3e3;
+            background-color: #16736e;
+    		line-height: 19px;
+		    color: #eee;
+    		// line-height: 49px;
+    		vertical-align: middle;
+    		@media screen and (max-width:480px) {
+    			line-height: 23px;
+    		}
+		}
+		th:nth-child(5) {
+			width: initial; 
+			min-width: 60px; 
+		}
+		th:nth-child(4) {
+			min-width: 63px;
+		}
+		th:nth-child(3) {
+	 	    min-width: 80px;
+		 }
+		th:nth-child(2) {
+			// width: 130px;
+		}
+		th:last-child {
+			width: 151px;
+		}
+		td {
+			padding: 0;
+			text-align: center;
+		}
+		td:nth-child(1) {
+		    letter-spacing: 1.1px;
+		    color: #333;
+		    font-weight: bold; 
+		}
+		// td-time
+		td:nth-child(2) {
+		    min-width: 94px;
+		}
+		// td-amount
+		td:nth-child(3) {
+			text-align: right;
+		}
+
+		td:last-child {
+			min-width: 175px;
+			// text-align: left;
+			text-align: center;
+			
+		}
+		td.td-amount {
+			text-align: right;
+			text-align: center;
+			min-width: initial;
+		}
+		tbody {
+			tr {
+			    border-bottom: 1px solid #eaeaea;
+			    &:hover {
+					background-color: #eee; 
+					background-color: #f9f9f9;
+				}
+			}
+			td {
+			    vertical-align: middle;
+			    padding: 7px;
+		        padding: 6px 5px;
+	            height: 66px;
+		        &:first-child {
+		        	padding: 6px 20px;
+		        }
+			    form {
+			    	display: inline-block;
+			    }
+			    .btn {
+			    	min-width: 66px;
+		    	    height: 29px;
+		    	    // background-color: transparent;
+		    	    background-color: #eee;
+			    }
+			}
+		}
+
+		.td-time {
+			span {
+				display: inline-block;
+				padding: 2px 7px;
+    			color: #bdbdbd;
+    			@media screen and (max-width:1238px) {
+					display: block;
+				} 
+			}
+		}
+		.td-status {
+		    min-width: 88px;
+			// color: $color-brand3;
+		    color: #096b5c;
+	        // color: #ff5123;
+         //    color: #f5351c;
+            // color: #ff4e1f;
+		    font-weight: 500;
+	        letter-spacing: 1.2px;
+	        font-size: 1.2rem;
+		}
+	}
+	&.table-loan-detail {
+		.td-time {
+			width: 102px;
+		}
+	}
+}
+
+
+
+
+
+@media screen and (max-width:991px) {
+	
+} 
+
+
+.table-loan-detail table {
+	tbody td{
+		padding: 11px;
+	}
+}
+
+/* =========================================
+// section-member-loan-detail 借款明細
+// ========================================= */
+.section.section-member-loan-detail {
+	tbody {
+		background-color: #f9f9f9;
+	}
+	.tabs .tabs-nav-loan-style {
+		// margin-bottom: 0;
+	}
+	.content {
+		.container-detail {
+			@media screen and (max-width:480px) {
+				padding: 0;
+				.page-title {
+					padding: 30px 10px;
+				}
+			}
+		}
+	}
+	.tabs_content#tabs-application {
+		padding: 20px;
+		padding: 40px;
+	    background: #edf5f5;
+        background: #edf5f56b;	
+	}
+	.tabs_content#tabs-address {
+		padding: 20px;
+		padding: 40px;
+	    background: #edf5f5;
+        background: #edf5f56b;	
+	}
+	.tabs_content#tabs-attachment {
+		padding: 20px;
+		padding: 40px;
+	    background: #edf5f5;
+        background: #edf5f56b;	
+		.style-attachment {
+		    margin: 30px 0;
+			text-align: left;
+			border-bottom: 1px solid #e2e2e2;
+			padding-bottom: 45px;
+			padding: 30px 0;
+    		background-color: transparent;
+			button {
+			    // background-color: #cae14f;
+				@media screen and (max-width: 522px){
+					display: block;
+					margin: 10px 0;
+				}
+			}
+			span {
+				color: #52a8a3;
+				i {
+					padding: 0 10px;
+					color: #52a8a3;
+				}
+			}
+			// li {
+			// 	padding: 15px 0;
+   //  			font-size: 1.3rem;
+			// }
+		}
+		&.style-attachment accordion {
+			.accordion-item__sub.is-open {
+				display: block;
+			}
+		}
+		.upload {
+			background: #a2a2a2;
+		}
+	}
+}
+.attachment-form {
+    padding: 50px 0;
+}
+
+.tabs-container {
+	@media screen and (max-width: 480px){
+		// padding: 0;
+	}
+	form { 
+		// background-color: #eee;
+	}
+	h3 {
+		text-align: left;
+		color: #333;
+		font-weight: bold; 
+		padding: 6px 0px;
+	    color: #18736f;
+    	color: #17736f;
+    	// text-align: center;
+	    // background-color: #e0eae9;
+	    // margin-bottom: 30px;
+	}
+	span {
+		// display: block; 
+		// text-align: center;
+	}
+}
+.container-agree {
+	display: none;  
+	padding: 20px;
+	background-color: #ECF5F3;
+	border-top: 9px solid rgba(161, 183, 178, 0.71);
+	transition: 0.5s; 
+	&.agree-open {
+		display: block;
+	}
+	.desc {
+		padding: 42px;
+	    h2 {
+    	    font-size: 1.5rem;
+	    }
+	    p {
+    	    font-size: 1.15rem;
+	    }
+	    .span-small {
+	    	color: #1b907e;
+		    font-size: 1.2rem;
+		    font-weight: 400;
+	    }
+	}
+	.group-btn {
+		font-size: 0; 
+	}
+	.btn-sign {
+	    display: inline-block;
+	    padding: 25px;
+    	vertical-align: top;
+    	width: 50%;
+    	color: #9FB7B4; 
+    	text-align: center;
+    	font-size: 2.5rem;
+    	font-weight: 200;
+    	cursor: pointer;
+    	@media screen and (max-width:856px) {
+	       display: block;
+	       width: 100%;
+	       a {
+       	    	min-height: 170px;
+	       }
+	    }
+    	a {
+    		background-color: #fff;
+    		display: inline-block;
+		    padding: 20px 35px;
+		    min-height: 170px;
+		    background-color: #fff;
+		    /* height: 170px; */
+		    border-radius: 2px;
+		    color: #9FB7B4;
+		    font-weight: 400;
+		    font-size: 2.2rem;
+		    transition: all .5s;
+		    &:hover {
+			    color: #1b907e;
+			    font-weight: 400;
+		        color: #2a8476;
+			    font-weight: bold;
+			    font-size: 110%;
+			    box-shadow: 1px 16px 35px -9px rgba(97, 97, 97, 0.55);
+		    }
+		    @media screen and (max-width:1073px) {
+		       min-height: 191px;
+		    }
+		    @media screen and (max-width:999px) {
+		       min-height: 216px;
+		    }
+		    @media screen and (max-width:856px) {
+			    min-height: initial;
+		    }
+    	}
+    	span {
+    		display: block;
+		    margin-top: 4px;
+		    font-size: 1.2rem;
+		    color: #333;
+		    font-weight: 400;
+    	}
+	}
+}

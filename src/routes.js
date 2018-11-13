@@ -1,29 +1,29 @@
 import React from 'react';
-import Admin from './Admin';
+import Admin from './layout/Admin';
+
 import { Provider } from 'react-redux';
-import store from './../store'
+import store from './components/LayoutComponents/store';
 
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import Example from './../components/_ExampleComponents/Example';
-import Example2 from './../components/_ExampleComponents/Example2';
+import Example from './components/_ExampleComponents/Example';
+import Example2 from './components/_ExampleComponents/Example2';
 
-import Login from './../pages/User/Login/';
-import Register from './../pages/User/Register/';
+import Login from './pages/User/Login/';
+import Register from './pages/User/Register/';
 
-import Dashboard from './../pages/Dashboard';
-import LoginRecord from './../components/dashboard/loginRecord';
-import Config from './../components/dashboard/config';
-import AdminMembers from './../components/dashboard/adminMembers';
+import Dashboard from './pages/Dashboard';
+import LoginRecord from './components/dashboard/loginRecord';
+import Config from './components/dashboard/config';
+import AdminMembers from './components/dashboard/adminMembers';
 
-import BorrowList from './../components/borrow/borrowList';
-import BorrowDetail from './../components/borrow/borrowDetail';
-import LendList from './../components/lend/lendList';
-import MemberList from './../components/members/memberList';
-import MemberProfile from './../components/members/memberProfile';
+import BorrowList from './components/borrow/borrowList';
+import BorrowDetail from './components/borrow/borrowDetail';
+import LendList from './components/lend/lendList';
+import MemberList from './components/members/memberList';
+import MemberProfile from './components/members/memberProfile';
 
-
-export default class Layout extends React.Component{
+export default class Routers extends React.Component{
     render(){
         return(
             <Provider store={store}>

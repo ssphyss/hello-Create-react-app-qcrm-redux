@@ -4,7 +4,10 @@ import { Card, Tooltip, Icon, Table, Spin, Divider } from 'antd';
 import { connect } from 'react-redux';
 import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../layout/store';
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
+
+// 引入Router
+import { Link/*, NavLink*/ } from 'react-router-dom';
 
 class BorrowList extends React.Component{
 
@@ -150,9 +153,21 @@ class BorrowList extends React.Component{
                 key: 'action',
                 render: (text, record) => (
                     <span>
-                        <a 
+                        {/* <Link 
+                            // onClick={(e)=> this.props.handleEdit(e, record.id)}                            
+                            // href='/member/list/profile' 
+                            to={`/member/list/profile/${record.id}`}
+                            className='btn'><Icon type="file-text" theme="outlined" /> 詳細資料
+                        </Link> */}
+                        <Link 
                             // onClick={(e)=> this.props.handleEditQuick(e, record.id)}
-                            href='/' className='btn'><Icon type="file-text" theme="outlined" /> 借款查詢</a>
+                            // href='/' className='btn'
+                            to='/borrow/list/detail' 
+                            className='btn'
+                        >
+                            <Icon type="file-text" theme="outlined" /> 
+                            借款查詢
+                        </Link>
                         <Divider type="vertical" />
                         {/* <a href=""><Icon type="file-text" theme="outlined" /> 修改 {record.name}</a> */}
                         <a 
@@ -217,7 +232,8 @@ class BorrowList extends React.Component{
                             columns={columns} 
                             // dataSource={dataBorrow} 
                             // dataSource={this.state.dataBorrow} 
-                            dataSource={this.props.dataBorrow}                             
+                            dataSource={this.props.dataBorrow} 
+                            // pagination={false}                            
                         />
                     </Card>
                 </Spin>                

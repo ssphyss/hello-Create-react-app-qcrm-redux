@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Tooltip, Icon, Table, Spin, Divider } from 'antd';
 
-
 // 引入
 import { connect } from 'react-redux';
 import { actionCreators } from './../store';
@@ -9,8 +8,10 @@ import { actionCreators as actionCreatorsAdmin } from './../../../layout/store';
 
 // 引入Router
 import { Link/*, NavLink*/ } from 'react-router-dom';
+
+
 // 引入轉址功能
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
 class MemberList extends React.Component{
     
@@ -80,11 +81,11 @@ class MemberList extends React.Component{
                     <span>
                         <a 
                             // onClick={(e)=> this.props.handleEditQuick(e, record.id)}
-                            href='/' className='btn'><Icon type="file-text" theme="outlined" /> 借款</a>
+                            href='/' className='btn btn--borrow'><Icon type="file-text" theme="outlined" /> 借款</a>
                         <Divider type="vertical" />
                         <a 
                             // onClick={(e)=> this.props.handleEditQuick(e, record.id)}
-                            href='/' className='btn'><Icon type="file-text" theme="outlined" /> 投資</a>
+                            href='/' className='btn btn--lend'><Icon type="file-text" theme="outlined" /> 投資</a>
                         <Divider type="vertical" />
                         {/* <a href=""><Icon type="file-text" theme="outlined" /> 修改 {record.name}</a> */}
                         <Link 

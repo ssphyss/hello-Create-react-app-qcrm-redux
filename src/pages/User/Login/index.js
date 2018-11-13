@@ -5,8 +5,9 @@ import logo from './../../../assets/logo.svg';
 import './../index.scss';
 // 引入Router
 import { Link/*, NavLink*/ } from 'react-router-dom';
+
 // 引入轉址功能
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 // const FormItem = Form.Item;
@@ -94,8 +95,7 @@ class Login extends React.Component {
                                         >登錄</Button>
                                         或 
                                         {/* <a href="https://www.google.com.tw/">立即註冊 now!</a> */}
-                                        <Link to={'/User/Register'}>立即註冊 now!</Link>
-                                        
+                                        <Link to={'/User/Register'}>立即註冊 now!</Link>                                        
                                     </Form.Item>
                                 </Form>  
                             </Col>
@@ -142,7 +142,8 @@ class Login extends React.Component {
                         // })
                         // 成功就作轉址功能
                         setTimeout(() => {
-                            this.props.history.replace('/admin');
+                            // this.props.history.replace('/admin');
+                            this.props.history.replace('/dashboard/analysis');                            
                         },500);
                     }else {
                         this.setState({

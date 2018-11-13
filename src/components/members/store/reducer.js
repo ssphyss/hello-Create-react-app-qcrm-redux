@@ -24,7 +24,7 @@ export default (state = defaultState, action) => {
     // Ajax資料載入 - 會員管理資料單筆   
     if (action.type === constants.AJAX_PROFILE_MEMBER) {   
         // console.log('Ajax收到 Reducer', action);   
-        console.log('Ajax收到data Reducer', action.data); 
+        // console.log('Ajax收到data Reducer', action.data); 
         let data = action.data;
         return state.set('dataProfile', data)
         // return state.set('data', data).set('loading', false);

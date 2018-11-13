@@ -10,25 +10,79 @@
 //		 |--content
 //============================================ *//
 
+a {
+    color: #109c97;
+    // text-decoration: underline;
+}
+
+a:hover {
+    color: #5cbfbc;
+    
+}
+
+.btn {
+    margin: 0px 0px;
+    text-decoration: none;
+
+    margin: 3px 0px;
+    display: inline-block;
+}
+
 // 上傳照片
 .ant-card .ant-upload.ant-upload-select-picture-card {
     width: 204px;
     height: 204px;
 }
 
+/*
+* memberList
+*/
+.btn--borrow {
+    font-size: 14px;
+    padding: 10px;
+    padding: 4px 9px;
+    background-color: #cde41f;
+    background-color: #b4caca;
+    background-color: #ffffff;
+    border: 1px solid #c4d600;
+    color: #bece21;
+    border-radius: 3px;
+    &:hover {
+        color: #a7b51b
+    }
+}
+
+.btn--lend {
+    font-size: 14px;
+    padding: 10px;
+    padding: 4px 9px;
+    background-color: #5aa2a0;
+    background-color: #288683;
+    color: #fff;
+    border-radius: 3px;
+    &:hover {
+        color: #e8e8e8;
+    }
+}
 
 .ant-card .ant-form-item {
     margin-bottom: 10px;
 }
-.ant-card-head-title {
-    padding: 16px 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    flex: 1 1;
-    display: inline-block;
-    font-size: 30px;
+.ant-card .ant-card-head-title {
+    // padding: 16px 0;
+    // text-overflow: ellipsis;
+    // overflow: hidden;
+    // white-space: nowrap;
+    // flex: 1 1;
+    // display: inline-block;
+    // font-size: 30px;
     margin-top: 20px;
+
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: #5a5a5a;
+    // color: #ffffff;
 }
 
 .ant-card .ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td {
@@ -57,16 +111,36 @@
     }
 }
 
-a {
-    color: #109c97;
-    // text-decoration: underline;
-}
-a:hover {
-    color: #5cbfbc;
-    
-}
 
-.btn {
-    margin: 0px 0px;
-    text-decoration: none;
+// 全站Tabs
+.tabs {
+    &.tabsBorrow {
+        margin-top: 100px;
     }
+}
+// .ant-tabs-nav .ant-tabs-tab {
+//     font-size: 16px;
+//     font-weight: 500;
+//     color: #737373;
+// }
+// .ant-tabs-nav .ant-tabs-tab-active {
+//     font-size: 20px;
+//     color: #0f9e9a;
+//     // background-color: #e9ecec;
+// }
+// .ant-tabs-nav .ant-tabs-ink-bar {
+//     height: 4px;
+//     background-color: #16a29e;
+// }
+
+
+// 借款明細表格
+.ant-card { 
+    .ant-table-thead > tr > th {
+        background: #16736e;
+        color: #fff;
+    }
+    .ant-table table {
+        background-color: #eee;
+    }
+}

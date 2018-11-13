@@ -43,6 +43,10 @@
 						"path":"/borrow/list"
 					},
 					{
+						"title":"借款明細表",
+						"path":"/borrow/list/detail"
+					},
+					{
 						"title":"借款訊息設定",
 						"path":"/borrow/config"
 					}

@@ -4,7 +4,7 @@ import { Card, Tooltip, Icon, Table, Spin, Divider } from 'antd';
 import { connect } from 'react-redux';
 import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../layout/store';
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 class LendList extends React.Component{
 

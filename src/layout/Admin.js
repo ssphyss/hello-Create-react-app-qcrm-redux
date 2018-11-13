@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SiderBar from './SiderBar'
+import SiderBar from './SiderBar';
+import Topbar from './../components/TopBar';
 import { Layout, Icon } from 'antd';	
 import { Drawer } from 'antd';
 import { enquireScreen, unenquireScreen } from 'enquire-js';
@@ -102,12 +103,13 @@ class Admin extends Component {
 						/>
 					</Drawer>
 					<Layout>
-						<Header style={{ background: '#fff', padding: 0 }}>
+						<Header style={{ background: '#fff', padding: 0 }} className='header'>
+							<Topbar />
 							<Icon
 								className="trigger"
 								type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
 								onClick={this.toggle}
-							/>
+							/>							
 						</Header>
 						<Content style={{ margin: '24px 16px', padding: 24, background: '#fff'/*, minHeight: 280*/ }}>
 							{/* 加載子組件進來 */}
@@ -121,7 +123,8 @@ class Admin extends Component {
 						collapsed={this.props.collapsed}
 					/>				
 					<Layout>
-						<Header style={{ background: '#fff', padding: 0 }}>
+						<Header style={{ background: '#fff', padding: 0 }} className='header'>							
+							<Topbar />
 							<Icon
 								className="trigger"
 								type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}

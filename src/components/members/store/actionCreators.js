@@ -29,10 +29,10 @@ export const getProfileMember = (id) => {
         const res = await axios.get(`https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/memberProfile/${id}`)
         // const res = await axios.get('/api/member/memberProfile.json')
 
-        console.log('id',id)
+        // console.log('id',id)
 
         const data = res.data.result.data;
-        console.log(res.data);
+        // console.log(res.data);
         const action = {
             type: constants.AJAX_PROFILE_MEMBER,
             data        

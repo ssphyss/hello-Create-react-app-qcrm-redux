@@ -1,6 +1,6 @@
 import React from 'react';
 import {Chart, Tooltip, Geom} from "bizcharts";
-import { Skeleton } from 'antd';
+// import { Skeleton } from 'antd';
 
 import './../index.scss'
 

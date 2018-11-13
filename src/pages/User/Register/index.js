@@ -4,7 +4,8 @@ import logo from './../../../assets/logo.svg';
 import './../index.scss';
 import axios from 'axios';
 // 引入轉址功能
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
+
 
 const FormItem = Form.Item;
 class Register extends React.Component {
