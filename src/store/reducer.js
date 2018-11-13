@@ -2,11 +2,11 @@
 // import { combineReducers } from  'redux';
 
 // 2. 傳入小的reducer
-import { reducer as reducerAdmin } from './../layout/store';
-import { reducer as reducerDashboard } from './../components/dashboard/store';
-import { reducer as reducerBorrow } from './../components/borrow/store';
-import { reducer as reducerLend } from './../components/lend/store';
-import { reducer as reducerMember } from './../components/members/store';
+import { reducer as reducerAdmin } from './../components/LayoutComponents/store';
+import { reducer as reducerDashboard } from './../components/QCRMComponents/Dashboard/store';
+import { reducer as reducerBorrow } from './../components/QCRMComponents/Borrow/store';
+import { reducer as reducerLend } from './../components/QCRMComponents/Lend/store';
+import { reducer as reducerMember } from './../components/QCRMComponents/Members/store';
 
 // 3. 改引用redux-immutable
 import { combineReducers } from  'redux-immutable';

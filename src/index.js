@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from './layout';
-// import Routers from './routes';
+import Routes from './routes';
+import './resources/sass/all.scss'
 
-// 引入
-import './sass/all.scss'
-
-ReactDOM.render(<Layout />, document.getElementById('root'));
+ReactDOM.render(<Routes />, document.getElementById('root'));

@@ -1,25 +1,27 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import store from './store'  // 大store
+import store from './../store'
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import Example from './components/_ExampleComponents/Example';
-import Example2 from './components/_ExampleComponents/Example2';
+import Admin from './Admin';
+import Example from './../components/_ExampleComponents/Example';
+import Example2 from './../components/_ExampleComponents/Example2';
 
-import Admin from './components/LayoutComponents/Admin';
-import Login from './pages/User/Login/';
-import Register from './pages/User/Register/';
-import Dashboard from './components/QCRMComponents/Dashboard';
-import LoginRecord from './components/QCRMComponents/Dashboard/LoginRecord';
-import Config from './components/QCRMComponents/Dashboard/Config';
-import AdminMembers from './components/QCRMComponents/Dashboard/AdminMembers';
-import BorrowList from './components/QCRMComponents/Borrow/BorrowList';
-import BorrowDetail from './components/QCRMComponents/Borrow/BorrowDetail';
-import LendList from './components/QCRMComponents/Lend/LendList';
-import MemberList from './components/QCRMComponents/Members/MemberList';
-import MemberProfile from './components/QCRMComponents/Members/MemberProfile';
+import Login from './../pages/User/Login/';
+import Register from './../pages/User/Register/';
 
-export default class Routes extends React.Component{
+import Dashboard from './../pages/Dashboard';
+import LoginRecord from './../components/dashboard/loginRecord';
+import Config from './../components/dashboard/config';
+import AdminMembers from './../components/dashboard/adminMembers';
+
+import BorrowList from './../components/borrow/borrowList';
+import BorrowDetail from './../components/borrow/borrowDetail';
+import LendList from './../components/lend/lendList';
+import MemberList from './../components/members/memberList';
+import MemberProfile from './../components/members/memberProfile';
+
+export default class Layout extends React.Component{
     render(){
         return(
             <Provider store={store}>
