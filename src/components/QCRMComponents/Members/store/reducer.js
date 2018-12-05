@@ -5,7 +5,16 @@ import { /*fromJS,*/ Map } from 'immutable';
 // 把數據對象轉化成immutable對象
 const defaultState = Map(
     {
-        dataMember: ['11'],
+        dataMember: [{
+            "key": "Fg2",
+            "id": "5B",
+            "memberName": "11孟平",
+            "memberAccount": "Susan Clark",
+            "memberStatus": "3",
+            "memberPassword": "★★★★★★★★★",
+            "memberEmail": "d.yrimnvlc@wlhe.gt",
+            "memberRegister": "1990-06-24"
+          }],
         dataProfile: {}
     }
 )

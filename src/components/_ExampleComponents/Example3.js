@@ -11,3 +11,4 @@ class Example3 extends React.Component{
 }
 
 export default Example3
+

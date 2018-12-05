@@ -1,11 +1,8 @@
 import React from 'react';
 import {Chart, Tooltip, Geom} from "bizcharts";
-// import { Skeleton } from 'antd';
-
 import './../index.scss'
 
 // 借款筆數
-
 const data = [
     { year: '10/06', sales: 52 },
     { year: '10/07', sales: 61 },
@@ -14,6 +11,13 @@ const data = [
     { year: '10/10', sales: 62 },
     { year: '10/11', sales: 31 },
     { year: '10/12', sales: 30 },
+    { year: '10/13', sales: 52 },
+    { year: '10/14', sales: 61 },
+    { year: '10/15', sales: 85 },
+    { year: '10/16', sales: 48 },
+    { year: '10/17', sales: 62 },
+    { year: '10/18', sales: 31 },
+    { year: '10/19', sales: 30 },
 ];
 
 const cols = {
@@ -38,7 +42,6 @@ export default class ChartBorrow extends React.Component{
                         type="interval" 
                         position="year*sales" 
                         color='rgb(203, 224, 41)'
-
                     />
                 </Chart>
                 {/* <Chart height={400} data={data} scale={cols} forceFit>

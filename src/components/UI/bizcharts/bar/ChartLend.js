@@ -12,6 +12,13 @@ const data = [
     { year: '10/10', sales: 62 },
     { year: '10/11', sales: 31 },
     { year: '10/12', sales: 30 },
+    { year: '10/13', sales: 52 },
+    { year: '10/14', sales: 61 },
+    { year: '10/15', sales: 85 },
+    { year: '10/16', sales: 48 },
+    { year: '10/17', sales: 62 },
+    { year: '10/18', sales: 31 },
+    { year: '10/19', sales: 30 },
 ];
 
 const cols = {
@@ -22,7 +29,7 @@ export default class ChartLend extends React.Component{
     render(){
         return(
             <div>
-                {/* <h2 className='Chart__num'>216,215</h2>                 */}
+                {/* <h2 className='Chart__num'>216,215</h2> */}
                 <Chart 
                     padding="auto" 
                     width={90} 

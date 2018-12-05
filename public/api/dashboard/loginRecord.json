@@ -53,38 +53,6 @@
         "login_start": "1987-08-14 21:52:14",
         "operating_time": "17mins",
         "ip_address": "192.168.1.4"
-      },
-      {
-        "key": "ex",
-        "id": "C6",
-        "name": "金娟",
-        "login_start": "1993-10-30 14:21:08",
-        "operating_time": "19mins",
-        "ip_address": "192.168.1.1"
-      },
-      {
-        "key": "@",
-        "id": "wg",
-        "name": "于勇",
-        "login_start": "1998-07-12 04:07:29",
-        "operating_time": "15mins",
-        "ip_address": "192.168.1.91"
-      },
-      {
-        "key": "I",
-        "id": "ko",
-        "name": "叶娜",
-        "login_start": "1990-11-09 09:20:42",
-        "operating_time": "22mins",
-        "ip_address": "192.168.1.4"
-      },
-      {
-        "key": "SL",
-        "id": "P[4W",
-        "name": "汤刚",
-        "login_start": "1974-02-19 20:56:00",
-        "operating_time": "22mins",
-        "ip_address": "192.168.1.4"
       }
     ]
   }

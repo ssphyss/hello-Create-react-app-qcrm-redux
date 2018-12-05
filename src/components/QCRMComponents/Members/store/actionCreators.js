@@ -6,7 +6,7 @@ export const getListMember = () => {
     return async (dispatch) => {
         
         // const res = await axios.get('https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/member/list')
-        const res = await axios.get('/api/member/memberList.json')
+        const res = await axios.get('./api/member/memberList.json')
 
         // console.log('AAA')
         const data = res.data.result.data;

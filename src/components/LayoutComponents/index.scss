@@ -23,7 +23,8 @@
 // sider
 .ant-layout-sider {
   background: #04403e;
-
+  background: #085f5d;
+  // background-image: -webkit-linear-gradient(45deg, #0b7975 1%, #135251 72%);
   // background: #fff;
   // color: #222;
 }
@@ -31,7 +32,9 @@
 // sider - menu
 .ant-menu-dark {
   background: #04403e;
-
+  background: #052322;
+  background: #086b69;
+  // background-image: -webkit-linear-gradient(45deg, #106764 17%, #1352513d 106%);
   // background: #fff;
   // color: #222;
 }
@@ -59,11 +62,15 @@
   // color: #333;
 }
 
+
+.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
+  font-size: 23px;
+}
 // trigger 把官網提供的code貼上,去掉前面的前綴
 .trigger {
-  font-size: 18px;
-  line-height: 64px;
-  padding: 0 24px;
+  font-size: 28px;
+  line-height: 63px;
+  padding: 0 20px;
   cursor: pointer;
   transition: color .3s;
 }
@@ -150,8 +157,25 @@
   .trigger {
     position: absolute;
     top: 0;
+    z-index: 999999999;
+    background-color: rgba(205, 228, 31, 0.54);
+    background-color: rgb(26, 103, 102);
+    background-color: #ffffff;
+    @media screen and (max-width:768px) {
+      z-index: 555;
+    }
+    svg:not(:root) {
+        overflow: hidden;
+        color: #fff;
+        color: #1a6766;
+    }
   }
   .topbar {
     // position: absolute;
   }
+}
+
+
+.ant-table-thead > tr > th {
+  font-size: 16px;
 }

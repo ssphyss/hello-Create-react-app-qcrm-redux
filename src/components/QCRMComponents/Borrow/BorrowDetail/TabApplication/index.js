@@ -68,7 +68,6 @@ class TabApplication extends React.Component{
                             <FormItem label="用戶名">
                             {
                                 getFieldDecorator('memberName', {
-                                    // initialValue: this.props.dataProfile.memberName,
                                     rules: [
                                         
                                     ]           
@@ -81,7 +80,6 @@ class TabApplication extends React.Component{
                             <FormItem label="信箱">
                             {
                                 getFieldDecorator('memberEmail', {
-                                    // initialValue: this.props.dataProfile.memberEmail,
                                     rules: [
                                         
                                     ]           
@@ -91,19 +89,19 @@ class TabApplication extends React.Component{
                             }                                 
                             </FormItem>                          
                             <FormItem label="連絡電話">
-                            {/* {
+                            {
                                 getFieldDecorator('memberPhone', {
-                                    initialValue: this.props.dataProfile.memberPhone,
                                     rules: [
                                         
                                     ]           
                                 })(
                                     <Input placeholder="區域電話" />
                                 )
-                            }  */}
+                            } 
+                            </FormItem>                          
+                            <FormItem>
                             {
-                                getFieldDecorator('memberPhone', {
-                                    // initialValue: this.props.dataProfile.memberPhone,
+                                getFieldDecorator('memberMobile', {
                                     rules: [
                                         
                                     ]           
@@ -114,27 +112,23 @@ class TabApplication extends React.Component{
                             </FormItem>   
                             <FormItem label="手機">
                             {
-                                getFieldDecorator('memberMobile', {
-                                    // initialValue: this.props.dataProfile.memberMobile,
+                                getFieldDecorator('memberMobile', {      
                                     rules: [
                                         
                                     ]           
-                                })(
-                                    // <Input placeholder="0000" />
+                                })(                                    
                                     <Input placeholder="用戶手機" />
                                 )
                             }                                
                             </FormItem>  
                             <FormItem label="聯絡地址">
                                 {
-                                    getFieldDecorator('memberCity', {
-                                        // initialValue: this.props.dataProfile.memberCity,
+                                    getFieldDecorator('memberCity', {        
                                         rules: [
                                             
                                         ]           
                                     })(
-                                        <Select 
-                                            // value={this.props.dataProfile.memberCity}
+                                        <Select                                             
                                             style={{ maxWidth: 220 }}
                                         >
                                             <Option value="台北市">台北市</Option>
@@ -144,15 +138,14 @@ class TabApplication extends React.Component{
                                         </Select>
                                     )
                                 }
+                            </FormItem>                          
+                            <FormItem>
                                 {
-                                    getFieldDecorator('memberDist', {
-                                        // initialValue: this.props.dataProfile.memberDist,
-                                        rules: [
-                                            
+                                    getFieldDecorator('memberDist', {                                        
+                                        rules: [                                            
                                         ]           
                                     })(
-                                        <Select 
-                                            // value={this.props.dataProfile.memberDist}
+                                        <Select                                             
                                             style={{ maxWidth: 220 }}
                                         >
                                             <Option value="中正區">中正區</Option>
@@ -162,19 +155,18 @@ class TabApplication extends React.Component{
                                         </Select>
                                     )
                                 }
+                            </FormItem>                          
+                            <FormItem>
                                 {
-                                    getFieldDecorator('memberAddress', {
-                                        // initialValue: this.props.dataProfile.memberAddress,
+                                    getFieldDecorator('memberAddress', {                                        
                                         rules: [
                                             
                                         ]           
                                     })(
-                                        <Input 
-                                        // value={this.props.dataProfile.memberAddress}
-                                        />
+                                        <Input />
                                     )
                                 }                                
-                            </FormItem>                       
+                            </FormItem>
                             <FormItem>
                                 <Button 
                                 type="primary" 

@@ -6,62 +6,62 @@ class TabDetails extends React.Component{
         return(
             <div>
                 {/* TabDetails 還款明細 */}
-                <div class="form-container detail-table">
+                <div className="form-container detail-table">
                     {/* <!-- 表頭區 --> */}
-                    <div class="detail-table__head">
+                    <div className="detail-table__head">
                         {/* <!-- 左 --> */}
-                        <div class="detail-table__head-left">
+                        <div className="detail-table__head-left">
                             {/* <!-- 信用評級 --> */}
-                            <div class="detail-table__rank">
-                                <p class="detail-table__info-head">信用評級</p>
-                                <span class="detail-table__info-content">A</span>
+                            <div className="detail-table__rank">
+                                <p className="detail-table__info-head">信用評級</p>
+                                <span className="detail-table__info-content">A</span>
                             </div>
                             {/* <!-- 借款人資訊 --> */}
-                            <div class="detail-table__profile">
-                                <div class="detail-table__info">
-                                    <p class="detail-table__info-head">借款人姓名</p>
-                                    <span class="detail-table__info-content">TESTING</span>
+                            <div className="detail-table__profile">
+                                <div className="detail-table__info">
+                                    <p className="detail-table__info-head">借款人姓名</p>
+                                    <span className="detail-table__info-content">TESTING</span>
                                 </div>
-                                <div class="detail-table__info">
-                                    <p class="detail-table__info-head">地址</p>
-                                    <span class="detail-table__info-content">台北市大安區信義路二段194號</span>
+                                <div className="detail-table__info">
+                                    <p className="detail-table__info-head">地址</p>
+                                    <span className="detail-table__info-content">台北市大安區信義路二段194號</span>
                                 </div>
                             </div>
                         </div>
                         {/* <!-- 右 --> */}
-                        <div class="detail-table__head-right">
+                        <div className="detail-table__head-right">
                             {/* <!-- 貨款日期 / 還款方法 / 貨款金額 --> */}
-                            <div class="detail-table__info-row">
-                                <div class="detail-table__info">
-                                    <p class="detail-table__info-head">貨款日期</p>
-                                    <span class="detail-table__info-content">2016/11/23</span>
+                            <div className="detail-table__info-row">
+                                <div className="detail-table__info">
+                                    <p className="detail-table__info-head">貨款日期</p>
+                                    <span className="detail-table__info-content">2016/11/23</span>
                                 </div>
-                                <div class="detail-table__info">
-                                    <p class="detail-table__info-head">還款方法</p>
-                                    <span class="detail-table__info-content">本利攤</span>
+                                <div className="detail-table__info">
+                                    <p className="detail-table__info-head">還款方法</p>
+                                    <span className="detail-table__info-content">本利攤</span>
                                 </div>
-                                <div class="detail-table__info">
-                                    <p class="detail-table__info-head">貨款金額 (TWD$)</p>
-                                    <span class="detail-table__info-content">10,000</span>
+                                <div className="detail-table__info">
+                                    <p className="detail-table__info-head">貨款金額 (TWD$)</p>
+                                    <span className="detail-table__info-content">10,000</span>
                                 </div>
                             </div>
                             {/* <!-- 年息 --> */}
-                            <div class="detail-table__info-row">
-                                <div class="detail-table__info">
-                                    <p class="detail-table__info-head">年息</p>
-                                    <span class="detail-table__info-content">2016/11/23</span>
+                            <div className="detail-table__info-row">
+                                <div className="detail-table__info">
+                                    <p className="detail-table__info-head">年息</p>
+                                    <span className="detail-table__info-content">2016/11/23</span>
                                 </div>
-                                <div class="detail-table__info">
-                                    <p class="detail-table__info-head">總分期數</p>
-                                    <span class="detail-table__info-content">本利攤</span>
+                                <div className="detail-table__info">
+                                    <p className="detail-table__info-head">總分期數</p>
+                                    <span className="detail-table__info-content">本利攤</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {/* <!-- end 表頭區 --> */}
                     {/* <!-- table-loan 明細區--> */}
-                    <div class="table-loan table-loan-detail">
-                        <table class="table-loan__table">
+                    <div className="table-loan table-loan-detail">
+                        <table className="table-loan__table">
                             <thead>
                                 <tr>
                                     <th>期數</th>
@@ -76,111 +76,111 @@ class TabDetails extends React.Component{
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,888</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,888</td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                                 <tr>
                                     <td>6</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                                 <tr>
                                     <td>7</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                                 <tr>
                                     <td>8</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                                 <tr>
                                     <td>9</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                                 <tr>
                                     <td>10</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                                 <tr>
                                     <td>11</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                                 <tr>
                                     <td>12</td>
-                                    <td class="td-time">2017-01-31</td>
-                                    <td class="td-amount">2,010,000</td>
-                                    <td class="td-rate">2.01</td>
+                                    <td className="td-time">2017-01-31</td>
+                                    <td className="td-amount">2,010,000</td>
+                                    <td className="td-rate">2.01</td>
                                     <td>12</td>
-                                    <td class="td-status">申請中</td>
-                                    <td class="td-amount">2,010,000</td>
+                                    <td className="td-status">申請中</td>
+                                    <td className="td-amount">2,010,000</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -14,108 +14,6 @@ import { Link/*, NavLink*/ } from 'react-router-dom';
 // import { withRouter } from 'react-router-dom';
 
 class MemberList extends React.Component{
-    state = {
-        dataMember: [ {
-            "key": "Fg2",
-            "id": "5B",
-            "memberName": "11孟平",
-            "memberAccount": "Susan Clark",
-            "memberStatus": "3",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "d.yrimnvlc@wlhe.gt",
-            "memberRegister": "1990-06-24"
-          },
-          {
-            "key": "*e",
-            "id": "E#$",
-            "memberName": "蒋超",
-            "memberAccount": "Mary Moore",
-            "memberStatus": "1",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "e.xvix@rxrl.nz",
-            "memberRegister": "1997-03-06"
-          },
-          {
-            "key": "KZ[x",
-            "id": "Yb",
-            "memberName": "锺超",
-            "memberAccount": "Ronald Wilson",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "q.ukyneh@kdyxxyu.ph",
-            "memberRegister": "2011-05-31"
-          },
-          {
-            "key": "8tz",
-            "id": "(",
-            "memberName": "韩强",
-            "memberAccount": "Patricia Thomas",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "i.kipu@nkdnfww.bn",
-            "memberRegister": "1981-04-27"
-          },
-          {
-            "key": "f!D#",
-            "id": "yue",
-            "memberName": "程明",
-            "memberAccount": "Daniel Williams",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "x.ggprzsl@sihv.ms",
-            "memberRegister": "1994-11-23"
-          },
-          {
-            "key": "m",
-            "id": "ukx",
-            "memberName": "常敏",
-            "memberAccount": "Thomas Walker",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "v.ilwwjeytq@trdelemyt.asia",
-            "memberRegister": "1994-10-19"
-          },
-          {
-            "key": "gKu",
-            "id": "m$",
-            "memberName": "梁杰",
-            "memberAccount": "David Lee",
-            "memberStatus": "3",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "m.iwt@hlvgjwn.ke",
-            "memberRegister": "1996-03-09"     
-          },
-          {
-            "key": "bxPd",
-            "id": "&6",
-            "memberName": "邱霞",
-            "memberAccount": "Timothy Hernandez",
-            "memberStatus": "1",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "a.dajeveuh@exoil.aero",
-            "memberRegister": "1982-05-30"
-          },
-          {
-            "key": "v2f",
-            "id": "pkWA",
-            "memberName": "于娜",
-            "memberAccount": "Sarah Harris",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "u.ddvmyy@mfsy.ci",
-            "memberRegister": "1980-03-30"
-          },
-          {
-            "key": "(P0C",
-            "id": "ym",
-            "memberName": "邓超",
-            "memberAccount": "Michelle Young",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "w.uttnh@anjft.ad",
-            "memberRegister": "2006-08-02"   
-          }]
-    }
     
     render(){
         // console.log('-----(MemberList讀取)dataMember', this.props.dataMember)
@@ -138,24 +36,24 @@ class MemberList extends React.Component{
                 title: '身分狀態',
                 key: 'memberStatus',
                 dataIndex: 'memberStatus',    
-                render: text => <a href="javascript:;">{text}</a>,     
-                // render: (memberStatus, record) => {   
-                //     // console.log('類別相關',category, record);
-                //     switch (memberStatus) {
-                //         case '1':
-                //             return <span key={1}>一般</span>        
-                //             // break;               
-                //         case '2':
-                //             return <span key={2}>員工</span>    
-                //             // break;                    
-                //         case '3':
-                //             return <span key={3}>員工管理層</span> 
-                //             // break;               
-                //         default:
-                //             break;
-                //     }                
-                // },
-                // sorter: (a, b) => a.memberStatus - b.memberStatus,                  
+                // render: text => <a href="javascript:;">{text}</a>,     
+                render: (memberStatus, record) => {   
+                    // console.log('類別相關',category, record);
+                    switch (memberStatus) {
+                        case '1':
+                            return <span key={1}>一般</span>        
+                            // break;               
+                        case '2':
+                            return <span key={2}>員工</span>    
+                            // break;                    
+                        case '3':
+                            return <span key={3}>員工管理層</span> 
+                            // break;               
+                        default:
+                            break;
+                    }                
+                },
+                sorter: (a, b) => a.memberStatus - b.memberStatus,                  
             }, 
             {
                 title: '密碼',
@@ -179,7 +77,6 @@ class MemberList extends React.Component{
                 title: '操作',
                 key: 'memberAction',
                 dataIndex: 'memberAction',
-                // render: () => { return <span>一般11</span>  } 
                 render: (text, record) => (
                     <span>
                         <a 
@@ -225,7 +122,7 @@ class MemberList extends React.Component{
                         <Table 
                             columns={columns} 
                             // dataSource={dataBorrow} 
-                            // dataSource={this.state.dataMember} 
+                            // dataSource={this.state.dataBorrow} 
                             dataSource={this.props.dataMember} 
                             // rowKey={`${Math.floor(Math.random( )*1000)}`}                            
                             rowKey={(r,i)=>(i)}
@@ -244,7 +141,8 @@ class MemberList extends React.Component{
         await this.props.handleListMember();
         setTimeout(() => {
             this.props.handleloading(false);       
-        }, 1200);        
+        }, 1200);
+        
 
     }
 }

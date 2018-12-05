@@ -1,7 +1,5 @@
 import React from 'react';
 import { Card, Tooltip, Icon, Table, Spin } from 'antd';
-// import { Card, Tooltip, Table, Spin, Row, Col, Icon } from 'antd';
-// 引入
 import { connect } from 'react-redux';
 import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
@@ -16,6 +14,7 @@ class LoginRecord extends React.Component{
         // console.log('-----(LoginRecord讀取)inputValue', this.props.inputValue)
         // console.log('-----(LoginRecord讀取)data', this.props.data)
         // console.log('-----(LoginRecord讀取)focused', this.props.focused)
+        
         // 設定表檔頭欄位 
         const columns = [
             {

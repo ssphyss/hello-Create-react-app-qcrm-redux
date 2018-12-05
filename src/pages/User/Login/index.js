@@ -127,7 +127,7 @@ class Login extends React.Component {
                         userName : userInfo.userName ,
                         userPwd : userInfo.userPwd
                    })
-                    console.log('res.data',res.data);
+                    // console.log('res.data',res.data);
                     
                     // 這裡的200是http狀態的請求碼的200
                     // 200是指後端有收到,無論正確與否就會給200

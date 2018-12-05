@@ -79,7 +79,7 @@ a:hover {
     margin-top: 20px;
 
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 1.4rem;
     letter-spacing: 1px;
     color: #5a5a5a;
     // color: #ffffff;
@@ -137,10 +137,19 @@ a:hover {
 // 借款明細表格
 .ant-card { 
     .ant-table-thead > tr > th {
-        background: #16736e;
-        color: #fff;
+        // background: #16736e;
+        // color: #fff;
     }
     .ant-table table {
-        background-color: #eee;
+        // background-color: #eee;
     }
+    .ant-table-thead > tr:first-child > th:first-child {
+        // border-top-left-radius: 4px;
+    }
+}
+
+.login-form-button {
+    display: inline-block;
+    line-height: 50px;
+    height: 50px;
 }

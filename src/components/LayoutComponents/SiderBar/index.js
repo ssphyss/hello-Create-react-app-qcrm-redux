@@ -90,9 +90,18 @@ class SiderBar extends React.Component{
         renderMenu = (menuList)=>{
             // console.log('menuList', menuList)
             return menuList.map((item)=>{
+                let hasType = ''
+                if (item.icon){
+                    // console.log('item.icon',item.icon)
+                    hasType = item.icon
+                }
                 if (item.children){
                     return(                    
-                        <SubMenu key={item.path} title={<span><Icon type={item.icon} /><span>{item.title}</span></span>}>
+                        <SubMenu key={item.path} title={<span>
+                            {/* <Icon type={item.icon} /> */}
+                            {hasType ? <Icon type={hasType} /> : null}
+                            <span>{item.title}</span>
+                            </span>}>
                             {/* <Menu.Item key="5">Option 5</Menu.Item> */}
                             {this.renderMenu(item.children)}
                         </SubMenu>
@@ -103,7 +112,9 @@ class SiderBar extends React.Component{
                             {/* <Icon type="inbox" /> */}
                             {/* <span>{item.title}</span> */}
                             <NavLink to={item.path}>
-                                <Icon type={item.icon} />
+                                {/* <Icon type={item.icon} /> */}
+                                {/* <Icon type='user' /> */}
+                                {hasType ? <Icon type={hasType} /> : null}
                                 <span>{item.title}</span>   
                             </NavLink>
                         </Menu.Item>

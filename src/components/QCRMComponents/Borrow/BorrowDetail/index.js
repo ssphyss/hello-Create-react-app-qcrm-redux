@@ -160,7 +160,7 @@ class BorrowDetail extends React.Component{
         const TabPane = Tabs.TabPane;
 
         function callback(key) {
-            console.log(key);
+            // console.log(key);
         }
 
         return(            

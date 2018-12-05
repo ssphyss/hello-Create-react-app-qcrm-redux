@@ -10,7 +10,7 @@ class TopBar extends React.Component{
         return(
             <div className="topbar">
                 <div className="topbar__left">
-                    左邊
+                    {/* 左邊 */}
                 </div>
                 <div className="topbar__right">
                     {/* 右邊 */}

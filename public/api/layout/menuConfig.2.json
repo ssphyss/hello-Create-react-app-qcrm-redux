@@ -92,6 +92,18 @@
 						"path":"/admin/order/order-list"
 					},
 					{
+						"title":"審批列表2",
+						"path":"/admin/order/order-list2"
+					},
+					{
+						"title":"審批詳情",
+						"path":"/admin/order/order-detail/1"
+					},
+					{
+						"title":"審批詳情(外聯)",
+						"path":"/common/order/detail/1"
+					},
+					{
 						"title":"結束審批",
 						"path":"/admin/order/finish"
 					}
