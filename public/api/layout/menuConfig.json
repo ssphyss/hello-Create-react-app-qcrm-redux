@@ -75,10 +75,6 @@
 					{
 						"title":"客戶管理",
 						"path":"/member/list"
-					},
-					{
-						"title":"客戶檔案",
-						"path":"/member/list/profile"
 					}
 				]
 			},
@@ -104,7 +100,7 @@
 			},
 			{
 				"title":"登出",
-				"path":"/user/logot",
+				"path":"/user/login",
 				"icon": "user"
 			}			
 		]

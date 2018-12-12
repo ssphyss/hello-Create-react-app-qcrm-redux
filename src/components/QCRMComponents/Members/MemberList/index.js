@@ -7,7 +7,7 @@ import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
 
 // 引入Router
-import { Link/*, NavLink*/ } from 'react-router-dom';
+import { /*Link, NavLink*/ } from 'react-router-dom';
 
 
 // 引入轉址功能
@@ -125,20 +125,20 @@ class MemberList extends React.Component{
                 title: '客戶名稱',
                 dataIndex: 'memberName',
                 key: 'memberName',
-                render: text => <a href="/">{text}</a>,
+                render: text => <span href="/">{text}</span>,
             }, 
             {
                 title: '客戶帳號',
                 dataIndex: 'memberAccount',
                 key: 'memberAccount',
-                render: text => <a href="/" className='typeTableBorrowNum'><span>@</span>{text}</a>,
+                render: text => <span href="/" className='typeTableBorrowNum'><span>@</span>{text}</span>,
                 sorter: (a, b) => a.memberAccount - b.memberAccount, 
             },
             {
                 title: '身分狀態',
                 key: 'memberStatus',
                 dataIndex: 'memberStatus',    
-                render: text => <a href="javascript:;">{text}</a>,     
+                // render: text => <a href="javascript:;">{text}</a>,     
                 // render: (memberStatus, record) => {   
                 //     // console.log('類別相關',category, record);
                 //     switch (memberStatus) {
@@ -182,27 +182,27 @@ class MemberList extends React.Component{
                 // render: () => { return <span>一般11</span>  } 
                 render: (text, record) => (
                     <span>
-                        <a 
-                            // onClick={(e)=> this.props.handleEditQuick(e, record.id)}
-                            href='/' className='btn btn--borrow'><Icon type="file-text" theme="outlined" /> 借款</a>
+                        <span 
+                            // onClick={(e)=> this.props.handleEditQuick(e, record.id)}        
+                            className='btn btn--borrow'><Icon type="file-text" theme="outlined" /> 借款</span>
                         <Divider type="vertical" />
-                        <a 
+                        <span 
                             // onClick={(e)=> this.props.handleEditQuick(e, record.id)}
-                            href='/' className='btn btn--lend'><Icon type="file-text" theme="outlined" /> 投資</a>
+                            className='btn btn--lend'><Icon type="file-text" theme="outlined" /> 投資</span>
                         <Divider type="vertical" />
                         {/* <a href=""><Icon type="file-text" theme="outlined" /> 修改 {record.name}</a> */}
-                        <Link 
+                        <span 
                             // onClick={(e)=> this.props.handleEdit(e, record.id)}                            
                             // href='/member/list/profile' 
                             to={`/member/list/profile/${record.id}`}
                             className='btn'><Icon type="file-text" theme="outlined" /> 詳細資料
-                        </Link>
+                        </span>
                         <Divider type="vertical" />
-                        <a 
+                        <span 
                             // onClick={this.props.handleDelete}
                             // onClick={(e)=> this.props.handleDelete(e, record.id)}
-                            onClick={(e)=>this.handlePopConfirm(e, record.id)}
-                            href='/' className='btn'><Icon type="delete" theme="outlined" /> 刪除</a>
+                            // onClick={(e)=>this.handlePopConfirm(e, record.id)}
+                            href='/' className='btn'><Icon type="delete" theme="outlined" /> 刪除</span>
                     </span>
                 )
             }
@@ -229,6 +229,7 @@ class MemberList extends React.Component{
                             dataSource={this.props.dataMember} 
                             // rowKey={`${Math.floor(Math.random( )*1000)}`}                            
                             rowKey={(r,i)=>(i)}
+                            scroll={{ x: 1000 }}
                         />
                     </Card>
                 </Spin>                

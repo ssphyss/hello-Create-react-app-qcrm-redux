@@ -170,16 +170,16 @@ class BorrowList extends React.Component{
                         </Link>
                         <Divider type="vertical" />
                         {/* <a href=""><Icon type="file-text" theme="outlined" /> 修改 {record.name}</a> */}
-                        <a 
+                        <span 
                             // onClick={(e)=> this.props.handleEdit(e, record.id)}
                             
-                            href='/' className='btn'><Icon type="file-text" theme="outlined" /> 客戶資料</a>
+                            className='btn'><Icon type="file-text" theme="outlined" /> 客戶資料</span>
                         <Divider type="vertical" />
-                        <a 
+                        <span 
                             // onClick={this.props.handleDelete}
                             // onClick={(e)=> this.props.handleDelete(e, record.id)}
-                            onClick={(e)=>this.handlePopConfirm(e, record.id)}
-                            href='/' className='btn'><Icon type="delete" theme="outlined" /> 刪除</a>
+                            // onClick={(e)=>this.handlePopConfirm(e, record.id)}
+                            className='btn'><Icon type="delete" theme="outlined" /> 刪除</span>
                     </span>
                 )
             }
@@ -233,7 +233,8 @@ class BorrowList extends React.Component{
                             // dataSource={dataBorrow} 
                             // dataSource={this.state.dataBorrow} 
                             dataSource={this.props.dataBorrow} 
-                            // pagination={false}                            
+                            // pagination={false}              
+                            scroll={{ x: 650 }}              
                         />
                     </Card>
                 </Spin>                

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import SiderBar from './../SiderBar';
-import Topbar from './../../QCRMComponents/TopBar';
+import { connect } from 'react-redux';
+import { actionCreators } from './store';
+import SiderBar from './SiderBar';
+import Topbar from './../QCRMComponents/TopBar';
 import { Layout, Icon } from 'antd';	
 import { Drawer } from 'antd';
 import { enquireScreen, unenquireScreen } from 'enquire-js';
-import './../../../resources/less/common.less'
-import './../../../resources/sass/all.scss'
-import './../index.scss'
-import { connect } from 'react-redux';
-import { actionCreators } from './../store';
+import './../../resources/less/common.less';
+import './../../resources/sass/all.scss';
+import './index.scss';
 
 const { Header, Content } = Layout;
 let isMobile = false;

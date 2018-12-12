@@ -27,12 +27,9 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "react-app-rewired build set PUBLIC_URL=/MSQCRM2018",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-app-rewired eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
@@ -43,5 +40,14 @@
   "devDependencies": {
     "react-app-rewire-scss": "^1.0.2",
     "react-app-rewired": "^1.6.2"
+  },
+  "homepage":"/MSQCRM2018/",
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules": {
+      "no-undef": "off",
+      "no-restricted-globals": "off",
+      "no-unused-vars": "off"
+    }
   }
 }

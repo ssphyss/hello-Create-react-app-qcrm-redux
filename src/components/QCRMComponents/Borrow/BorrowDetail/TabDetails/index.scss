@@ -1,6 +1,6 @@
 .form-container {
     margin-top: 30px;
-    width: 90%;
+    width: 100%;
 }
 /* =========================================
 // table-detail 借款明細表
@@ -71,7 +71,8 @@
 	.detail-table__info-head {
 		opacity: 0.6;
     	font-weight: 600;
-    	font-size: 1rem;
+		font-size: 1rem;
+		font-size: 20px;
 	}
 	.detail-table__info-content {
 	    font-size: 14px;
@@ -86,7 +87,7 @@
 	}
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:600px) {
 	.detail-table .detail-table__head {
 		.detail-table__head-left {
 			width: 100%;

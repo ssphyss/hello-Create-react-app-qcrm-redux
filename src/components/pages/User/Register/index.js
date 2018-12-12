@@ -1,11 +1,11 @@
 import React from 'react';
 import { Card, Form, Icon, Input, Button, Checkbox, Row, Col, Message, Modal } from 'antd';
-import logo from './../../../assets/logo.svg';
+import logo from './../../../../assets/logo.svg';
 import './../index.scss';
 import axios from 'axios';
 // 引入轉址功能
 // import { withRouter } from 'react-router-dom';
-
+import { Link/*, NavLink*/ } from 'react-router-dom';
 
 const FormItem = Form.Item;
 class Register extends React.Component {
@@ -163,6 +163,9 @@ class Register extends React.Component {
                                     type="primary" 
                                     className="login-form-button" 
                                     onClick={this.handleSubmit}>註冊</Button>
+                                    或 
+                                    {/* <a href="https://www.google.com.tw/">立即註冊 now!</a> */}
+                                    <Link to={'/User/login'}>登入 now!</Link>   
                                 </FormItem>
                             </Form>  
                         </Col>

@@ -404,6 +404,7 @@ class AdminMembers extends React.Component{
                             columns={columns}
                             dataSource={this.state.dataAdminMembers}
                             // dataSource={this.props.dataAdminMembers}
+                            scroll={{ x: 650 }}
                         />
                     </Card>
                 </Spin>

@@ -1,14 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store'  // 大store
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { HashRouter, /*BrowserRouter,*/ Route, Switch} from 'react-router-dom';
 
 import Example from './components/_ExampleComponents/Example';
 import Example2 from './components/_ExampleComponents/Example2';
-
-import Admin from './components/LayoutComponents/Admin';
-import Login from './pages/User/Login/';
-import Register from './pages/User/Register/';
+import Admin from './components/LayoutComponents';
+import Login from './components/pages/User/Login/';
+import Register from './components/pages/User/Register/';
 import Dashboard from './components/QCRMComponents/Dashboard';
 import LoginRecord from './components/QCRMComponents/Dashboard/LoginRecord';
 import Config from './components/QCRMComponents/Dashboard/Config';
@@ -23,7 +22,7 @@ export default class Routes extends React.Component{
     render(){
         return(
             <Provider store={store}>
-                <BrowserRouter>
+                <HashRouter>
                     <Switch>
                         <Route path='/login' exact render={ () => <div>這裡是login</div> }></Route>
                         <Route path='/register' exact render={ () => <div>這裡是register</div> }></Route>
@@ -53,10 +52,11 @@ export default class Routes extends React.Component{
 
                             {/* 會員管理 */}
                             <Route path="/member/list" exact component={MemberList} />
-                            <Route path="/member/list/profile/:id" exact component={MemberProfile} />                            
+                            {/* <Route path="/member/list/profile/:id" exact component={MemberProfile} /> */}
+                            <Route path="/member/list/profile" exact component={MemberProfile} />   
                         </Admin>
                     </Switch>
-                </BrowserRouter>
+                </HashRouter>
             </Provider>
         )
     }

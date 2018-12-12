@@ -15,20 +15,20 @@ class Dashboard extends React.Component{
                 <h1>總覽</h1>  
                 <div style={{marginBottom: '50px'}}>
                     <Row gutter={16}>
-                        <Col span={6}>
+                        <Col xs={24} sm={12} md={12} lg={6} xl={6}>
                             {/* <CardWrap /> */}                            
                             <AnalysisBorrow /> 
                         </Col>
 
-                        <Col span={6}>                    
+                        <Col xs={24} sm={12} md={12} lg={6} xl={6}>                    
                             <AnalysisLend />  
                         </Col>
 
-                        <Col span={6}>
+                        <Col xs={24} sm={12} md={12} lg={6} xl={6}>
                             <AnalysisVisit />      
                         </Col>
                         
-                        <Col span={6}>
+                        <Col xs={24} sm={12} md={12} lg={6} xl={6}>
                             <AnalysisDif />  
                         </Col>
                     </Row>

@@ -4,7 +4,8 @@ import axios from 'axios';
 // Ajax資料載入
 export const getListLend = () => {
     return async (dispatch) => {
-        const res = await axios.get('https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/lend/list')
+        // const res = await axios.get('https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/lend/list')
+        const res = await axios.get(`${process.env.PUBLIC_URL}/api/lend/lendList.json`)
         // let baseUrl= 'https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi' ;        
         // const res = await axios.get(baseUrl + '/dashboard/loginRecord')
         // const res = await axios.get(`${baseUrl}/dashboard/loginRecord`)

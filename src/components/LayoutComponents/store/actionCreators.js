@@ -32,7 +32,7 @@ export const getMenuAjax = () => {
     return async (dispatch) => {
         // console.log('讀取MenuAjax Action') 
         // const res = await axios.get('/.api/layout/finLists.json')
-        const res = await axios.get('/api/layout/menuConfig.json')
+        const res = await axios.get(`${process.env.PUBLIC_URL}/api/layout/menuConfig.json`)
             .catch(()=>{alert('err')})
         // console.log('後端傳回的Ajax結果', res.data);  // 到時候看後端傳回的
 

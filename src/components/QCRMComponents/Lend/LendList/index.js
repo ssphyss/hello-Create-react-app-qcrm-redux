@@ -22,13 +22,13 @@ class LendList extends React.Component{
                 title: '客戶名稱',
                 dataIndex: 'name',
                 key: 'name',
-                render: text => <a href="/">{text}</a>,
+                render: text => <span href="/">{text}</span>,
             }, 
             {
                 title: '投資編號',
                 dataIndex: 'lendNum',
                 key: 'lendNum',
-                render: text => <a href="/" className='typeTablelendNum'><span>INV</span>{text}</a>,
+                render: text => <span href="/" className='typeTablelendNum'><span>INV</span>{text}</span>,
                 sorter: (a, b) => a.lendNum - b.lendNum, 
             },
             {
@@ -117,21 +117,21 @@ class LendList extends React.Component{
                 key: 'action',
                 render: (text, record) => (
                     <span>
-                        <a 
+                        <span 
                             // onClick={(e)=> this.props.handleEditQuick(e, record.id)}
-                            href='/' className='btn'><Icon type="file-text" theme="outlined" /> 投資查詢</a>
+                           className='btn'><Icon type="file-text" theme="outlined" /> 投資查詢</span>
                         <Divider type="vertical" />
                         {/* <a href=""><Icon type="file-text" theme="outlined" /> 修改 {record.name}</a> */}
-                        <a 
+                        <span 
                             // onClick={(e)=> this.props.handleEdit(e, record.id)}
                             
-                            href='/' className='btn'><Icon type="file-text" theme="outlined" /> 客戶資料</a>
+                            className='btn'><Icon type="file-text" theme="outlined" /> 客戶資料</span>
                         <Divider type="vertical" />
-                        <a 
+                        <span 
                             // onClick={this.props.handleDelete}
                             // onClick={(e)=> this.props.handleDelete(e, record.id)}
-                            onClick={(e)=>this.handlePopConfirm(e, record.id)}
-                            href='/' className='btn'><Icon type="delete" theme="outlined" /> 刪除</a>
+                            // onClick={(e)=>this.handlePopConfirm(e, record.id)}
+                            href='/' className='btn'><Icon type="delete" theme="outlined" /> 刪除</span>
                     </span>
                 )
             }
@@ -155,7 +155,8 @@ class LendList extends React.Component{
                             columns={columns} 
                             // dataSource={dataLend} 
                             // dataSource={this.state.dataLend} 
-                            dataSource={this.props.dataLend}                             
+                            dataSource={this.props.dataLend}                 
+                            scroll={{ x: 650 }}            
                         />
                     </Card>
                 </Spin>                

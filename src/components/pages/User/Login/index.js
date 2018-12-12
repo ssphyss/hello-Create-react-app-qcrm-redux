@@ -1,11 +1,8 @@
 import React from 'react';
 import { Card, Form, Icon, Input, Button, Checkbox, Row, Col, Message, Modal } from 'antd';
-
-import logo from './../../../assets/logo.svg';
+import logo from './../../../../assets/logo.svg';
 import './../index.scss';
-// 引入Router
 import { Link/*, NavLink*/ } from 'react-router-dom';
-
 // 引入轉址功能
 // import { withRouter } from 'react-router-dom';
 import axios from 'axios';

@@ -53,13 +53,13 @@ class BorrowDetail extends React.Component{
                 title: '客戶名稱',
                 dataIndex: 'name',
                 key: 'name',
-                render: text => <a href="/">{text}</a>,
+                render: text => <span href="/">{text}</span>,
             }, 
             {
                 title: '貸款編號',
                 dataIndex: 'borrowNum',
                 key: 'borrowNum',
-                render: text => <a href="/" className='typeTableBorrowNum'><span>BD</span>{text}</a>,
+                render: text => <span href="/" className='typeTableBorrowNum'><span>BD</span>{text}</span>,
                 // sorter: (a, b) => a.borrowNum - b.borrowNum, 
             },
             {
@@ -143,16 +143,16 @@ class BorrowDetail extends React.Component{
                 render: (text, record) => (
                     <span>                       
                         {/* <a href=""><Icon type="file-text" theme="outlined" /> 修改 {record.name}</a> */}
-                        <a 
+                        <span 
                             // onClick={(e)=> this.props.handleEdit(e, record.id)}
                             
-                            href='/' className='btn'><Icon type="file-text" theme="outlined" /> 客戶資料</a>
+                            href='/' className='btn'><Icon type="file-text" theme="outlined" /> 客戶資料</span>
                         <Divider type="vertical" />
-                        <a 
+                        <span 
                             // onClick={this.props.handleDelete}
                             // onClick={(e)=> this.props.handleDelete(e, record.id)}
-                            onClick={(e)=>this.handlePopConfirm(e, record.id)}
-                            href='/' className='btn'><Icon type="delete" theme="outlined" /> 操作</a>
+                            // onClick={(e)=>this.handlePopConfirm(e, record.id)}
+                            href='/' className='btn'><Icon type="delete" theme="outlined" /> 操作</span>
                     </span>
                 )
             }
@@ -176,14 +176,15 @@ class BorrowDetail extends React.Component{
                                 </Tooltip>
                             </div>
                         }
-                        // style={{ width: 300 }}
+                        style={{ padding: 0 }}
                     >
                         <Table 
                             columns={columns} 
                             // dataSource={dataBorrow} 
                             dataSource={this.state.dataBorrow} 
                             // dataSource={this.props.dataBorrow}       
-                            pagination={false}                       
+                            pagination={false}      
+                            scroll={{ x: 1000 }}                 
                         />
 
                         <Tabs defaultActiveKey="1" onChange={callback} className='tabs tabsBorrow'>

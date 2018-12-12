@@ -17,7 +17,7 @@ export const getListLoginRecord = () => {
         // const res = await axios.get(baseUrl + '/dashboard/loginRecord')
         // const res = await axios.get(`${baseUrl}/dashboard/loginRecord`)
         
-        const res = await axios.get('./api/dashboard/loginRecord.json')
+        const res = await axios.get(`${process.env.PUBLIC_URL}/api/dashboard/loginRecord.json`)
         // const res = await axios.get('./api/finapis/finLists.json')
 
         // const res = await axios.get('https://easy-mock.com/mock/5be154988432fb26b49b1174/finapis/finList')
@@ -40,7 +40,9 @@ export const getListLoginRecord = () => {
 // Ajax資料載入 - 管理者帳號
 export const getListAdminMembers = () => {
     return async (dispatch) => {
-        const res = await axios.get('https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/dashboard/adminMembers')
+        // const res = await axios.get('https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/dashboard/adminMembers');
+        const res = await axios.get(`${process.env.PUBLIC_URL}/api/dashboard/adminMembers.json`)
+
         const data = res.data.result.data;
         const action = {
             type: constants.AJAX_LIST_ADMINMEMBERS,

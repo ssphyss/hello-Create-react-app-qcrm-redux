@@ -74,6 +74,7 @@ class LoginRecord extends React.Component{
                         <Table 
                             columns={columns} 
                             dataSource={this.props.dataLoginRecord} 
+                            scroll={{ x: 650 }}
                         />
                     </Card>
                 </Spin>                

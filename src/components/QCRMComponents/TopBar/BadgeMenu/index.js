@@ -43,21 +43,21 @@ class BadgeMenu extends React.Component{
                 </Menu.Item>
                 <Menu.Divider />
                 <Menu.Item> 
-                    <a href="/">
+                    <span>
                         <i className="topbar__dropdownMenuIcon icon-user" /> 
                         設定
-                    </a>
+                    </span>
                 </Menu.Item>
                 <Menu.Divider />
                 <Menu.Item>
-                    <a
+                    <span
                         href="https://www.google.com.tw/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="toFront mr-4 d-none d-sm-inline"
                     >
                         <Button type="primary">前台</Button>
-                    </a>
+                    </span>
                 </Menu.Item>
                 <Menu.Item>
                 <a href="/" onClick={logout}>
@@ -72,7 +72,7 @@ class BadgeMenu extends React.Component{
                     overlay={menu} 
                     trigger={['click']}
                 >
-                    <a className="ant-dropdown-link" href="/">
+                    <span className="ant-dropdown-link" href="/">
                         通知
                         {/* <Badge count={count}>
                             <Avatar className="topbar__avatar" shape="square" icon="notification" />
@@ -81,7 +81,7 @@ class BadgeMenu extends React.Component{
                         <Badge count={count}>
                             <Icon type="notification" />
                         </Badge>                    
-                    </a>
+                    </span>
                 </div>               
             </div>
         )

@@ -43,21 +43,21 @@ class ProfileMenu extends React.Component{
                 </Menu.Item>
                 <Menu.Divider />
                 <Menu.Item>
-                    <a href="/">
+                    <span>
                         <i className="topbar__dropdownMenuIcon icon-user" /> 
                         設定
-                    </a>
+                    </span>
                 </Menu.Item>
                 <Menu.Divider />
                 <Menu.Item>
-                    <a
+                    <span
                         href="https://www.google.com.tw/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="toFront mr-4 d-none d-sm-inline"
                     >
                         <Button type="primary">前台</Button>
-                    </a>
+                    </span>
                 </Menu.Item>
                 <Menu.Item>
                 <Link to="/user/login" onClick={logout}>
