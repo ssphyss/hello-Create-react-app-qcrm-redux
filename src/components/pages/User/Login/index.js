@@ -140,7 +140,8 @@ class Login extends React.Component {
                         // 成功就作轉址功能
                         setTimeout(() => {
                             // this.props.history.replace('/admin');
-                            this.props.history.replace('/dashboard/analysis');                            
+                            // this.props.history.replace('/dashboard/analysis'); 
+                            this.props.history.replace('/');                            
                         },500);
                     }else {
                         this.setState({

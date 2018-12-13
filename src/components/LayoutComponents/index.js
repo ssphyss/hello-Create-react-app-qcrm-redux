@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
 import SiderBar from './SiderBar';
-import Topbar from './../QCRMComponents/TopBar';
+import Topbar from './TopBar';
 import { Layout, Icon } from 'antd';	
 import { Drawer } from 'antd';
 import { enquireScreen, unenquireScreen } from 'enquire-js';

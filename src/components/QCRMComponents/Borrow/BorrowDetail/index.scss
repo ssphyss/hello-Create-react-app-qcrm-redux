@@ -1,0 +1,32 @@
+.auditResult {
+    
+    text-align: center;
+    background-color: #25a5a2;
+    color: #fff;
+    margin: 30px;
+    padding: 20px;
+    padding: 85px;
+    border-radius: 4px;
+    h2 {
+        font-size: 70px;
+        font-weight: 400;
+        padding: 36px;
+    }
+    p {
+        font-size: 20px;     
+    }
+    span {
+        font-size: 30px;
+        color: #eaff3b;
+    }
+    @media screen and (max-width:615px) {
+        h2 {
+            font-size: 40px;
+            padding: 42px 0;
+        }
+    }        
+    .ant-progress-circle.ant-progress-status-success .ant-progress-text {
+        color: #ffffff;
+    }
+
+}

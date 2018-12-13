@@ -27,3 +27,11 @@
     display: inline-block;
     margin-right: 5px;
 }
+
+.ant-card-extra span.more {
+    color: #5d5d5d;
+    border-bottom: 1px dashed #999;
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+}

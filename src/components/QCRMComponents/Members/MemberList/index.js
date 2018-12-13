@@ -7,7 +7,7 @@ import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
 
 // 引入Router
-import { /*Link, NavLink*/ } from 'react-router-dom';
+import { Link /*, NavLink*/ } from 'react-router-dom';
 
 
 // 引入轉址功能
@@ -125,7 +125,16 @@ class MemberList extends React.Component{
                 title: '客戶名稱',
                 dataIndex: 'memberName',
                 key: 'memberName',
-                render: text => <span href="/">{text}</span>,
+                // render: text => <span href="/">{text}</span>,
+                render: (text, record) => (
+                    <span>
+                        <Link       
+                            to='/member/list/profile' 
+                        >
+                            {text}
+                        </Link>                        
+                    </span>
+                )
             }, 
             {
                 title: '客戶帳號',
@@ -191,12 +200,13 @@ class MemberList extends React.Component{
                             className='btn btn--lend'><Icon type="file-text" theme="outlined" /> 投資</span>
                         <Divider type="vertical" />
                         {/* <a href=""><Icon type="file-text" theme="outlined" /> 修改 {record.name}</a> */}
-                        <span 
+                        <Link 
                             // onClick={(e)=> this.props.handleEdit(e, record.id)}                            
                             // href='/member/list/profile' 
+                            // to={`/member/list/profile/${record.id}`}
                             to={`/member/list/profile/${record.id}`}
                             className='btn'><Icon type="file-text" theme="outlined" /> 詳細資料
-                        </span>
+                        </Link>
                         <Divider type="vertical" />
                         <span 
                             // onClick={this.props.handleDelete}

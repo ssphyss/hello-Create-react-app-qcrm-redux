@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Fragment } from 'react';
-import { Card, Tooltip, Icon, Spin } from 'antd';
-import { Button, Form, Input, Radio, Select, InputNumber, DatePicker, Upload, message } from 'antd';
+import { Card, Tooltip, Icon, Spin, Notification, Modal } from 'antd';
+import { Button, Form, Input, Radio, Select, InputNumber, DatePicker, Upload, Message } from 'antd';
 
 // 引入
 import { connect } from 'react-redux';
@@ -9,7 +9,7 @@ import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
 
 // 引入Router
-import { /* Link, NavLink*/ } from 'react-router-dom';
+import { withRouter, Link, NavLink } from 'react-router-dom';
 import moment from 'moment';
 import axios from 'axios';
 
@@ -23,11 +23,11 @@ const Option = Select.Option;
 function beforeUpload(file) {
     const isJPG = file.type === 'image/jpeg' || file.type === 'image/png';
     if (!isJPG) {
-      message.error('只能上傳 JPG 或 png 檔案');
+      Message.error('只能上傳 JPG 或 png 檔案');
     }
     const isLt2M = file.size / 1024 / 1024 < 2;
     if (!isLt2M) {
-      message.error('圖檔需小於 2MB');
+      Message.error('圖檔需小於 2MB');
     }
     return isJPG && isLt2M;
 }
@@ -69,7 +69,7 @@ class MemberProfile extends React.Component{
             <div>
                 <Spin spinning={this.props.loading} size="large">
                     <Card 
-                        title='客戶 MemberProfile'
+                        title='客戶檔案'
                         extra={
                             <div>
                                 <a href="/">More</a>
@@ -108,7 +108,7 @@ class MemberProfile extends React.Component{
                             </FormItem>
 
 
-                            <FormItem label="聯絡地址">
+                            <FormItem label="聯絡地址" /*style={{display: 'inline-block'}}*/>
                                 {
                                     getFieldDecorator('memberCity', {
                                         initialValue: this.props.dataProfile.memberCity,
@@ -127,7 +127,9 @@ class MemberProfile extends React.Component{
                                         // </Select>
                                         this.cityRender()
                                     )
-                                }                            
+                                }     
+                                </FormItem>    
+                                <FormItem /*style={{display: 'inline-block'}}*/>                 
                                 {
                                     getFieldDecorator('memberDist', {
                                         initialValue: this.props.dataProfile.memberDist,
@@ -146,7 +148,9 @@ class MemberProfile extends React.Component{
                                         // </Select>
                                         this.distRender()
                                     )
-                                }         
+                                }    
+                                </FormItem>    
+                                <FormItem /*style={{display: 'inline-block'}}*/>       
                                 {
                                     getFieldDecorator('memberAddress', {
                                         initialValue: this.props.dataProfile.memberAddress,
@@ -326,7 +330,7 @@ class MemberProfile extends React.Component{
                             <FormItem>
                                 <Button 
                                 type="primary" 
-                                // onClick={this.handleSubmit}
+                                onClick={this.handleSubmit}
                                 >
                                 送出修改
                                 </Button>
@@ -336,6 +340,29 @@ class MemberProfile extends React.Component{
                 </Spin>                
             </div>
         )
+    }
+
+    handleSubmit =()=>{
+        this.props.handleloading();
+        setTimeout(() => {
+            this.props.handleloading(false);     
+            // Message.error('圖檔需小於 2MB');  
+            // Notification.open({
+            //     message: '成功了',
+            //     description: '您已更新資料',
+            //     icon: <Icon type="smile" style={{ color: '#108ee9' }} />,
+            //     centered: true
+            // });
+            Modal.success({
+                title: '更新成功',
+                content: '您的資料已經被覆蓋',
+                okText: '確認',
+                onOk: ()=>{
+                    // console.log('AA',this.props.location);
+                    this.props.history.push('/member/list')
+                }
+            });
+        }, 500);        
     }
 
     // 確認後端資料的地址 城市 已經得到後觸發， 再進行區域初始資料
@@ -413,13 +440,16 @@ class MemberProfile extends React.Component{
 
     handleDistIninRender = (selectCity) => {
         let dist = [];
-        for (let i = 0; i < this.addressJson.length; i++) {
-            const item = this.addressJson[i];
-            if(item.city === selectCity){
-                dist = item.area;
-                break;
+        if (this.addressJson){
+            for (let i = 0; i < this.addressJson.length; i++) {
+                const item = this.addressJson[i];
+                if(item.city === selectCity){
+                    dist = item.area;
+                    break;
+                }
             }
         }
+        
         if(this.state.selectCity !== ''){
             this.props.form.setFieldsValue({
                 memberDist: dist[0]['#text']
@@ -466,6 +496,8 @@ class MemberProfile extends React.Component{
             selectCity: val
         })
     }
+
+    
 }
 
 // 引入
@@ -492,7 +524,11 @@ const mapDispathToProps = (dispatch) => {
             const action = actionCreatorsAdmin.getLoading(loadingStatus);
             dispatch(action);      
         },       
-
+        // // 送出顯示loading
+        // handleloading(loadingStatus = true){            
+        //     const action = actionCreatorsAdmin.getLoading(loadingStatus);
+        //     dispatch(action);
+        // },
         // // Ajax資料載入
         // handleListMember(){    
         //     const action = actionCreators.getListMember();

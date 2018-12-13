@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Tooltip, Icon, Table, Spin, Divider } from 'antd';
+import { Card, Tooltip, Icon, Table, Spin, Divider, Modal } from 'antd';
 // 引入
 import { connect } from 'react-redux';
 import { actionCreators } from './../store';
@@ -58,14 +58,33 @@ class BorrowList extends React.Component{
                 title: '客戶名稱',
                 dataIndex: 'name',
                 key: 'name',
-                render: text => <a href="/">{text}</a>,
+                render: (text, record) => (
+                    <span>
+                        <Link       
+                            to='/member/list/profile' 
+                            // className='btn'
+                        >
+                            {/* <Icon type="file-text" theme="outlined" />  */}
+                            {text}
+                        </Link>                        
+                    </span>
+                )                
             }, 
             {
                 title: '貸款編號',
                 dataIndex: 'borrowNum',
                 key: 'borrowNum',
-                render: text => <a href="/" className='typeTableBorrowNum'><span>BD</span>{text}</a>,
+                // render: text => <a href="/" className='typeTableBorrowNum'><span>BD</span>{text}</a>,
                 sorter: (a, b) => a.borrowNum - b.borrowNum, 
+                render: (text, record) => (
+                    <span>
+                        <Link       
+                            to='/borrow/list/detail' 
+                        >
+                            {text}
+                        </Link>                        
+                    </span>
+                ) 
             },
             {
                 title: '狀態',
@@ -220,7 +239,10 @@ class BorrowList extends React.Component{
                         title='借款管理'
                         extra={
                             <div>
-                                <a href="/">More</a>
+                                <span 
+                                    className='more'
+                                    onClick={this.handleModal}
+                                >More</span>
                                 <Tooltip title="提示字">
                                     <span><Icon type="info-circle" theme="outlined" /> </span>                                
                                 </Tooltip>
@@ -248,8 +270,20 @@ class BorrowList extends React.Component{
         await this.props.handleListBorrow();
         setTimeout(() => {
             this.props.handleloading(false);       
-        }, 1200);
+        }, 600);
         
+    }
+
+    handleModal=()=>{
+        Modal.info({
+            title: '借款管理',
+            content: '借款管理說明',
+            okText: '知道了'
+            // cancelText: false
+            // onOk: ()=>{  
+            //     this.props.history.push('/member/list')
+            // }
+        });
     }
 }
 

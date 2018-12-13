@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Tooltip, Table, Spin, /*Row, Col,*/ Icon, Select, Input, Tag } from 'antd';
+import { Card, Tooltip, Table, Spin, /*Row, Col,*/ Icon, Select, Input, Tag, Modal } from 'antd';
 import { Popconfirm } from 'antd';
 // 引入
 import { connect } from 'react-redux';
@@ -301,8 +301,9 @@ class AdminMembers extends React.Component{
                                     >刪除</a>
                                 </Popconfirm> */}
                                 <Popconfirm
-                                    title="確定刪除?"
+                                    title="確定刪除嗎?"
                                     onConfirm={()=> this.handleDelete(record.id)}
+                                    cancelText="取消"
                                 >
                                     <a href='/'
                                         // onClick={(e) => this.handleDelete(e, record.id)}
@@ -391,8 +392,11 @@ class AdminMembers extends React.Component{
                         title='管理者帳號'
                         // extra={<a href="/">More</a>}
                         extra={
-                            <div>
-                                <a href="/">More</a>
+                            <div> 
+                                <span 
+                                    className='more'
+                                    onClick={this.handleModal}
+                                >More</span>
                                 <Tooltip title="提示字">
                                     <span><Icon type="info-circle" theme="outlined" /> </span>                                
                                 </Tooltip>
@@ -418,7 +422,17 @@ class AdminMembers extends React.Component{
 
         this.handlegetList();
     }
-
+    handleModal=()=>{
+        Modal.info({
+            title: '管理者帳號設定',
+            content: '管理者帳號設定說明，連結API',
+            okText: '知道了'
+            // cancelText: false
+            // onOk: ()=>{  
+            //     this.props.history.push('/member/list')
+            // }
+        });
+    }
     handlegetList = async () => {
         this.setState({
             loading: true

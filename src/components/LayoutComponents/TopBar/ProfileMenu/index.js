@@ -38,9 +38,9 @@ class ProfileMenu extends React.Component{
         const { /*userState,*/ logout } = this.props;
         const menu = (
             <Menu>
-                <Menu.Item>
-                    <span>Hello, userState.role</span>
-                </Menu.Item>
+                {/* <Menu.Item>
+                    <span>基本資料</span>
+                </Menu.Item> */}
                 <Menu.Divider />
                 <Menu.Item>
                     <span>
@@ -50,14 +50,14 @@ class ProfileMenu extends React.Component{
                 </Menu.Item>
                 <Menu.Divider />
                 <Menu.Item>
-                    <span
-                        href="https://www.google.com.tw/"
+                    <a
+                        href="http://physwork.pro/msq2018/index.html"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="toFront mr-4 d-none d-sm-inline"
                     >
                         <Button type="primary">前台</Button>
-                    </span>
+                    </a>
                 </Menu.Item>
                 <Menu.Item>
                 <Link to="/user/login" onClick={logout}>
@@ -80,10 +80,10 @@ class ProfileMenu extends React.Component{
                     overlay={menu} 
                     trigger={['click']}
                 >
-                    <a className="ant-dropdown-link" href="/">
-                        Hi, Admin
+                    <span className="ant-dropdown-link">
+                        Hello, Admin
                         <Avatar className="topbar__avatar" /* shape="square" size="large"*/ icon="user" />
-                    </a>
+                    </span>
                 </Dropdown>                
             </div>
         )

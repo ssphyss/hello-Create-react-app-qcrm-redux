@@ -6,9 +6,9 @@ class TabDetails extends React.Component{
         return(
             <div>
                 {/* TabDetails 還款明細 */}
-                <div className="form-container detail-table borrow">
+                <div className="form-container detail-table lend">
                     {/* <!-- 表頭區 --> */}
-                    <div className="detail-table__head">
+                    <div className="detail-table__head lend">
                         {/* <!-- 左 --> */}
                         <div className="detail-table__head-left">
                             {/* <!-- 信用評級 --> */}

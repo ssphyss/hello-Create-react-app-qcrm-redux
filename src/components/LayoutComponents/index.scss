@@ -68,7 +68,7 @@
 }
 // trigger 把官網提供的code貼上,去掉前面的前綴
 .trigger {
-  font-size: 28px;
+  font-size: 25px;
   line-height: 63px;
   padding: 0 20px;
   cursor: pointer;
@@ -157,7 +157,7 @@
   .trigger {
     position: absolute;
     top: 0;
-    z-index: 999999999;
+    z-index: 999;
     background-color: rgba(205, 228, 31, 0.54);
     background-color: rgb(26, 103, 102);
     background-color: #ffffff;
@@ -178,4 +178,19 @@
 
 .ant-table-thead > tr > th {
   font-size: 16px;
+}
+
+
+// Model 樣式
+.ant-modal-confirm .ant-modal-body {
+  background-color: #034a48;
+}
+.ant-modal-body .ant-modal-confirm-body .ant-modal-confirm-title {
+  color: #fff;
+}
+.ant-modal-body .ant-modal-confirm-body .ant-modal-confirm-content {
+  color: rgba(255, 255, 255, 0.7);
+}
+.ant-modal-confirm-body > .anticon {
+  color: #fff;
 }

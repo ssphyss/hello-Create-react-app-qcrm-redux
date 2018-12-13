@@ -2,8 +2,7 @@
     margin-top: 30px;
     width: 100%;
 }
-
-.form-container.borrow {
+.form-container.lend {
 	margin-top: 30px;
 	width: 80%;
 	border: 1px #cacaca dashed;
@@ -12,15 +11,19 @@
 // table-detail 借款明細表
 // ========================================= */
 
+
 .detail-table {
 	.table-loan__table th{
 	    line-height: inherit;
 	}
-	.detail-table__head {
+	.detail-table__head.lend {
 	    padding: 40px;
         // background-color: $color-brand1;
         background-color: #134240;
+		background-color: rgba(204, 230, 3, 0.3);
+		background-color: rgba(237, 241, 177, 0.3);
 		color: #fff;
+		color: #001312;
 		font-size: 0; 
 		.detail-table__head-left {
 			vertical-align: top;
@@ -94,8 +97,9 @@
 }
 
 @media screen and (max-width:600px) {
-	.detail-table .detail-table__head {
+	.detail-table .detail-table__head.lend {
 		background-color: #0c8882;
+		background-color: rgba(193, 214, 31, 0.2);
 		.detail-table__head-left {
 			width: 100%;
 			.detail-table__rank {

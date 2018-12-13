@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, /*Dropdown,*/ Badge, Icon, Button } from 'antd'
+import { Menu, Dropdown, Badge, Icon, Button } from 'antd'
 // 引入store
 import { connect } from 'react-redux';
 // import { actionCreators } from './../store';
@@ -50,16 +50,6 @@ class BadgeMenu extends React.Component{
                 </Menu.Item>
                 <Menu.Divider />
                 <Menu.Item>
-                    <span
-                        href="https://www.google.com.tw/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="toFront mr-4 d-none d-sm-inline"
-                    >
-                        <Button type="primary">前台</Button>
-                    </span>
-                </Menu.Item>
-                <Menu.Item>
                 <a href="/" onClick={logout}>
                     <i className="topbar__dropdownMenuIcon icmn-exit" /> Logout
                 </a>
@@ -68,6 +58,10 @@ class BadgeMenu extends React.Component{
         )
         return(
             <div className='topbar__dropdown topbar__dropdown--badge'>
+            <Dropdown 
+                    overlay={menu} 
+                    trigger={['click']}
+                >                
                 <div 
                     overlay={menu} 
                     trigger={['click']}
@@ -82,7 +76,8 @@ class BadgeMenu extends React.Component{
                             <Icon type="notification" />
                         </Badge>                    
                     </span>
-                </div>               
+                </div>
+                </Dropdown>                 
             </div>
         )
     }

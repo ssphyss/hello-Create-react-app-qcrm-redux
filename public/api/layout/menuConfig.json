@@ -62,6 +62,10 @@
 						"path":"/lend/list"
 					},
 					{
+						"title":"投資明細表",
+						"path":"/lend/list/detail"
+					},
+					{
 						"title":"投資訊息設定",
 						"path":"/lend/config"
 					}
@@ -75,6 +79,10 @@
 					{
 						"title":"客戶管理",
 						"path":"/member/list"
+					},
+					{
+						"title":"客戶檔案",
+						"path":"/member/list/profile"
 					}
 				]
 			},

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Card, Tooltip, Icon, Table, Spin } from 'antd';
+import { Card, Tooltip, Icon, Table, Spin, Modal } from 'antd';
 import { connect } from 'react-redux';
 import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
-
+// 引入Router
+import { Link/*, NavLink*/ } from 'react-router-dom';
 class LoginRecord extends React.Component{
 
     state = {
@@ -21,8 +22,19 @@ class LoginRecord extends React.Component{
                 title: '登入帳號',
                 dataIndex: 'name',
                 key: 'name',
-                render: text => <a href="/">{text}</a>,
+                // render: text => <a href="/">{text}</a>,
                 sorter: (a, b) => a.name.length - b.name.length,
+                render: (text, record) => (
+                    <span>
+                        <Link       
+                            to='/member/list/profile' 
+                            // className='btn'
+                        >
+                            {/* <Icon type="file-text" theme="outlined" />  */}
+                            {text}
+                        </Link>                        
+                    </span>
+                )  
             }, 
             {
                 title: '登入時間',
@@ -62,8 +74,11 @@ class LoginRecord extends React.Component{
                         title='登入者記錄'
                         // extra={<a href="/">More</a>}
                         extra={
-                            <div>
-                                <a href="/">More</a>
+                            <div>     
+                                <span 
+                                    className='more'
+                                    onClick={this.handleModal}
+                                >More</span>
                                 <Tooltip title="提示字">
                                     <span><Icon type="info-circle" theme="outlined" /> </span>                                
                                 </Tooltip>
@@ -81,7 +96,17 @@ class LoginRecord extends React.Component{
             </div>
         )        
     }
-
+    handleModal=()=>{
+        Modal.info({
+            title: '使用者紀錄',
+            content: '使用者紀錄說明，紀錄當天最新',
+            okText: '知道了'
+            // cancelText: false
+            // onOk: ()=>{  
+            //     this.props.history.push('/member/list')
+            // }
+        });
+    }
     // componentDidMount(){        
     //     this.props.handleloading();
     //     this.props.handlegetList();
@@ -93,7 +118,7 @@ class LoginRecord extends React.Component{
         await this.props.handlegetList();
         setTimeout(() => {
             this.props.handleloading(false);       
-        }, 1200);
+        }, 600);
         
     }
 

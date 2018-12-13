@@ -203,7 +203,7 @@ class Register extends React.Component {
                         Message.success(`${userInfo.userName}恭喜你已經通過驗證,密碼為${userInfo.userPwd}`);
                         
                         setTimeout(() => {                                
-                            this.props.history.replace('/admin');
+                            this.props.history.replace('/');
                         }, 1000);
                    }else {
                         this.setState({

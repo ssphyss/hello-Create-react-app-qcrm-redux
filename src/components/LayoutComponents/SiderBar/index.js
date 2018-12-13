@@ -111,7 +111,11 @@ class SiderBar extends React.Component{
                         <Menu.Item key={item.path}>
                             {/* <Icon type="inbox" /> */}
                             {/* <span>{item.title}</span> */}
-                            <NavLink to={item.path}>
+                            <NavLink 
+                                to={item.path} 
+                                // exact
+                                // activeClassName={'hdjshjk'}
+                            >
                                 {/* <Icon type={item.icon} /> */}
                                 {/* <Icon type='user' /> */}
                                 {hasType ? <Icon type={hasType} /> : null}

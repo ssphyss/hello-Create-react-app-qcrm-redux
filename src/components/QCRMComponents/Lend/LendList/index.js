@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
 // import PropTypes from 'prop-types'
+// 引入Router
+import { Link/*, NavLink*/ } from 'react-router-dom';
 
 class LendList extends React.Component{
 
@@ -28,8 +30,17 @@ class LendList extends React.Component{
                 title: '投資編號',
                 dataIndex: 'lendNum',
                 key: 'lendNum',
-                render: text => <span href="/" className='typeTablelendNum'><span>INV</span>{text}</span>,
+                // render: text => <span href="/" className='typeTablelendNum'><span>INV</span>{text}</span>,
                 sorter: (a, b) => a.lendNum - b.lendNum, 
+                render: (text, record) => (
+                    <span>
+                        <Link       
+                            to='/borrow/list/detail' 
+                        >
+                            {text}
+                        </Link>                        
+                    </span>
+                ) 
             },
             {
                 title: '狀態',
