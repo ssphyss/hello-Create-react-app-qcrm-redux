@@ -5,10 +5,11 @@ import {fromJS, /**/ Map} from 'immutable';
 const defaultState = Map(
     {
         dataPermission: [],
-        isRoleVisible: false,
-        submitOk: false,
-        isPermVisible: false,
-        roleSet: {}            //role_name, status, menus
+        isRoleVisible: false, //角色顯示
+        submitOk: false, //角色送出
+        isPermVisible: false, //權限顯示
+        roleSet: {},            //role_name, status, menus, id
+        roleSetMenus: []
     }
 )
 
@@ -74,12 +75,36 @@ export default (state = defaultState, action) => {
     // 選擇項目  
     if (action.type === constants.SELECT_ITEM) {   
         console.log('action.payload', action.payload)
-        return state.set('roleSet', action.payload);
+        return state.set('roleSet', action.payload).set('roleSetMenus', action.payload.menus);
     } 
     // 關閉彈框  
     if (action.type === constants.MODAL_CANCLE_PERM) {   
         return state.set('isPermVisible', false);
     } 
+
+    if(action.type === constants.PATCH_MENU_INFO) {
+        // console.log('reducer', action.payload);
+        let roleSetMenus = state.get('roleSetMenus');
+        
+        roleSetMenus = action.payload.menus;
+        // console.log('roror', roleSetMenus);
+        return state.set('roleSetMenus', roleSetMenus);
+    }
+
+    if(action.type === constants.SAVE_ROLE_SET){
+        let roleSet = state.get('roleSet');
+        let roleSetMenus = state.get('roleSetMenus');
+        let dataPermission = state.get('dataPermission');
+        dataPermission.map((item) => {
+            if(item.id === roleSet.id){
+                item.status = roleSet.status;
+                item.menus = roleSetMenus;
+            }
+            return item;
+        })
+        console.log('reducer',roleSet, roleSetMenus);
+        return state.set('dataPermission', dataPermission).set('isPermVisible', false);
+    }
 
     return state;
 }

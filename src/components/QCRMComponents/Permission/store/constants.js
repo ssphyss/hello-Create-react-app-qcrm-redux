@@ -9,3 +9,5 @@ export const MODAL_CANCLE = 'permission/MODAL_CANCLE';
 export const PERM_VISIBLE = 'permission/PERM_VISIBLE';
 export const SELECT_ITEM = 'permission/SELECT_ITEM';
 export const MODAL_CANCLE_PERM = 'permission/MODAL_CANCLE_PERM';
+export const PATCH_MENU_INFO = 'permission/PATCH_MENU_INFO';
+export const SAVE_ROLE_SET = 'permission/SAVE_ROLE_SET';
