@@ -10,7 +10,8 @@ const defaultState = Map(
         visible: true,    
         collapsed: false,  
         // menuTreeNode: '',
-        menuAjax: []
+        menuAjax: [],
+        selectedKey: ''
     }
 )
 
@@ -52,6 +53,14 @@ export default (state = defaultState, action) => {
         // console.log('讀取MenuAjax? Reducer：', action.data)
         return state.merge({
             menuAjax: action.data,
+        })
+    }
+
+    // 釘住功能
+    if(action.type === constants.CHANGE_SELECT_MENU_ITEM) {
+        console.log('reducer', action.payload);
+        return state.merge({
+            selectedKey: action.payload
         })
     }
     return state;

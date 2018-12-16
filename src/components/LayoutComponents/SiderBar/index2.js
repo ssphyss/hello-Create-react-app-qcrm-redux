@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Icon } from 'antd';	
+import { Layout, Menu, Icon } from 'antd'; 
 import logo from './../../../assets/logo.svg';
 // 1.改用Ajax
 // import menuConfig from './../config/menuConfig.js';
@@ -17,6 +17,7 @@ const SubMenu = Menu.SubMenu;
 class SiderBar extends React.Component{    
 
     render(){
+
         // console.log('------ ▉▉▉▉▉▉▉▉ Siderbar ▉▉▉▉▉▉▉▉ ------')
         // console.log('this.props.collapsed---',this.props.collapsed)
         // console.log('menuConfig', menuConfig)        
@@ -27,7 +28,8 @@ class SiderBar extends React.Component{
                 collapsed={this.props.collapsed}
                 breakpoint="lg"
                 width={256}
-                className='sider'							
+                className='sider'       
+
             >
                 {/* <div className="logo" /> */}
                 <Link to="/">
@@ -36,12 +38,13 @@ class SiderBar extends React.Component{
                         {/* <h1>Money SQ</h1> */}
                     </div>
                 </Link>
-                {/* <div className='logo' key="logo">	
-                    <a href='./'><img src={logo} alt="logo" /></a>                    					
+                {/* <div className='logo' key="logo"> 
+                    <a href='./'><img src={logo} alt="logo" /></a>                         
                 </div> */}
                 <Menu
                     // defaultSelectedKeys={['1']}
                     selectedKeys={[this.props.selectedKey]}
+                    // defaultSelectedKeys={[this.state.selectedKey]}
                     defaultOpenKeys={['sub1']}
                     mode="inline"
                     theme="dark"
@@ -88,7 +91,8 @@ class SiderBar extends React.Component{
             this.props.handleMenuAjax();
         }
 
-        //////////////////////////////////選單釘住//////////////////////////////////////
+
+
         componentWillReceiveProps(nextProps){
             console.log('siderbar', nextProps.selectedKey);          
             if(this.props.location.pathname.indexOf('/member/list/profile') !== -1){
@@ -119,21 +123,21 @@ class SiderBar extends React.Component{
                 }, 10);
             }
         }
-        ////////////////////////////////////////////////////////////////////////////////////
+
         // 5.
+
         renderMenu = (menuList)=>{
             // console.log('menuList', menuList)
             return menuList.map((item)=>{
-                ///////////釘住功能////////////
                 this.changeSelectKey(item);
-
                 let hasType = ''
                 if (item.icon){
                     // console.log('item.icon',item.icon)
                     hasType = item.icon
                 }
+
                 if (item.children){
-                    return(                    
+                    return(                  
                         <SubMenu key={item.path} title={<span>
                             {/* <Icon type={item.icon} /> */}
                             {hasType ? <Icon type={hasType} /> : null}
@@ -143,9 +147,14 @@ class SiderBar extends React.Component{
                             {this.renderMenu(item.children)}
                         </SubMenu>
                     )                
+
                 }else {
+                    // console.log('pathname',this.props.location.pathname);
+                    // console.log('item',item.path);
                     return(
-                        <Menu.Item key={item.path}>
+                        <Menu.Item 
+                            key={item.path}
+                        >
                             {/* <Icon type="inbox" /> */}
                             {/* <span>{item.title}</span> */}
                             <NavLink 
@@ -159,7 +168,7 @@ class SiderBar extends React.Component{
                                 <span>{item.title}</span>   
                             </NavLink>
                         </Menu.Item>
-                    )            
+                    )  
                 }
             })
         }        
@@ -168,8 +177,8 @@ class SiderBar extends React.Component{
 // 引入
 const mapStateToProps = (state) => {
     return {
-		isMobile: state.getIn(['admin','isMobile']),
-		visible: state.getIn(['admin','visible']),
+        isMobile: state.getIn(['admin','isMobile']),
+        visible: state.getIn(['admin','visible']),
         collapsed: state.getIn(['admin','collapsed']),
         // menuTreeNode: state.getIn(['admin','menuTreeNode']),
         // 4.
@@ -179,7 +188,10 @@ const mapStateToProps = (state) => {
     }
 }
 
+
+
 // 引入
+
 const mapDispathToProps = (dispatch) => {
     return {
         // 3.
@@ -188,12 +200,13 @@ const mapDispathToProps = (dispatch) => {
             const action = actionCreators.getMenuAjax();
             dispatch(action);
         },
+
         changeSelectMenuItem(key){
             const action = actionCreators.changeSelectMenuItem(key);
             dispatch(action);
         }
     }
 }
+
 // export default Admin;
-// export default connect(mapStateToProps, mapDispathToProps)(SiderBar);
 export default connect(mapStateToProps, mapDispathToProps)(withRouter(SiderBar));

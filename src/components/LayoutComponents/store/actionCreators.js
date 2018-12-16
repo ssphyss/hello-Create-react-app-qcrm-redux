@@ -48,3 +48,11 @@ export const getMenuAjax = () => {
         
     }
 }
+
+export const changeSelectMenuItem = (key) => {
+    console.log('actio create',key);
+    return {
+        type: constants.CHANGE_SELECT_MENU_ITEM,
+        payload: key
+    }  
+}
