@@ -6,7 +6,7 @@ import { Form, Icon, Button, Input, Switch, Upload } from 'antd';
 // import { TextArea } from 'antd';
 // 引入
 import { connect } from 'react-redux';
-import { actionCreators } from './../store';
+// import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
 
 // const TabPane = Tabs.TabPane;

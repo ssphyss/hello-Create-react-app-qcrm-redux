@@ -26,8 +26,8 @@ export const getListMember = () => {
 export const getProfileMember = (id) => {
     return async (dispatch) => {
         
-        const res = await axios.get(`https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/memberProfile/${id}`)
-        // const res = await axios.get('/api/member/memberProfile.json')
+        // const res = await axios.get(`https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/memberProfile/${id}`)
+        const res = await axios.get('/api/member/memberProfile.json')
 
         // console.log('id',id)
 
@@ -41,5 +41,14 @@ export const getProfileMember = (id) => {
         setTimeout(() => {
             dispatch(action);     
         }, 500);
+    }
+}
+
+// 刪除
+export const getDeleteItemAction = (id) => {
+    // console.log('來自ac的')
+    return {
+        type: constants.DELETE_TODO_ITEM,
+        id
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Tooltip, Icon, Table, Spin, Divider } from 'antd';
+import { Card, Tooltip, Icon, Table, Spin, Divider, Popconfirm } from 'antd';
 
 // 引入
 import { connect } from 'react-redux';
@@ -15,106 +15,106 @@ import { Link /*, NavLink*/ } from 'react-router-dom';
 
 class MemberList extends React.Component{
     state = {
-        dataMember: [ {
-            "key": "Fg2",
-            "id": "5B",
-            "memberName": "11孟平",
-            "memberAccount": "Susan Clark",
-            "memberStatus": "3",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "d.yrimnvlc@wlhe.gt",
-            "memberRegister": "1990-06-24"
-          },
-          {
-            "key": "*e",
-            "id": "E#$",
-            "memberName": "蒋超",
-            "memberAccount": "Mary Moore",
-            "memberStatus": "1",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "e.xvix@rxrl.nz",
-            "memberRegister": "1997-03-06"
-          },
-          {
-            "key": "KZ[x",
-            "id": "Yb",
-            "memberName": "锺超",
-            "memberAccount": "Ronald Wilson",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "q.ukyneh@kdyxxyu.ph",
-            "memberRegister": "2011-05-31"
-          },
-          {
-            "key": "8tz",
-            "id": "(",
-            "memberName": "韩强",
-            "memberAccount": "Patricia Thomas",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "i.kipu@nkdnfww.bn",
-            "memberRegister": "1981-04-27"
-          },
-          {
-            "key": "f!D#",
-            "id": "yue",
-            "memberName": "程明",
-            "memberAccount": "Daniel Williams",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "x.ggprzsl@sihv.ms",
-            "memberRegister": "1994-11-23"
-          },
-          {
-            "key": "m",
-            "id": "ukx",
-            "memberName": "常敏",
-            "memberAccount": "Thomas Walker",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "v.ilwwjeytq@trdelemyt.asia",
-            "memberRegister": "1994-10-19"
-          },
-          {
-            "key": "gKu",
-            "id": "m$",
-            "memberName": "梁杰",
-            "memberAccount": "David Lee",
-            "memberStatus": "3",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "m.iwt@hlvgjwn.ke",
-            "memberRegister": "1996-03-09"     
-          },
-          {
-            "key": "bxPd",
-            "id": "&6",
-            "memberName": "邱霞",
-            "memberAccount": "Timothy Hernandez",
-            "memberStatus": "1",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "a.dajeveuh@exoil.aero",
-            "memberRegister": "1982-05-30"
-          },
-          {
-            "key": "v2f",
-            "id": "pkWA",
-            "memberName": "于娜",
-            "memberAccount": "Sarah Harris",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "u.ddvmyy@mfsy.ci",
-            "memberRegister": "1980-03-30"
-          },
-          {
-            "key": "(P0C",
-            "id": "ym",
-            "memberName": "邓超",
-            "memberAccount": "Michelle Young",
-            "memberStatus": "2",
-            "memberPassword": "★★★★★★★★★",
-            "memberEmail": "w.uttnh@anjft.ad",
-            "memberRegister": "2006-08-02"   
-          }]
+        // dataMember: [ {
+        //     "key": "Fg2",
+        //     "id": "5B",
+        //     "memberName": "11孟平",
+        //     "memberAccount": "Susan Clark",
+        //     "memberStatus": "3",
+        //     "memberPassword": "★★★★★★★★★",
+        //     "memberEmail": "d.yrimnvlc@wlhe.gt",
+        //     "memberRegister": "1990-06-24"
+        //   },
+        //   {
+        //     "key": "*e",
+        //     "id": "E#$",
+        //     "memberName": "蒋超",
+        //     "memberAccount": "Mary Moore",
+        //     "memberStatus": "1",
+        //     "memberPassword": "★★★★★★★★★",
+        //     "memberEmail": "e.xvix@rxrl.nz",
+        //     "memberRegister": "1997-03-06"
+        //   },
+        //   {
+        //     "key": "KZ[x",
+        //     "id": "Yb",
+        //     "memberName": "锺超",
+        //     "memberAccount": "Ronald Wilson",
+        //     "memberStatus": "2",
+        //     "memberPassword": "★★★★★★★★★",
+        //     "memberEmail": "q.ukyneh@kdyxxyu.ph",
+        //     "memberRegister": "2011-05-31"
+        //   },
+        //   {
+        //     "key": "8tz",
+        //     "id": "(",
+        //     "memberName": "韩强",
+        //     "memberAccount": "Patricia Thomas",
+        //     "memberStatus": "2",
+        //     "memberPassword": "★★★★★★★★★",
+        //     "memberEmail": "i.kipu@nkdnfww.bn",
+        //     "memberRegister": "1981-04-27"
+        //   },
+        //   {
+        //     "key": "f!D#",
+        //     "id": "yue",
+        //     "memberName": "程明",
+        //     "memberAccount": "Daniel Williams",
+        //     "memberStatus": "2",
+        //     "memberPassword": "★★★★★★★★★",
+        //     "memberEmail": "x.ggprzsl@sihv.ms",
+        //     "memberRegister": "1994-11-23"
+        //   },
+        //   {
+        //     "key": "m",
+        //     "id": "ukx",
+        //     "memberName": "常敏",
+        //     "memberAccount": "Thomas Walker",
+        //     "memberStatus": "2",
+        //     "memberPassword": "★★★★★★★★★",
+        //     "memberEmail": "v.ilwwjeytq@trdelemyt.asia",
+        //     "memberRegister": "1994-10-19"
+        //   },
+        //   {
+        //     "key": "gKu",
+        //     "id": "m$",
+        //     "memberName": "梁杰",
+        //     "memberAccount": "David Lee",
+        //     "memberStatus": "3",
+        //     "memberPassword": "★★★★★★★★★",
+        //     "memberEmail": "m.iwt@hlvgjwn.ke",
+        //     "memberRegister": "1996-03-09"     
+        //   },
+        //   {
+        //     "key": "bxPd",
+        //     "id": "&6",
+        //     "memberName": "邱霞",
+        //     "memberAccount": "Timothy Hernandez",
+        //     "memberStatus": "1",
+        //     "memberPassword": "★★★★★★★★★",
+        //     "memberEmail": "a.dajeveuh@exoil.aero",
+        //     "memberRegister": "1982-05-30"
+        //   },
+        //   {
+        //     "key": "v2f",
+        //     "id": "pkWA",
+        //     "memberName": "于娜",
+        //     "memberAccount": "Sarah Harris",
+        //     "memberStatus": "2",
+        //     "memberPassword": "★★★★★★★★★",
+        //     "memberEmail": "u.ddvmyy@mfsy.ci",
+        //     "memberRegister": "1980-03-30"
+        //   },
+        //   {
+        //     "key": "(P0C",
+        //     "id": "ym",
+        //     "memberName": "邓超",
+        //     "memberAccount": "Michelle Young",
+        //     "memberStatus": "2",
+        //     "memberPassword": "★★★★★★★★★",
+        //     "memberEmail": "w.uttnh@anjft.ad",
+        //     "memberRegister": "2006-08-02"   
+        //  }]
     }
     
     render(){
@@ -207,12 +207,16 @@ class MemberList extends React.Component{
                             to={`/member/list/profile/${record.id}`}
                             className='btn'><Icon type="file-text" theme="outlined" /> 詳細資料
                         </Link>
-                        <Divider type="vertical" />
-                        <span 
-                            // onClick={this.props.handleDelete}
-                            // onClick={(e)=> this.props.handleDelete(e, record.id)}
-                            // onClick={(e)=>this.handlePopConfirm(e, record.id)}
-                            href='/' className='btn'><Icon type="delete" theme="outlined" /> 刪除</span>
+                        <Divider type="vertical" />                        
+                        <Popconfirm
+                            title="確定刪除嗎?"
+                            onConfirm={()=> this.props.handleDelete(record.id)}
+                            cancelText="取消"
+                        >
+                            <span className='btn'>
+                                <Icon type="delete" theme="outlined" />刪除
+                            </span>
+                        </Popconfirm>
                     </span>
                 )
             }
@@ -283,13 +287,18 @@ const mapDispathToProps = (dispatch) => {
             // console.log('有嗎')
             const action = actionCreatorsAdmin.getLoading(loadingStatus);
             dispatch(action);      
-        },       
-
+        },     
         // Ajax資料載入
         handleListMember(){    
             const action = actionCreators.getListMember();
             dispatch(action);
-        }        
+        },
+        // 刪除
+        handleDelete(id){
+            // console.log('id',id);
+            const action = actionCreators.getDeleteItemAction(id);
+            dispatch(action);   
+        }     
     }
 }
 

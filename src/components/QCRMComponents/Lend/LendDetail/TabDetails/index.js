@@ -19,7 +19,7 @@ class TabDetails extends React.Component{
                             {/* <!-- 借款人資訊 --> */}
                             <div className="detail-table__profile">
                                 <div className="detail-table__info">
-                                    <p className="detail-table__info-head">借款人姓名</p>
+                                    <p className="detail-table__info-head">投資人姓名</p>
                                     <span className="detail-table__info-content">TESTING</span>
                                 </div>
                                 <div className="detail-table__info">
@@ -33,15 +33,15 @@ class TabDetails extends React.Component{
                             {/* <!-- 貨款日期 / 還款方法 / 貨款金額 --> */}
                             <div className="detail-table__info-row">
                                 <div className="detail-table__info">
-                                    <p className="detail-table__info-head">貨款日期</p>
+                                    <p className="detail-table__info-head">投資日期</p>
                                     <span className="detail-table__info-content">2016/11/23</span>
                                 </div>
                                 <div className="detail-table__info">
-                                    <p className="detail-table__info-head">還款方法</p>
+                                    <p className="detail-table__info-head">計息方法</p>
                                     <span className="detail-table__info-content">本利攤</span>
                                 </div>
                                 <div className="detail-table__info">
-                                    <p className="detail-table__info-head">貨款金額 (TWD$)</p>
+                                    <p className="detail-table__info-head">投資金額 (TWD$)</p>
                                     <span className="detail-table__info-content">10,000</span>
                                 </div>
                             </div>
@@ -65,12 +65,12 @@ class TabDetails extends React.Component{
                             <thead>
                                 <tr>
                                     <th>期數</th>
-                                    <th>供款日期</th>
+                                    <th>投資日期</th>
                                     <th>承上結餘</th>
                                     <th>本金數目</th>
                                     <th>利息數目</th>		                   
-                                    <th>供款數目</th>
-                                    <th>貨款結餘</th>
+                                    <th>投資數目</th>
+                                    <th>投資結餘</th>
                                 </tr>
                             </thead>
                             <tbody>

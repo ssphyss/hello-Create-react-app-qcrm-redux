@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Upload, Modal, Message } from 'antd';
+import {  /* Icon,Upload, Message*/ } from 'antd';
 import './index.scss';
 import pic1 from './../../../../../assets/upload/id001-1.jpg';
 import pic2 from './../../../../../assets/upload/id001-2.jpg';
@@ -7,17 +7,17 @@ import pic3 from './../../../../../assets/upload/id002.jpg';
 
 
 // ========================圖片(上傳前驗證)=========================
-function beforeUpload(file) {
-    const isJPG = file.type === 'image/jpeg' || file.type === 'image/png';
-    if (!isJPG) {
-      Message.error('只能上傳 JPG 或 png 檔案');
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      Message.error('圖檔需小於 2MB');
-    }
-    return isJPG && isLt2M;
-}
+// function beforeUpload(file) {
+//     const isJPG = file.type === 'image/jpeg' || file.type === 'image/png';
+//     if (!isJPG) {
+//       Message.error('只能上傳 JPG 或 png 檔案');
+//     }
+//     const isLt2M = file.size / 1024 / 1024 < 2;
+//     if (!isLt2M) {
+//       Message.error('圖檔需小於 2MB');
+//     }
+//     return isJPG && isLt2M;
+// }
 // img = info.file.originFileObj
 function getBase64(img, callback) {
     // 讀取一張圖片,下面三行必寫
@@ -34,13 +34,13 @@ class TabAttachment extends React.Component{
         loadingPhoto: false    
     }
     render(){
-        const imageUrl = this.state.imageUrl;
-        const uploadButton = (
-            <div>
-                <Icon type={this.state.loadingPhoto ? 'loading' : 'plus'} />
-                <div className="ant-upload-text">上傳照片</div>
-            </div>
-        ); 
+        // const imageUrl = this.state.imageUrl;
+        // const uploadButton = (
+        //     <div>
+        //         <Icon type={this.state.loadingPhoto ? 'loading' : 'plus'} />
+        //         <div className="ant-upload-text">上傳照片</div>
+        //     </div>
+        // ); 
         return(
             <div>
                 {/* TabAttachment 附件相關 */}
@@ -64,7 +64,7 @@ class TabAttachment extends React.Component{
                                     <label>身份證正面上傳</label>
                                     <input type="file" name="" />
                                 </div>
-                                <Upload
+                                {/* <Upload
                                     name="avatar"
                                     listType="picture-card"
                                     className="avatar-uploader"
@@ -76,7 +76,7 @@ class TabAttachment extends React.Component{
                                     // onChange={()=>this.handleChange()}
                                 >
                                     {imageUrl ? <img src={imageUrl} alt="avatar" /> : uploadButton}
-                                </Upload>
+                                </Upload> */}
                                 <div className="upload-container">                                   
                                     <div className="upload-file">
                                         <div className="upload-file__desc">
@@ -84,9 +84,9 @@ class TabAttachment extends React.Component{
                                         </div>
                                         <div className='figure'>
                                             <img className="vv" src={pic1} alt='pic1'/>                                            
-                                            <div className="upload-delate">
+                                            {/* <div className="upload-delate">
                                                 <a href="/" className="btn btn-delate">刪除</a>
-                                            </div>
+                                            </div> */}
                                         </div>
                                         <span>螢幕快照 2017-02-24 下午12.54.03.png</span>
                                     </div>                                    
@@ -109,9 +109,9 @@ class TabAttachment extends React.Component{
                                         <div className='figure'>
                                             {/* <img src="images/upload/id001-2.jpg" />  */}
                                             <img className="vv" src={pic2} alt='pic2'/>                                             
-                                            <div className="upload-delate">
+                                            {/* <div className="upload-delate">
                                                 <a href="/" className="btn btn-delate">刪除</a>
-                                            </div>                                            
+                                            </div>                                             */}
                                         </div>
                                         <span>螢幕快照 2017-02-24 下午12.54.03.png</span>
                                     </div>
@@ -135,9 +135,9 @@ class TabAttachment extends React.Component{
                                         <div className='figure'>
                                             {/* <img src="images/upload/id002.jpg" />  */}
                                             <img className="vv" src={pic3} alt='pic3'/>    
-                                            <div className="upload-delate">
+                                            {/* <div className="upload-delate">
                                                 <a href="/" className="btn btn-delate">刪除</a>
-                                            </div>
+                                            </div> */}
                                         </div>
                                         <span>螢幕快照 2017-02-24 下午12.54.03.png</span>
                                     </div>
@@ -160,9 +160,9 @@ class TabAttachment extends React.Component{
                                         </div>
                                         <div className='figure'>
                                             {/* <img /> */}
-                                            <div className="upload-delate">
+                                            {/* <div className="upload-delate">
                                                 <a href="/" className="btn btn-delate">刪除</a>
-                                            </div>
+                                            </div> */}
                                         </div>
                                         <span></span>
                                     </div>

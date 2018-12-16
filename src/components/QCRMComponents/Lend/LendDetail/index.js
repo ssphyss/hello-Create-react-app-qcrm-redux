@@ -7,7 +7,7 @@ import { Card, Tooltip, Icon, Table, Spin, Divider, Tabs, Modal, Progress } from
 import { connect } from 'react-redux';
 import { Link/*, NavLink*/ } from 'react-router-dom';
 // import { actionCreators } from './../store';
-// import { actionCreators as actionCreatorsAdmin } from './../../../layout/store';
+import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
 // import PropTypes from 'prop-types'
 import './index.scss';
 
@@ -224,15 +224,14 @@ class LendDetail extends React.Component{
         )
     }
 
-    // async componentDidMount(){        
-    //     this.props.handleloading();        
+    async componentDidMount(){        
+        this.props.handleloading();      
 
-    //     await this.props.handleListBorrow();
-    //     setTimeout(() => {
-    //         this.props.handleloading(false);       
-    //     }, 1200);
+        setTimeout(() => {
+            this.props.handleloading(false);       
+        }, 400);
         
-    // }
+    }
 
     handleModal=()=>{
         Modal.info({
@@ -260,11 +259,11 @@ const mapStateToProps = (state) => {
 const mapDispathToProps = (dispatch) => {
     return {
 
-        // // Loading加載
-        // handleloading(loadingStatus = true){
-        //     const action = actionCreatorsAdmin.getLoading(loadingStatus);
-        //     dispatch(action);      
-        // },       
+        // Loading加載
+        handleloading(loadingStatus = true){
+            const action = actionCreatorsAdmin.getLoading(loadingStatus);
+            dispatch(action);      
+        },       
 
         // // Ajax資料載入
         // handleListBorrow(){    

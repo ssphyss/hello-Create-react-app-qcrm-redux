@@ -1,13 +1,10 @@
 import React from 'react';
-import { Card, Tooltip, Icon, Table, Spin, Divider, Modal } from 'antd';
-// 引入
+import { Card, Tooltip, Icon, Table, Spin, Divider, Modal, Popconfirm } from 'antd';
 import { connect } from 'react-redux';
 import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
-// import PropTypes from 'prop-types'
-
-// 引入Router
 import { Link/*, NavLink*/ } from 'react-router-dom';
+// import PropTypes from 'prop-types';
 
 class BorrowList extends React.Component{
 
@@ -189,16 +186,33 @@ class BorrowList extends React.Component{
                         </Link>
                         <Divider type="vertical" />
                         {/* <a href=""><Icon type="file-text" theme="outlined" /> 修改 {record.name}</a> */}
-                        <span 
+                        <Link 
                             // onClick={(e)=> this.props.handleEdit(e, record.id)}
-                            
-                            className='btn'><Icon type="file-text" theme="outlined" /> 客戶資料</span>
+                            to='/member/list/profile' 
+                            className='btn'>
+                            <Icon type="file-text" theme="outlined" /> 客戶資料
+                        </Link>
                         <Divider type="vertical" />
-                        <span 
+                        {/* <span 
                             // onClick={this.props.handleDelete}
                             // onClick={(e)=> this.props.handleDelete(e, record.id)}
                             // onClick={(e)=>this.handlePopConfirm(e, record.id)}
-                            className='btn'><Icon type="delete" theme="outlined" /> 刪除</span>
+                            className='btn'><Icon type="delete" theme="outlined" 
+                            
+                        /> 刪除</span> */}
+                        <Popconfirm
+                            title="確定刪除嗎?"
+                            onConfirm={()=> this.props.handleDelete(record.id)}
+                            cancelText="取消"
+                        >
+                            {/* <span href='/'
+                                // onClick={(e) => this.handleDelete(e, record.id)}
+                                className='btn'
+                            >刪除</span> */}
+                            <span className='btn'>
+                                <Icon type="delete" theme="outlined" />刪除
+                            </span>
+                        </Popconfirm>
                     </span>
                 )
             }
@@ -270,8 +284,7 @@ class BorrowList extends React.Component{
         await this.props.handleListBorrow();
         setTimeout(() => {
             this.props.handleloading(false);       
-        }, 600);
-        
+        }, 400);
     }
 
     handleModal=()=>{
@@ -287,19 +300,15 @@ class BorrowList extends React.Component{
     }
 }
 
-// 引入
 const mapStateToProps = (state) => {
     return {
-        // focused: state.dashboard.focused,
         loading: state.getIn(['admin','loading']),
         focused: state.getIn(['dashboard','focused']),
-        // loading: state.getIn(['dashboard','loading']),
         data: state.getIn(['dashboard','data']),
-        dataBorrow: state.getIn(['borrow','dataBorrow']),        
+        dataBorrow: state.getIn(['borrow','dataBorrow'])
     }
 }
 
-// 引入
 const mapDispathToProps = (dispatch) => {
     return {
 
@@ -313,7 +322,13 @@ const mapDispathToProps = (dispatch) => {
         handleListBorrow(){    
             const action = actionCreators.getListBorrow();
             dispatch(action);
-        }        
+        },
+        // 刪除
+        handleDelete(id){
+            // console.log('id',id);
+            const action = actionCreators.getDeleteItemAction(id);
+            dispatch(action);
+        }      
     }
 }
 

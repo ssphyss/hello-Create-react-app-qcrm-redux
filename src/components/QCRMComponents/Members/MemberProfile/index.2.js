@@ -1,8 +1,8 @@
 import React from 'react';
 // import { Fragment } from 'react';
 import { Card, Tooltip, Icon, Spin, Modal } from 'antd';
-import { Button, Form, Input, Radio, Select, InputNumber, DatePicker/*, Message*/ } from 'antd';
-// import { Upload } from 'antd';
+import { Button, Form, Input, Radio, Select, InputNumber, DatePicker, Upload, Message } from 'antd';
+
 // 引入
 import { connect } from 'react-redux';
 import { actionCreators } from './../store';
@@ -19,18 +19,18 @@ const Option = Select.Option;
 // const TextArea = Input.TextArea;
 
 
-// // 上傳前驗證
-// function beforeUpload(file) {
-//     const isJPG = file.type === 'image/jpeg' || file.type === 'image/png';
-//     if (!isJPG) {
-//       Message.error('只能上傳 JPG 或 png 檔案');
-//     }
-//     const isLt2M = file.size / 1024 / 1024 < 2;
-//     if (!isLt2M) {
-//       Message.error('圖檔需小於 2MB');
-//     }
-//     return isJPG && isLt2M;
-// }
+// 上傳前驗證
+function beforeUpload(file) {
+    const isJPG = file.type === 'image/jpeg' || file.type === 'image/png';
+    if (!isJPG) {
+      Message.error('只能上傳 JPG 或 png 檔案');
+    }
+    const isLt2M = file.size / 1024 / 1024 < 2;
+    if (!isLt2M) {
+      Message.error('圖檔需小於 2MB');
+    }
+    return isJPG && isLt2M;
+}
 
 // img = info.file.originFileObj
 function getBase64(img, callback) {
@@ -57,13 +57,13 @@ class MemberProfile extends React.Component{
         // antD固定的,一定要這樣寫
         const { getFieldDecorator } = this.props.form;
 
-        // const imageUrl = this.state.imageUrl;
-        // const uploadButton = (
-        //     <div>
-        //         <Icon type={this.state.loadingPhoto ? 'loading' : 'plus'} />
-        //         <div className="ant-upload-text">上傳照片</div>
-        //     </div>
-        // );   
+        const imageUrl = this.state.imageUrl;
+        const uploadButton = (
+            <div>
+                <Icon type={this.state.loadingPhoto ? 'loading' : 'plus'} />
+                <div className="ant-upload-text">上傳照片</div>
+            </div>
+        );   
         
         return(
             <div>
@@ -80,8 +80,89 @@ class MemberProfile extends React.Component{
                         }
                         // style={{ width: 300 }}
                     >
-                        <Form>           
-                                      
+                        <Form>
+                            <FormItem label="更換頭像">
+                                {/* {AvatarView()} */}
+                                {/* <AvatarView avatar={this.getAvatarURL()} /> */}
+                                {/* <Upload
+                                    listType="picture-card"
+                                    showUploadList={false}
+                                    action="//jsonplaceholder.typicode.com/posts/"
+                                    // onChange={this.handleChange}
+                                >
+                                {this.state.userImg?<img src={this.state.userImg}/>:<Icon type="plus"/>}
+                                </Upload> */}
+                                <Upload
+                                    name="avatar"
+                                    listType="picture-card"
+                                    className="avatar-uploader"
+                                    showUploadList={false}
+                                    // action="//jsonplaceholder.typicode.com/posts/"
+                                    // action='https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/upload/99'
+                                    action='./api/memberOK.json'
+                                    beforeUpload={beforeUpload}
+                                    onChange={this.handleChange}
+                                    // onChange={()=>this.handleChange()}
+                                >
+                                    {imageUrl ? <img src={imageUrl} alt="avatar" /> : uploadButton}
+                                </Upload>
+                            </FormItem>
+
+
+                            <FormItem label="聯絡地址" /*style={{display: 'inline-block'}}*/>
+                                {
+                                    getFieldDecorator('memberCity', {
+                                        initialValue: this.props.dataProfile.memberCity,
+                                        rules: [
+                                            
+                                        ]           
+                                    })(
+                                        // <Select 
+                                        //     value={this.props.dataProfile.memberCity}
+                                        //     style={{ maxWidth: 220 }}
+                                        // >
+                                        //     <Option value="台北市">台北市</Option>
+                                        //     <Option value="新北市">新北市</Option>
+                                        //     <Option value="桃園市">桃園市</Option>
+                                        //     <Option value="新竹市">新竹市</Option>
+                                        // </Select>
+                                        this.cityRender()
+                                    )
+                                }     
+                                </FormItem>    
+                                <FormItem /*style={{display: 'inline-block'}}*/>                 
+                                {
+                                    getFieldDecorator('memberDist', {
+                                        initialValue: this.props.dataProfile.memberDist,
+                                        rules: [
+                                            
+                                        ]           
+                                    })(
+                                        // <Select 
+                                        //     value={this.props.dataProfile.memberDist}
+                                        //     style={{ maxWidth: 220 }}
+                                        // >
+                                        //     <Option value="中正區">中正區</Option>
+                                        //     <Option value="新北市">大同區</Option>
+                                        //     <Option value="桃園市">信義區</Option>
+                                        //     <Option value="新竹市">中山區</Option>
+                                        // </Select>
+                                        this.distRender()
+                                    )
+                                }    
+                                </FormItem>    
+                                <FormItem /*style={{display: 'inline-block'}}*/>       
+                                {
+                                    getFieldDecorator('memberAddress', {
+                                        initialValue: this.props.dataProfile.memberAddress,
+                                        rules: [
+                                            
+                                        ]           
+                                    })(
+                                        <Input/>
+                                    )
+                                }
+                            </FormItem>   
                             <FormItem label="帳號">
                             {
                                 getFieldDecorator('memberAccount', {
@@ -214,60 +295,6 @@ class MemberProfile extends React.Component{
                                     )
                                 }                                 
                             </FormItem>
-                            <FormItem label="聯絡地址" /*style={{display: 'inline-block'}}*/>
-                                {
-                                    getFieldDecorator('memberCity', {
-                                        initialValue: this.props.dataProfile.memberCity,
-                                        rules: [
-                                            
-                                        ]           
-                                    })(
-                                        // <Select 
-                                        //     value={this.props.dataProfile.memberCity}
-                                        //     style={{ maxWidth: 220 }}
-                                        // >
-                                        //     <Option value="台北市">台北市</Option>
-                                        //     <Option value="新北市">新北市</Option>
-                                        //     <Option value="桃園市">桃園市</Option>
-                                        //     <Option value="新竹市">新竹市</Option>
-                                        // </Select>
-                                        this.cityRender()
-                                    )
-                                }     
-                                </FormItem>    
-                                <FormItem /*style={{display: 'inline-block'}}*/>                 
-                                {
-                                    getFieldDecorator('memberDist', {
-                                        initialValue: this.props.dataProfile.memberDist,
-                                        rules: [
-                                            
-                                        ]           
-                                    })(
-                                        // <Select 
-                                        //     value={this.props.dataProfile.memberDist}
-                                        //     style={{ maxWidth: 220 }}
-                                        // >
-                                        //     <Option value="中正區">中正區</Option>
-                                        //     <Option value="新北市">大同區</Option>
-                                        //     <Option value="桃園市">信義區</Option>
-                                        //     <Option value="新竹市">中山區</Option>
-                                        // </Select>
-                                        this.distRender()
-                                    )
-                                }    
-                                </FormItem>    
-                                <FormItem /*style={{display: 'inline-block'}}*/>       
-                                {
-                                    getFieldDecorator('memberAddress', {
-                                        initialValue: this.props.dataProfile.memberAddress,
-                                        rules: [
-                                            
-                                        ]           
-                                    })(
-                                        <Input/>
-                                    )
-                                }
-                            </FormItem>   
                             <FormItem label="當前狀態">
                                 {
                                     getFieldDecorator('memberStatus', {
@@ -477,9 +504,10 @@ class MemberProfile extends React.Component{
 // 引入
 const mapStateToProps = (state) => {
     return {
-        // loading: state.getIn(['dashboard','loading']),
+        // focused: state.dashboard.focused,
         loading: state.getIn(['admin','loading']),
         focused: state.getIn(['dashboard','focused']),
+        // loading: state.getIn(['dashboard','loading']),
         data: state.getIn(['dashboard','data']),
         dataBorrow: state.getIn(['borrow','dataBorrow']),        
         dataMember: state.getIn(['member','dataMember']), 

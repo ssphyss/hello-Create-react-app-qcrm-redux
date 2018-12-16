@@ -31,3 +31,12 @@ export const getListBorrow = () => {
         }, 500);
     }
 }
+
+// 刪除
+export const getDeleteItemAction = (id) => {
+    // console.log('來自ac的')
+    return {
+        type: constants.DELETE_TODO_ITEM,
+        id
+    }
+}

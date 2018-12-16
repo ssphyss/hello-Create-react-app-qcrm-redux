@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Dropdown, Badge, Icon, Button } from 'antd'
+import { Menu, Dropdown, Badge, Icon } from 'antd'
 // 引入store
 import { connect } from 'react-redux';
 // import { actionCreators } from './../store';
@@ -35,25 +35,38 @@ class BadgeMenu extends React.Component{
     }
     render(){
         const { count } = this.state
-        const { /*userState,*/ logout } = this.props;
+        // const { /*userState,*/ logout } = this.props;
         const menu = (
-            <Menu>
+            <Menu style={{padding:'10px 18px', width: '300px', border: '1px solid #c9e0e0'}}>
                 <Menu.Item>
-                    <span>Hello, userState.role</span>
+                   <h6>通知訊息</h6>
+                </Menu.Item>
+                <Menu.Item>                  
+                    <Icon type="notification" />
+                    <span>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>       
+                </Menu.Item>
+                <Menu.Divider />
+                <Menu.Item>
+                   <Icon type="notification" />
+                   <span>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+                </Menu.Item>
+                <Menu.Divider />
+                <Menu.Item>
+                   <Icon type="notification" />
+                   <span>lorem10dfjkdjflkdhfl</span>
+                </Menu.Item>
+                <Menu.Divider />
+                <Menu.Item>
+                   <Icon type="notification" />
+                   <span>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
                 </Menu.Item>
                 <Menu.Divider />
                 <Menu.Item> 
                     <span>
                         <i className="topbar__dropdownMenuIcon icon-user" /> 
-                        設定
+                        更多
                     </span>
-                </Menu.Item>
-                <Menu.Divider />
-                <Menu.Item>
-                <a href="/" onClick={logout}>
-                    <i className="topbar__dropdownMenuIcon icmn-exit" /> Logout
-                </a>
-                </Menu.Item>
+                </Menu.Item>                
             </Menu>
         )
         return(
@@ -61,6 +74,7 @@ class BadgeMenu extends React.Component{
             <Dropdown 
                     overlay={menu} 
                     trigger={['click']}
+                    placement="bottomRight"
                 >                
                 <div 
                     overlay={menu} 

@@ -7,6 +7,7 @@ import { reducer as reducerDashboard } from './../components/QCRMComponents/Dash
 import { reducer as reducerBorrow } from './../components/QCRMComponents/Borrow/store';
 import { reducer as reducerLend } from './../components/QCRMComponents/Lend/store';
 import { reducer as reducerMember } from './../components/QCRMComponents/Members/store';
+import { reducer as reducerPermission } from './../components/QCRMComponents/Permission/store';
 
 // 3. 改引用redux-immutable
 import { combineReducers } from  'redux-immutable';
@@ -18,6 +19,7 @@ const reducer = combineReducers ({
     borrow: reducerBorrow,
     lend: reducerLend,
     member: reducerMember,
+    permission: reducerPermission
 })
 
 export default reducer;

@@ -10,6 +10,7 @@ import { actionCreators } from './../store';
 
 // 引入Router
 import { Link, NavLink } from 'react-router-dom';
+// import { Link, NavLink, withRouter } from 'react-router-dom';
 
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -41,6 +42,7 @@ class SiderBar extends React.Component{
                 </div> */}
                 <Menu
                     defaultSelectedKeys={['1']}
+                    // selectedKeys={[this.props.selectedKeys]}
                     defaultOpenKeys={['sub1']}
                     mode="inline"
                     theme="dark"
@@ -153,3 +155,4 @@ const mapDispathToProps = (dispatch) => {
 }
 // export default Admin;
 export default connect(mapStateToProps, mapDispathToProps)(SiderBar);
+// export default connect(mapStateToProps, mapDispathToProps)(withRouter(SiderBar));

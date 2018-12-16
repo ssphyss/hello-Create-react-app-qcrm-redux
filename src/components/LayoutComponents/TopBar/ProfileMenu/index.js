@@ -37,11 +37,14 @@ class ProfileMenu extends React.Component{
         // const { count } = this.state;         
         const { /*userState,*/ logout } = this.props;
         const menu = (
-            <Menu>
+            <Menu style={{padding:'10px 18px', marginTop: '18px', border: '1px solid #c9e0e0'}}>
                 {/* <Menu.Item>
                     <span>基本資料</span>
                 </Menu.Item> */}
-                <Menu.Divider />
+                {/* <Menu.Divider /> */}
+                <Menu.Item>
+                   <h6>基本資料</h6>
+                </Menu.Item>
                 <Menu.Item>
                     <span>
                         <i className="topbar__dropdownMenuIcon icon-user" /> 
@@ -56,12 +59,14 @@ class ProfileMenu extends React.Component{
                         rel="noopener noreferrer"
                         className="toFront mr-4 d-none d-sm-inline"
                     >
-                        <Button type="primary">前台</Button>
+                        前台                        
                     </a>
                 </Menu.Item>
+                <Menu.Divider />
                 <Menu.Item>
                 <Link to="/user/login" onClick={logout}>
-                    <i className="topbar__dropdownMenuIcon icmn-exit" /> 登出
+                    <i className="topbar__dropdownMenuIcon icmn-exit" />                     
+                    <Button type="primary">登出</Button>
                 </Link>
                 </Menu.Item>
             </Menu>

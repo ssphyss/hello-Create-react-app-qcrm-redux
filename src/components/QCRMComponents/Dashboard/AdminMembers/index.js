@@ -1,156 +1,19 @@
 import React from 'react';
 import { Card, Tooltip, Table, Spin, /*Row, Col,*/ Icon, Select, Input, Tag, Modal } from 'antd';
 import { Popconfirm } from 'antd';
-// 引入
 import { connect } from 'react-redux';
 import { actionCreators } from './../store';
+import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
 import axios from 'axios'
 
 const Option = Select.Option;
 const EditableContext = React.createContext();
 class AdminMembers extends React.Component{
+
     state = {
-        loading: false,
-        editStatus: false,
-        id: '',
-        inputName: '',
-        inputEmail: '',
-        permission: '',
-        dataAdminMembers: []
-        // data: [
-        //     {
-        //         key: '1',
-        //         id: '1',
-        //         name: 'John Brown',
-        //         password: '****',
-        //         email: 'www@gmail.com',
-        //         permission: '1',
-        //         login_start: '2018-10-13',
-        //         operating_time: '36mins',
-        //         ip_address: '192.168.1.1'
-        //     },
-        //     {
-        //         key: '2',
-        //         id: '2',
-        //         name: 'MAthajsdd Brown',
-        //         password: '****',
-        //         email: 'www@gmail.com',
-        //         permission: '2',
-        //         login_start: '2018-10-13',
-        //         operating_time: '36mins',
-        //         ip_address: '192.168.1.1'
-        //     }
-        // ]
-    }
-    
-    // 資料的id會自動帶入Colums的當筆資料
-    handleEdit(e, id) {
-        e.preventDefault();
-        // console.log('id', id)
-        this.setState({ 
-            editStatus: true,
-            id: id
-        });
-    }
-
-    // 偵測變更Input
-    handleChange = (e, type) =>{
-        this.setState({ 
-            [type]: e.target.value
-        });
-    }
-
-    // 偵測變更Select
-    handleChangeSelect = (value) =>{
-        this.setState({ 
-            permission : value
-        });
-    }
-
-    // 資料編輯儲存
-    handleSave = async (e) => {
-        e.preventDefault();
-        
-        // ============給後端=============
-        this.setState({
-            loading: true
-        })
-        // const res = await axios.post('https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/dashboard/adminMembers',{
-        //     inputName: this.state.inputName,
-        //     email : this.state.inputEmail,
-        //     permission : this.state.permission
-        // })
-
-        // this.setState({
-        //     loading: false,
-        //     data: res.data.result.data  //後端回傳的
-        // })
-        
-
-        // ============給使用者看(假存)=============
-        setTimeout(() => {
-            this.setState({
-                loading: false
-            })
-        }, 300);
-
-        let [...data] = this.state.dataAdminMembers;
-        data.map((item, i)=>{
-            if(item.id === this.state.id){
-                if(this.state.inputName !== ''){
-                    item.name = this.state.inputName
-                }
-                if(this.state.inputEmail !== ''){
-                    item.email = this.state.inputEmail
-                }
-                if(this.state.permission !== ''){
-                    item.permission = this.state.permission
-                }
-                                
-            }
-            return item
-        })
-
-        this.setState({
-            // data: data,
-            dataAdminMembers: data,
-            editStatus: false,
-            id: '',
-            inputName: '',
-            inputEmail: '',
-            permission: ''
-        })
-    }
-
-    // 刪除取消
-    handleCancle = (e) =>{
-        e.preventDefault();
-        this.setState({
-            editStatus: false,
-            id: '',
-            inputName: '',
-            inputEmail: '',
-            permission: ''
-        })
-    }
-
-    // 刪除
-    handleDelete = (id) => {
-        let [...data] = this.state.dataAdminMembers;
-        data = data.filter((item) => {
-            if(item.id === id){
-                return false  // 不要的就是return false (那筆就不要的意思)
-            }else {
-                return true
-            }
-        })         
-        this.setState({
-            dataAdminMembers: data
-        })
-    }
+    }  
 
     render(){
-        // console.log('id', this.state.id)
         const columns = [
             {
                 title: '管理者帳號',
@@ -158,17 +21,12 @@ class AdminMembers extends React.Component{
                 width: '25%',
                 editable: true,
                 render: (text, record) => {
-                    if(this.state.editStatus && this.state.id=== record.id ){
+                    if(this.props.editStatus && this.props.id=== record.id ){
                         return (
                             <Input 
-                                value={this.state.inputName || text} 
-                                // onChange={(e)=>{
-                                //     this.setState({
-                                //         inputName: e.target.value 
-                                //     })
-                                // }}
-                                onChange={(e)=>this.handleChange(e, 'inputName')}
-                                // onFocus=
+                                value={this.props.inputName || text}                                 
+                                // onChange={(e)=>this.handleChange(e, 'inputName')} 
+                                onChange={(e)=>this.props.handleInputChange(e, 'inputName')}                               
                             />
                         )
                     }
@@ -176,29 +34,19 @@ class AdminMembers extends React.Component{
                         <span>{text}</span>
                     )
                 }
-            },
-            // {
-            //     title: '密碼',
-            //     dataIndex: 'password',
-            //     key: 'password',
-            //     editable: true,
-            // }, 
+            },   
             {
                 title: 'email',
                 dataIndex: 'email',
                 width: '40%',
                 editable: true,
                 render: (text, record) => {
-                    if(this.state.editStatus && this.state.id=== record.id ){
+                    if(this.props.editStatus && this.props.id=== record.id ){
                         return (
                             <Input 
-                                value={this.state.inputEmail || text} 
-                                // onChange={(e)=>{
-                                //     this.setState({
-                                //         inputEmail: e.target.value 
-                                //     })
-                                // }}
-                                onChange={(e)=>this.handleChange(e, 'inputEmail')}
+                                value={this.props.inputEmail || text}                                 
+                                // onChange={(e)=>this.handleChange(e, 'inputEmail')}
+                                onChange={(e)=>this.props.handleInputChange(e, 'inputEmail')}  
                             />
                         )
                     }
@@ -213,11 +61,12 @@ class AdminMembers extends React.Component{
                 key: 'permission',
                 editable: true,
                 render: (text, record) => {
-                    if(this.state.editStatus && this.state.id=== record.id ){
+                    if(this.props.editStatus && this.props.id=== record.id ){
                         return (
                             <Select 
                                 defaultValue={text} style={{ width: 120 }}
-                                onChange={this.handleChangeSelect}
+                                onChange={this.props.handleChangeSelect}
+
                             >
                                 <Option value="1">一般權限</Option>
                                 <Option value="2">系統權限</Option>
@@ -242,19 +91,8 @@ class AdminMembers extends React.Component{
                             default:
                                 break;
                         }                                      
-                    }
-                    
-                }
-                // render: () => {
-                //     return (
-                //         <Select defaultValue="一般權限" style={{ width: 120 }}>
-                //             <Option value="一般權限">一般權限</Option>
-                //             <Option value="系統權限">系統權限</Option>
-                //             <Option value="主管權限">主管權限</Option>
-                //             <Option value="行政權限">行政權限</Option>
-                //         </Select>  
-                //     )                   
-                // }
+                    }                    
+                } 
             },
             {
                 title: '操作',
@@ -262,7 +100,7 @@ class AdminMembers extends React.Component{
                 render: (text, record) => {
                     // console.log('record', record)
                     // const editable = this.isEditing(record);
-                    if(record.id === this.state.id){  // 表示編輯中
+                    if(record.id === this.props.id){  // 表示編輯中
                         return (
                             <span>
                                 <EditableContext.Consumer>
@@ -277,9 +115,10 @@ class AdminMembers extends React.Component{
                                     )}
                                 </EditableContext.Consumer>
 
-                                <a href='/' 
-                                    onClick={(e) => this.handleCancle(e)}
-                                >取消</a>
+                                <span href='/' 
+                                    // onClick={(e) => this.props.handleCancle(e)}
+                                    onClick={this.props.handleCancle}
+                                >取消</span>
                             </span>
                         )
                     }else{
@@ -288,7 +127,8 @@ class AdminMembers extends React.Component{
                                 <a 
                                     href='/' 
                                     className='btn'
-                                    onClick={(e) => this.handleEdit(e, record.id)}
+                                    // onClick={(e) => this.handleEdit(e, record.id)}
+                                    onClick={(e) => this.props.handleEdit(e, record.id)}
                                 >編輯</a>
 
                                 {/* <Popconfirm
@@ -302,7 +142,7 @@ class AdminMembers extends React.Component{
                                 </Popconfirm> */}
                                 <Popconfirm
                                     title="確定刪除嗎?"
-                                    onConfirm={()=> this.handleDelete(record.id)}
+                                    onConfirm={()=> this.props.handleDelete(record.id)}
                                     cancelText="取消"
                                 >
                                     <a href='/'
@@ -313,84 +153,14 @@ class AdminMembers extends React.Component{
                             </div>                            
                         )                        
                     }
-
-                    // return (
-                    //     <div>
-                    //         {/* {editable ? ( */}
-                    //         <span>
-                    //             <EditableContext.Consumer>
-                    //                 {form => (
-                    //                     <a
-                    //                         href="/"
-                    //                         // onClick={() => this.save(form, record.key)}
-                    //                         style={{ marginRight: 8 }}
-                    //                     >
-                    //                     儲存
-                    //                     </a>
-                    //                 )}
-                    //             </EditableContext.Consumer>
-                    //             <Popconfirm
-                    //                 title="確定刪除?"
-                    //                 // onConfirm={() => this.cancel(record.key)}
-                    //             >
-                    //                 <a href='/'>刪除</a>
-                    //             </Popconfirm>
-                    //         </span>
-                    //         {/* ) :  */}
-                    //         (
-                    //         <a 
-                    //             href='/' 
-                    //             onClick={(e) => this.handleEdit(e, record.id)}
-                    //         >編輯</a>
-                    //         )
-                    //         {/* }  */}
-                    //     </div>
-                    // );
                 },
             },
          ];
-
-        // // 設定資料
-        // const data = [];
-        //     for (let i = 0; i < 100; i++) {
-        //     data.push({
-        //         key: i.toString(),
-        //         name: `Edrward ${i}`,
-        //         age: 32,
-        //         address: `London Park no. ${i}`,
-        //         email: `www@123.gmail.com`
-        //     });
-        // }
-
-        // // 設定資料
-        // const data = [
-        //     {
-        //         key: '1',
-        //         id: '1',
-        //         name: 'John Brown',
-        //         password: '****',
-        //         email: 'www@gmail.com',
-        //         login_start: '2018-10-13',
-        //         operating_time: '36mins',
-        //         ip_address: '192.168.1.1'
-        //     },
-        //     {
-        //         key: '2',
-        //         id: '2',
-        //         name: 'MAthajsdd Brown',
-        //         password: '****',
-        //         email: 'www@gmail.com',
-        //         login_start: '2018-10-13',
-        //         operating_time: '36mins',
-        //         ip_address: '192.168.1.1'
-        //     }
-        // ]; 
         return(
             <div>
-                <Spin spinning={this.state.loading} delay={0} size="large">
+                <Spin spinning={this.props.loading} delay={0} size="large">
                     <Card 
                         title='管理者帳號'
-                        // extra={<a href="/">More</a>}
                         extra={
                             <div> 
                                 <span 
@@ -402,12 +172,12 @@ class AdminMembers extends React.Component{
                                 </Tooltip>
                             </div>
                         }
-                        // style={{ width: 300 }}
                     >
                         <Table 
                             columns={columns}
-                            dataSource={this.state.dataAdminMembers}
-                            // dataSource={this.props.dataAdminMembers}
+                            // dataSource={this.state.dataAdminMembers}
+                            // 2.
+                            dataSource={this.props.dataAdminMembers}
                             scroll={{ x: 650 }}
                         />
                     </Card>
@@ -415,13 +185,16 @@ class AdminMembers extends React.Component{
             </div>
         )
     }
+    // 1.
+    async componentDidMount(){        
+        this.props.handleloading();   
 
-    componentDidMount(){        
-        // this.props.handleloading();
-        // this.props.handlegetList();
-
-        this.handlegetList();
+        await this.props.handlegetList();
+        setTimeout(() => {
+            this.props.handleloading(false);       
+        }, 400);
     }
+
     handleModal=()=>{
         Modal.info({
             title: '管理者帳號設定',
@@ -437,42 +210,87 @@ class AdminMembers extends React.Component{
         this.setState({
             loading: true
         })
-
-        const res = await axios.get('https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/dashboard/adminMembers') 
+        console.log('AA'); 
+        // const res = await axios.get('https://easy-mock.com/mock/5bc1d12e52815755b2b7b2a9/msqapi/dashboard/adminMembers')
+        const res = await axios.get(`${process.env.PUBLIC_URL}/api/dashboard/adminMembers.json`)
+        // console.log('res.data',res.data); 
         const data = res.data.result.data;      
-
+        // console.log('data',data); 
         this.setState({
             dataAdminMembers: data,
             loading: false
         })
+    }
+    // 資料編輯儲存
+    handleSave = (e) => {
+        e.preventDefault();
+        this.props.handleloading();   
+        setTimeout(() => {
+            this.props.handleloading(false);       
+        }, 400);
+        this.props.handleSave();
+        
     }
 }
 
 // 引入
 const mapStateToProps = (state) => {
     return {
-        // focused: state.dashboard.focused,
-        // focused: state.getIn(['dashboard','focused']),
-        // loading: state.getIn(['dashboard','loading']),
-        // data: state.getIn(['dashboard','data']),
-        // dataAdminMembers: state.getIn(['dashboard','dataAdminMembers']),
+        loading: state.getIn(['admin','loading']),
+        dataAdminMembers: state.getIn(['dashboard','dataAdminMembers']),
+        editStatus: state.getIn(['dashboard','editStatus']),
+        id: state.getIn(['dashboard','id']),
+        inputName: state.getIn(['dashboard','inputName']),
+        inputEmail: state.getIn(['dashboard','inputEmail']),        
     }
 }
 
-// 引入
-const mapDispathToProps = (dispatch) => {
-    return {
-        // Loading加載
-        handleloading(){
-            const action = actionCreators.getLoading();
-            dispatch(action);
-        },       
 
-        // // Ajax資料載入
-        // handlegetList(){
-        //     const action = actionCreators.getListAdminMembers();
-        //     dispatch(action);
-        // },
+const mapDispathToProps = (dispatch) => {
+    return {      
+        // Loading加載
+        handleloading(loadingStatus = true){
+            console.log('有嗎')
+            const action = actionCreatorsAdmin.getLoading(loadingStatus);
+            dispatch(action);      
+        }, 
+        // Ajax資料載入
+        handlegetList(){    
+            const action = actionCreators.getListAdminMembers();
+            dispatch(action);
+        },    
+        // 輸入框可編輯
+        handleEdit(e, id, bool=true){
+            e.preventDefault();
+            const action = actionCreators.getEditAction(id, bool);
+            dispatch(action);
+        },
+        // 輸入框改變
+        handleInputChange(e, type){
+            const action = actionCreators.getInputChangeAction(e.target.value, type);
+            dispatch(action);
+        },
+        // 儲存
+        handleSave(){
+            const action = actionCreators.getSaveAction();
+            dispatch(action);
+        },
+        // 改變Select
+        handleChangeSelect(value){
+            console.log('aaa',value)
+            const action = actionCreators.getSelectAction(value);
+            dispatch(action);            
+        },
+        // 刪除
+        handleDelete(id){
+            const action = actionCreators.getDeleteItemAction(id);
+            dispatch(action);
+        },
+        // 編輯取消
+        handleCancle(){
+            const action = actionCreators.getEditCancleAction();
+            dispatch(action);
+        }
 
         // // 資料的id會自動帶入Colums的當筆資料
         // handleEdit(e, id) {

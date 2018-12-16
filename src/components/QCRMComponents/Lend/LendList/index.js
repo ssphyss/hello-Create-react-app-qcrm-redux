@@ -1,12 +1,10 @@
 import React from 'react';
-import { Card, Tooltip, Icon, Table, Spin, Divider } from 'antd';
-// 引入
+import { Card, Tooltip, Icon, Table, Spin, Divider, Popconfirm } from 'antd';
 import { connect } from 'react-redux';
 import { actionCreators } from './../store';
 import { actionCreators as actionCreatorsAdmin } from './../../../LayoutComponents/store';
-// import PropTypes from 'prop-types'
-// 引入Router
 import { Link/*, NavLink*/ } from 'react-router-dom';
+// import PropTypes from 'prop-types'
 
 class LendList extends React.Component{
 
@@ -24,7 +22,18 @@ class LendList extends React.Component{
                 title: '客戶名稱',
                 dataIndex: 'name',
                 key: 'name',
-                render: text => <span href="/">{text}</span>,
+                // render: text => <span href="/">{text}</span>,
+                render: (text, record) => (
+                    <span>
+                        <Link       
+                            to='/member/list/profile' 
+                            // className='btn'
+                        >
+                            {/* <Icon type="file-text" theme="outlined" />  */}
+                            {text}
+                        </Link>                        
+                    </span>
+                ) 
             }, 
             {
                 title: '投資編號',
@@ -35,7 +44,7 @@ class LendList extends React.Component{
                 render: (text, record) => (
                     <span>
                         <Link       
-                            to='/borrow/list/detail' 
+                            to='/lend/list/detail' 
                         >
                             {text}
                         </Link>                        
@@ -127,22 +136,36 @@ class LendList extends React.Component{
                 title: '操作',
                 key: 'action',
                 render: (text, record) => (
-                    <span>
-                        <span 
+                    <span>                        
+                        <Link 
                             // onClick={(e)=> this.props.handleEditQuick(e, record.id)}
-                           className='btn'><Icon type="file-text" theme="outlined" /> 投資查詢</span>
+                            // href='/' className='btn'
+                            to='/lend/list/detail' 
+                            className='btn'
+                        >
+                            <Icon type="file-text" theme="outlined" /> 
+                            投資查詢
+                        </Link>
                         <Divider type="vertical" />
                         {/* <a href=""><Icon type="file-text" theme="outlined" /> 修改 {record.name}</a> */}
-                        <span 
+                        <Link 
                             // onClick={(e)=> this.props.handleEdit(e, record.id)}
-                            
-                            className='btn'><Icon type="file-text" theme="outlined" /> 客戶資料</span>
+                            to='/member/list/profile' 
+                            className='btn'>
+                            <Icon type="file-text" theme="outlined" /> 客戶資料
+                        </Link>
                         <Divider type="vertical" />
-                        <span 
-                            // onClick={this.props.handleDelete}
-                            // onClick={(e)=> this.props.handleDelete(e, record.id)}
-                            // onClick={(e)=>this.handlePopConfirm(e, record.id)}
-                            href='/' className='btn'><Icon type="delete" theme="outlined" /> 刪除</span>
+                        {/* <span 
+                            href='/' className='btn'><Icon type="delete" theme="outlined" /> 刪除</span> */}
+                        <Popconfirm
+                            title="確定刪除嗎?"
+                            onConfirm={()=> this.props.handleDelete(record.id)}
+                            cancelText="取消"
+                        >
+                            <span className='btn'>
+                                <Icon type="delete" theme="outlined" />刪除
+                            </span>
+                        </Popconfirm>
                     </span>
                 )
             }
@@ -186,10 +209,8 @@ class LendList extends React.Component{
     }
 }
 
-// 引入
 const mapStateToProps = (state) => {
     return {
-        // focused: state.dashboard.focused,
         loading: state.getIn(['admin','loading']),
         focused: state.getIn(['dashboard','focused']),
         // loading: state.getIn(['dashboard','loading']),
@@ -199,7 +220,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-// 引入
 const mapDispathToProps = (dispatch) => {
     return {
 
@@ -208,12 +228,17 @@ const mapDispathToProps = (dispatch) => {
             const action = actionCreatorsAdmin.getLoading(loadingStatus);
             dispatch(action);      
         },       
-
         // Ajax資料載入
         handleListLend(){    
             const action = actionCreators.getListLend();
             dispatch(action);
-        }        
+        },
+        // 刪除
+        handleDelete(id){
+            // console.log('id',id);
+            const action = actionCreators.getDeleteItemAction(id);
+            dispatch(action);
+        }          
     }
 }
 

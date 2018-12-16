@@ -20,5 +20,18 @@ export default (state = defaultState, action) => {
         // return state.set('data', data).set('loading', false);
     }   
 
+    // 刪除
+    if (action.type === constants.DELETE_TODO_ITEM) {
+        let data = state.get('dataLend')
+        data = data.filter((item) => {
+            if(item.id === action.id){
+                return false  // 不要的就是return false (那筆就不要的意思)
+            }else {
+                return true
+            }
+        })     
+        return state.set( 'dataLend', data);           
+    }
+
     return state;
 }
