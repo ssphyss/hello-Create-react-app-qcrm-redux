@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import { Tooltip } from 'antd';
 import { Icon } from 'antd';
 import { Skeleton } from 'antd';
-import ChartLend from './../../../UI/Bizcharts/Bar/ChartLend';
+import ChartLend from './../../../UI/bizcharts/bar/ChartLend';
 import './../../../UI/CardWrap/CardWrap.scss'
 
 class AnalysisLend extends React.Component{

@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import { Tooltip } from 'antd';
 import { Icon } from 'antd';
 import { Skeleton } from 'antd';
-import ChartDif from './../../../UI/Bizcharts/Pie/ChartDif';
+import ChartDif from './../../../UI/bizcharts/pie/ChartDif';
 
 class AnalysisDif extends React.Component{
 

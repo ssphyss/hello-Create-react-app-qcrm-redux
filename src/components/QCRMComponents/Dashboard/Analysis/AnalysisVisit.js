@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import { Tooltip } from 'antd';
 import { Icon } from 'antd';
 import { Skeleton } from 'antd';
-import ChartVisit from './../../../UI/Bizcharts/Area/ChartVisit';
+import ChartVisit from './../../../UI/bizcharts/area/ChartVisit';
 // import './../../CardWrap.scss'
 
 class AnalysisVisit extends React.Component{    

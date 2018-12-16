@@ -127,8 +127,8 @@ class PermissionSet extends React.Component{
 
     handleSubmit = () => {
         // 取得所有Form數據
-        let permInfo = this.props.form.getFieldsValue();
-        console.log('permInfo',permInfo);
+        // let permInfo = this.props.form.getFieldsValue();
+        // console.log('permInfo',permInfo);
         // console.log('permInfo.permssionName',permInfo.permissionName);
         // // 皆有值
         // if (permInfo.permissionName && permInfo.permissionStatus){            

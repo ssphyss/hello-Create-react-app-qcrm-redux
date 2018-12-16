@@ -1,0 +1,211 @@
+{
+  "code": "0",
+  "result": {
+    "page": 1,
+    "page_size": 10,
+    "total_count": 25,
+    "page_count": 3,
+    "item_list": [
+      {
+        "key": "1",
+        "id": "1",
+        "role_name": "老闆",
+        "status": "1",
+        "authorize_user": "龚洋",
+        "authorize_time": "2018-12-24",
+        "create_time": "2018-02-19",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      },
+      {
+        "key": "2",
+        "id": "2",
+        "role_name": "行政人員",
+        "status": "1",
+        "authorize_user": "曹娟",
+        "authorize_time": "2018-08-23",
+        "create_time": "2018-11-30",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      },
+      {
+        "key": "3",
+        "id": "3",
+        "role_name": "會計人員",
+        "status": "1",
+        "authorize_user": "徐伟",
+        "authorize_time": "2018-10-11",
+        "create_time": "2018-05-14",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      },
+      {
+        "key": "4",
+        "id": "4",
+        "role_name": "會計人員",
+        "status": "",
+        "authorize_user": "周军",
+        "authorize_time": "2018-03-27",
+        "create_time": "2018-07-27",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      },
+      {
+        "key": "5",
+        "id": "5",
+        "role_name": "主管",
+        "status": "",
+        "authorize_user": "卢秀兰",
+        "authorize_time": "2018-07-01",
+        "create_time": "2018-01-22",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      },
+      {
+        "key": "6",
+        "id": "6",
+        "role_name": "主管",
+        "status": "",
+        "authorize_user": "梁刚",
+        "authorize_time": "2018-11-11",
+        "create_time": "2018-03-07",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      },
+      {
+        "key": "7",
+        "id": "7",
+        "role_name": "業務人員",
+        "status": "1",
+        "authorize_user": "马磊",
+        "authorize_time": "2018-09-12",
+        "create_time": "2018-12-30",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      },
+      {
+        "key": "8",
+        "id": "8",
+        "role_name": "行政人員",
+        "status": "1",
+        "authorize_user": "马艳",
+        "authorize_time": "2018-02-09",
+        "create_time": "2018-12-12",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      },
+      {
+        "key": "9",
+        "id": "9",
+        "role_name": "行政人員",
+        "status": "",
+        "authorize_user": "武勇",
+        "authorize_time": "2018-05-30",
+        "create_time": "2018-01-19",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      },
+      {
+        "key": "10",
+        "id": "10",
+        "role_name": "行政人員",
+        "status": "1",
+        "authorize_user": "黎洋",
+        "authorize_time": "2018-10-16",
+        "create_time": "2018-03-23",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      }
+    ]
+  }
+}
