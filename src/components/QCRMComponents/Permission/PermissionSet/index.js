@@ -20,10 +20,10 @@ class PermissionSet extends React.Component{
     }
     // 把數據傳遞回去
     onCheck = (checkedKeys) => {
-        // this.props.patchMenuInfo(checkedKeys)
+        this.props.patchMenuInfo(checkedKeys, this.props.roleSet.id)
     }
     renderTreeNodes = (menuConfig)=>{
-        console.log('menuConfig',menuConfig);
+        // console.log('menuConfig',menuConfig);
 
         return menuConfig.map((item)=>{
             // console.log('item數',item);
@@ -47,11 +47,12 @@ class PermissionSet extends React.Component{
         // console.log('lll', this.props.roleSet);
         // antD固定的,一定要這樣寫
         const { getFieldDecorator } = this.props.form;      
-        const newname = Map(this.props.dataPermission[0]).get('role_name')
-        const newdata = Map(this.props.dataPermission[0]).get('menus')
+        // const newname = Map(this.props.dataPermission[0]).get('role_name')
+        // const newdata = Map(this.props.dataPermission[0]).get('menus')
 
-        console.log('new渲染menu',newname, newdata)
-        console.log('this.props.roleSet.menus',this.props.roleSet.menus);
+        // console.log('new渲染menu',newname, newdata)
+        // console.log('this.props.roleSet.menus',this.props.roleSet.menus);
+        console.log(this.props.dataPermission, this.props.roleSet.id);
         // const newList = this.props.list.toJS();  
         // 把 list的Iimmutable數組轉成普通 JS 數組 newList = 47筆 
 
@@ -98,12 +99,12 @@ class PermissionSet extends React.Component{
                                         defaultExpandAll   // 預設展開
                                         autoExpandParent   // 是否自動展開父節點
 
-                                        checkedKeys={this.props.roleSet.menus} // 默認選中復選框的樹節點
+                                        checkedKeys={this.props.roleSetMenus} // 默認選中復選框的樹節點
                                         // selectedKeys={this.props.roleSet.menus} // 默認選中復選框的樹節點
 
                                         // defaultCheckedKeys={["/", "/dashboard/analysis", "/dashboard/loginRecord", "/dashboard/config", "/dashboard/adminMembers", "/member/list", "/member/list/detail"]} // 默認選中復選框的樹節點
                                         onCheck={(checkedKeys, e)=>{
-                                            console.log('check,e', checkedKeys, e);
+                                            console.log('check,e', checkedKeys, e);//e.node.props.eventKey
                                             this.onCheck(checkedKeys)
                                         }}
 
@@ -126,19 +127,9 @@ class PermissionSet extends React.Component{
     }
 
     handleSubmit = () => {
-        // // 取得所有Form數據
-        // let permInfo = this.props.form.getFieldsValue();
-        // console.log('permInfo',permInfo);
-        // console.log('permInfo.permssionName',permInfo.permissionName);
-        // // 皆有值
-        // if (permInfo.permissionName && permInfo.permissionStatus){            
-        //     this.props.handleSubmitRole(permInfo);
-        //     this.props.form.resetFields();
-        //     message.success('資料送出成功');
-            
-        // }else {
-        //     message.error('請填寫正確欄位');
-        // }
+        let permInfo = this.props.form.getFieldsValue();
+        console.log('permInfo',permInfo);
+        this.props.saveRoleSet();
     }
 
 }
@@ -153,6 +144,7 @@ const mapStateToProps = (state) => {
         dataPermission: state.getIn(['permission','dataPermission']),
         isRoleVisible: state.getIn(['permission','isRoleVisible']),
         roleSet: state.getIn(['permission','roleSet']),
+        roleSetMenus: state.getIn(['permission', 'roleSetMenus'])
     }
 }
 const mapDispathToProps = (dispatch) => {
@@ -178,6 +170,14 @@ const mapDispathToProps = (dispatch) => {
             const action = actionCreators.getModalCanclePerm();
             dispatch(action);
         },  
+        patchMenuInfo(checkedKeys, id){
+            const action = actionCreators.patchMenuInfo(checkedKeys, id);
+            dispatch(action);
+        },
+        saveRoleSet(){
+            const action = actionCreators.saveRoleSet();
+            dispatch(action);
+        }
     }
 }
 // export default PermissionSet

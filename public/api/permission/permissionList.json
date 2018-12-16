@@ -1,324 +1,199 @@
 {
-    "code": "0",
-    "result": {
-      "page": 1,
-      "page_size": 10,
-      "total_count": 60,
-      "page_count": 6,
-      "data": [
-        {
-          "key": "Fg2",
-          "id": "5B1",
-          "role_name": "11孟平",
-          "create_time": "1990-06-24",
-          "status": "1",
-          "authorize_time": "2018-06-24",
-          "authorize_user": "孟平A",
-          "menus": [
-            "/",
-            "/dashboard/analysis",
-            "/dashboard/loginRecord",
-            "/dashboard/config",
-            "/dashboard/adminMembers",
-            "/borrow/list",
-            "/borrow/list/detail"
-          ]
-        },
-        {
-          "key": "*e",
-          "id": "E#$",
-          "role_name": "蒋超",
-          "create_time": "1990-06-24",
-          "status": "2",
-          "authorize_time": "2018-06-24",
-          "authorize_user": "蒋超",
-          "menus": [
-            "/dashboard/analysis",
-            "/dashboard/loginRecord",
-            "/dashboard/config",  
-            "/lend/list",
-            "/lend/list/detail"
-          ]
-        },
-        {
-          "key": "KZ[x",
-          "id": "Yb",
-          "role_name": "锺超",
-          "create_time": "1990-06-24",
-          "status": "2",
-          "authorize_time": "2018-06-24",
-          "authorize_user": "锺超",
-          "menus": [
-            "/",
-            "/dashboard/analysis",
-            "/dashboard/loginRecord",
-            "/dashboard/config",
-            "/dashboard/adminMembers",
-            "/member/list",
-            "/member/list/profile"
-          ]
-        },
-        {
-          "key": "8tz",
-          "id": "(",
-          "role_name": "韩强",
-          "create_time": "1990-06-24",
-          "status": "1",
-          "authorize_time": "2018-06-24",
-          "authorize_user": "韩强",
-          "menus": [
-            "/",
-            "/dashboard/analysis",
-            "/dashboard/config",
-            "/dashboard/adminMembers",
-            "/borrow/list/detail"
-          ]
-        },
-        {
-          "key": "f!D#",
-          "id": "yue",
-           "role_name": "程明",
-          "create_time": "1990-06-24",
-          "status": "1",
-          "authorize_time": "2018-06-24",
-          "authorize_user": "程明",
-          "menus": [
-            "/",
-            "/dashboard/analysis",
-            "/dashboard/loginRecord",
-            "/dashboard/config",
-            "/dashboard/adminMembers",
-            "/borrow/list",
-            "/borrow/list/detail"
-          ]
-        },
-        {
-          "key": "m",
-          "id": "ukx",
-          "role_name": "常敏",
-          "create_time": "1990-06-24",
-          "status": "3",
-          "authorize_time": "2018-06-24",
-          "authorize_user": "常敏",
-          "menus": [
-            "/",
-            "/dashboard/analysis",
-            "/dashboard/config",
-            "/dashboard/adminMembers",
-            "/borrow/list/detail"
-          ]
-        },
-        {
-          "key": "gKu",
-          "id": "m$",
-          "role_name": "11梁杰",
-          "create_time": "1990-06-24",
-          "status": "1",
-          "authorize_time": "2018-06-24",
-          "authorize_user": "梁杰A",
-          "menus": [
-            "/",
-            "/dashboard/analysis",
-            "/dashboard/config",
-            "/dashboard/adminMembers",
-            "/borrow/list/detail"
-          ]
-        },
-        {
-          "key": "bxPd",
-          "id": "&6",
-          "role_name": "邱霞",
-          "create_time": "1990-06-24",
-          "status": "1",
-          "authorize_time": "2018-06-24",
-          "authorize_user": "邱霞",
-          "menus": [
-            "/",
-            "/dashboard/analysis",
-            "/dashboard/config",
-            "/dashboard/adminMembers",
-            "/borrow/list/detail"
-          ]
-        },
-        {
-          "key": "v2f",
-          "id": "pkWA",
-          "role_name": "11于娜",
-          "create_time": "1990-06-24",
-          "status": "2",
-          "authorize_time": "2018-06-24",
-          "authorize_user": "于娜A",
-          "menus": [
-            "/",
-            "/dashboard/analysis",
-            "/dashboard/config",
-            "/dashboard/adminMembers",
-            "/borrow/list/detail"
-          ]
-        },
-        {
-          "key": "(P0C",
-          "id": "ym",
-          "role_name": "邓超",
-          "create_time": "1990-06-24",
-          "status": "1",
-          "authorize_time": "2018-06-24",
-          "authorize_user": "邓超A",
-          "menus": [
-            "/",
-            "/dashboard/analysis",
-            "/dashboard/config",
-            "/dashboard/adminMembers",
-            "/borrow/list/detail"
-          ]
-        },
-        {
-          "key": "12P0C",
-          "id": 1,
-          "role_name": "客服专员",
-          "status": 1,
-          "authorize_user": "冯涛",
-          "authorize_time": 1521270166000,
-          "create_time": 1499305790000,
-          "menus": [
-            "/home",
-            "/ui/buttons",
-            "/ui/modals",
-            "/ui/loadings",
-            "/ui/notification",
-            "/ui/messages",
-            "/ui/tabs",
-            "/ui/gallery",
-            "/ui/carousel",
-            "/ui"
-          ]
-        },
-        {
-          "key": "23(P0C",
-          "id": 2,
-          "role_name": "管理人员",
-          "status": 2,
-          "authorize_user": "马娜",
-          "authorize_time": 1521270166000,
-          "create_time": 1499305790000,
-          "menus": [
-            "/home",
-            "/ui/buttons",
-            "/ui/modals",
-            "/ui/loadings",
-            "/ui/notification",
-            "/ui/messages",
-            "/ui/tabs",
-            "/ui/gallery",
-            "/ui/carousel",
-            "/ui"
-          ]
-        },
-        {
-          "key": "2450C",
-          "id": 3,
-          "role_name": "市场专员",
-          "status": 2,
-          "authorize_user": "卢丽",
-          "authorize_time": 1521270166000,
-          "create_time": 1499305790000,
-          "menus": [
-            "/home",
-            "/ui/buttons",
-            "/ui/modals",
-            "/ui/loadings",
-            "/ui/notification",
-            "/ui/messages",
-            "/ui/tabs",
-            "/ui/gallery",
-            "/ui/carousel",
-            "/ui"
-          ]
-        },
-        {
-          "key": "122C",
-          "id": 4,
-          "role_name": "管理人员",
-          "status": 2,
-          "authorize_user": "孟刚",
-          "authorize_time": 1521270166000,
-          "create_time": 1499305790000,
-          "menus": [
-            "/home",
-            "/ui/buttons",
-            "/ui/modals",
-            "/ui/loadings",
-            "/ui/notification",
-            "/ui/messages",
-            "/ui/tabs",
-            "/ui/gallery",
-            "/ui/carousel",
-            "/ui"
-          ]
-        },
-        {
-          "key": "78C",
-          "id": 5,
-          "role_name": "管理人员",
-          "status": 2,
-          "authorize_user": "锺娜",
-          "authorize_time": 1521270166000,
-          "create_time": 1499305790000,
-          "menus": [
-            "/home",
-            "/ui/buttons",
-            "/ui/modals",
-            "/ui/loadings",
-            "/ui/notification",
-            "/ui/messages",
-            "/ui/tabs",
-            "/ui/gallery",
-            "/ui/carousel",
-            "/ui"
-          ]
-        },
-        {
-          "key": "8900C",
-          "id": 6,
-          "role_name": "管理人员",
-          "status": 1,
-          "authorize_user": "孟强",
-          "authorize_time": 1521270166000,
-          "create_time": 1499305790000,
-          "menus": [
-            "/home",
-            "/ui/buttons",
-            "/ui/modals",
-            "/ui/loadings",
-            "/ui/notification",
-            "/ui/messages",
-            "/ui/tabs",
-            "/ui/gallery",
-            "/ui/carousel",
-            "/ui"
-          ]
-        },
-        {
-          "key": "456P0C",
-          "id": 7,
-          "role_name": "管理人员",
-          "status": 1,
-          "authorize_user": "刘娜",
-          "authorize_time": 1521270166000,
-          "create_time": 1499305790000,
-          "menus": [
-            "/home",
-            "/ui/buttons",
-            "/ui/modals",
-            "/ui/loadings",
-            "/ui/notification",
-            "/ui/messages",
-            "/ui/tabs",
-            "/ui/gallery",
-            "/ui/carousel",
-            "/ui"
-          ]
-        }
-      ]
-    }
+  "code": "0",
+  "result": {
+    "page": 1,
+    "page_size": 10,
+    "total_count": 60,
+    "page_count": 6,
+    "data": [
+      {
+        "key": "Fg2",
+        "id": "8",
+        "role_name": "主管",
+        "status": "1",
+        "authorize_time": "2018-12-24",
+        "create_time": "2018-02-19",
+        "authorize_user": "孟平A",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/dashboard/adminMembers",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile",
+          "/permission/list",
+          "/permission/permissionSet"
+        ]
+      },
+      {
+        "key": "*e",
+        "id": "9",
+        "role_name": "老闆",
+        "status": "2",
+        "authorize_time": "2018-07-01",
+        "create_time": "2018-01-22",
+        "authorize_user": "蒋超",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/dashboard/adminMembers",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile",
+          "/permission/list",
+          "/permission/permissionSet"
+        ]
+      },
+      {
+        "key": "KZ[x",
+        "id": "10",
+        "role_name": "行政人員",
+        "status": "2",
+        "authorize_time": "2018-10-11",
+        "create_time": "2018-05-14",
+        "authorize_user": "锺超",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/borrow/list",
+          "/lend/list"
+        ]
+      },
+      {
+        "key": "8tz",
+        "id": "11",
+        "role_name": "會計人員",
+        "status": "1",
+        "authorize_time": "2018-08-23",
+        "create_time": "2018-11-30",
+        "authorize_user": "韩强",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/lend/list",
+          "/member/list",
+          "/member/list/profile"
+        ]
+      },
+      {
+        "key": "f!D#",
+        "id": "12",
+         "role_name": "主管",
+        "status": "1",
+        "authorize_time": "2018-07-01",
+        "create_time": "2018-01-22",
+        "authorize_user": "程明",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/dashboard/adminMembers",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile",
+          "/permission/list",
+          "/permission/permissionSet"
+        ]
+      },
+      {
+        "key": "m",
+        "id": "13",
+        "role_name": "主管",          
+        "status": "3",
+        "authorize_time": "2018-09-12",
+        "create_time": "2018-12-30",
+        "authorize_user": "常敏",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/dashboard/adminMembers",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail",
+          "/member/list",
+          "/member/list/profile",
+          "/permission/list",
+          "/permission/permissionSet"
+        ]
+      },
+      {
+        "key": "gKu",
+        "id": "14",
+        "role_name": "業務人員",
+        "status": "1",
+        "authorize_time": "2018-02-09",
+        "create_time": "2018-12-12",
+        "authorize_user": "梁杰A",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/dashboard/config",
+          "/borrow/list",
+          "/borrow/list/detail",
+          "/lend/list",
+          "/lend/list/detail"
+        ]
+      },
+      {
+        "key": "bxPd",
+        "id": "15",
+        "role_name": "行政人員",
+        "status": "1",
+        "authorize_time": "2018-05-30",
+        "create_time": "2018-01-19",
+        "authorize_user": "邱霞",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/borrow/list",
+          "/lend/list"
+        ]
+      },
+      {
+        "key": "v2f",
+        "id": "16",
+        "role_name": "行政人員",
+        "status": "2",
+        "authorize_time": "2018-10-16",
+        "create_time": "2018-03-23",
+        "authorize_user": "于娜A",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/borrow/list",
+          "/lend/list"
+        ]
+      },
+      {
+        "key": "(P0C",
+        "id": "17",        
+        "status": "1",
+        "role_name": "行政人員",
+        "authorize_time": "2018-06-24",
+        "create_time": "2018-03-23",
+        "authorize_user": "邓超A",
+        "menus": [
+          "/dashboard/analysis",
+          "/dashboard/loginRecord",
+          "/borrow/list",
+          "/lend/list"
+        ]
+      }
+    ]
   }
+}

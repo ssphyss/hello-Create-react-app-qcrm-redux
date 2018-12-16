@@ -235,7 +235,7 @@ class PermissionList extends React.Component{
         // item.role_name
         // item.status
         // console.log('字字字',item[0].role_name);
-        this.props.handleSelectItem(item[0].role_name, item[0].status, item[0].menus )
+        this.props.handleSelectItem(item[0].role_name, item[0].status, item[0].menus, item[0].id )
         console.log('選中的資訊',item[0].role_name, item[0].status, item[0].menus)
 
         this.props.handlePermVisible(true);
@@ -290,9 +290,9 @@ const mapDispathToProps = (dispatch) => {
             dispatch(action);
         },
         //傳送選的值
-        handleSelectItem(name, status, menus){
+        handleSelectItem(name, status, menus, id){
             console.log('字',name, status);
-            const action = actionCreators.getSelectItem(name, status, menus);
+            const action = actionCreators.getSelectItem(name, status, menus, id);
             dispatch(action);
         },
         // 彈框打開(權限)

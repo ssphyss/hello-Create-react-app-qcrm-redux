@@ -75,14 +75,15 @@ export const getPermVisible = (permInfo) => {
     }
 }
 // 選擇Item
-export const getSelectItem = (name, status, menus) => {
+export const getSelectItem = (name, status, menus, id) => {
     // console.log('來自ac的：')
     return {
         type: constants.SELECT_ITEM,
         payload: {
             name, 
             status,
-            menus
+            menus,
+            id
         }
     }
 }
@@ -102,4 +103,18 @@ export const getModalCanclePerm = () => {
     }
 }
 
+export const patchMenuInfo = (checkedKeys, id) => {
+    return {
+        type: constants.PATCH_MENU_INFO,
+        payload: {
+            menus: checkedKeys,
+            id
+        }
+    }
+}
 
+export const saveRoleSet = () => {
+    return {
+        type: constants.SAVE_ROLE_SET
+    }
+}
