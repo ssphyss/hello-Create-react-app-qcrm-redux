@@ -90,9 +90,11 @@ class PermissionList extends React.Component{
             },
         ]
         const rowSelection = {
+            selectedRowKeys: this.state.selectedRowKeys,
             onChange: (selectedRowKeys, selectedRows) => {
                 this.setState({
-                    selectedItem: selectedRows
+                    selectedItem: selectedRows,
+                    selectedRowKeys: selectedRowKeys
                 })
                 console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
             },
@@ -129,9 +131,22 @@ class PermissionList extends React.Component{
                         
                         <Table 
                             // updataeSelectedItem={Utils.updateSelectedItem.bind(this)}
-                            selectedRowKeys={this.state.selectedRowKeys}
+                            // selectedRowKeys={this.state.selectedRowKeys}
                             rowSelection={rowSelection}                            
                             columns={columns} 
+                            onRow={(record, index) => {
+                                return {
+                                    onClick: () => {
+                                        console.log('selected',this.state.selectedItem);
+                                        console.log('record',record);
+                                        this.setState({
+                                            selectedItem: [record],
+                                            selectedRowKeys: [record.key]
+                                        })
+                                    },       // 点击行
+                                    onMouseEnter: () => {},  // 鼠标移入行
+                                }
+                            }}
                             // dataSource={dataBorrow} 
                             dataSource={this.props.dataPermission}                                           
                             scroll={{ x: 650 }} 
