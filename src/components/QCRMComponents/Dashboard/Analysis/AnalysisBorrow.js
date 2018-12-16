@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import { Tooltip } from 'antd';
 import { Icon } from 'antd';
 import { Skeleton } from 'antd';
-import ChartBorrow from './../../../UI/Bizcharts/Bar/ChartBorrow';
+import ChartBorrow from './../../../UI/bizcharts/bar/ChartBorrow';
 import './../../../UI/CardWrap/CardWrap.scss'
 
 class AnalysisBorrow extends React.Component{
